@@ -19,7 +19,25 @@ class Welcome extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		$data=array();
+		if($this->input->post('userid')){
+			//login logic
+			//$this->db->se
+			$userid = $this->input->post('userid');
+			$passw = $this->input->post('passw');
+			$hasil = $this->db->get_where('users', array('userid' => $userid,'passw'=>$passw))->result_array();
+			if($hasil){
+				//echo "login success";
+				$userdata = array ('userid',$userid);
+				$this->session->set_userdata($userdata);
+				redirect('def');
+			} else {
+				$data['alert']['type']='warning';
+				$data['alert']['messages']='Wrong userid/email or password!, please try again';
+			}
+		
+		}
+		$this->load->view('welcome_message', $data);
 	}
 }
 

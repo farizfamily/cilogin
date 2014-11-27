@@ -49,8 +49,8 @@ $active_group = 'default';
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'postgre';
-$db['default']['password'] = '';
+$db['default']['username'] = 'dei';
+$db['default']['password'] = 'jik';
 $db['default']['database'] = 'pentawira1';
 $db['default']['dbdriver'] = 'postgre';
 $db['default']['dbprefix'] = '';
