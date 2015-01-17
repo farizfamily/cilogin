@@ -4,12 +4,12 @@ class Formgenerator extends CI_Controller {
 
 	public function __construct (){
 		parent::__construct();        
-		$this->load->model('M_adduser');
-		$this->load->library('form_validation');
+	
 	}
 
 	public function index($table_name='')
 	{	
+		error_reporting(0);
 		$data=array();
 		$data['judul']='judul';
 		if(empty($table_name)){

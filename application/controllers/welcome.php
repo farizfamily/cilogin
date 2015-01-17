@@ -21,14 +21,24 @@ class Welcome extends CI_Controller {
 	{
 		$data=array();
 		if($this->input->post('userid')){
-			//login logic
-			//$this->db->se
 			$userid = $this->input->post('userid');
 			$passw = $this->input->post('passw');
 			$hasil = $this->db->get_where('users', array('userid' => $userid,'passw'=>$passw))->result_array();
 			if($hasil){
-				//echo "login success";
-				$userdata = array ('userid',$userid);
+				$userdata=$hasil[0];
+				$user_menu_head = $this->db->get_where('menu_head', array('user_id'=>$userdata['user_id']))->result_array();
+				$user_menus = $this->db->get_where('head_menu', array('user_id'=>$userdata['user_id']))->result_array();
+				foreach($user_menu_head as $k=>$i){
+					$user_menu_head2[$k]['menu_head']=$i['menu_head'];
+					$user_menu_head2[$k]['icon']=$i['icon'];
+				}
+				
+				foreach($user_menus as $k=>$i){
+					$user_menus2[$i['menu_head']][$k]=$i;
+				}
+				$userdata['menu_heads']=$user_menu_head2;
+				$userdata['menus']=$user_menus2;
+				//print_r($userdata);
 				$this->session->set_userdata($userdata);
 				redirect('def');
 			} else {
@@ -38,6 +48,13 @@ class Welcome extends CI_Controller {
 		
 		}
 		$this->load->view('welcome_message', $data);
+	}
+	function logout(){
+		$this->session->unset_userdata('menus');
+		$this->session->unset_userdata('menu_heads');
+		$this->session->unset_userdata('userid');
+		$this->session->unset_userdata('username');
+		redirect('welcome');
 	}
 }
 
