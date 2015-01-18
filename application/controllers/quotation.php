@@ -98,7 +98,7 @@ class Quotation extends CI_Controller {
 					$this->db->insert('quotation_products', $qp);
 				}	
 			}
-			redirect('quotation/quotation_list');
+			redirect('quotation/create_quotation?r34scrt8='.$quotation_id);
 		}//end save
 		
 		//edit

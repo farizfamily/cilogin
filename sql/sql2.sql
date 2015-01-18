@@ -3,7 +3,7 @@
 --
 
 SET statement_timeout = 0;
-SET client_encoding = 'WIN1252';
+SET client_encoding = 'UTF8';
 SET standard_conforming_strings = on;
 SET check_function_bodies = false;
 SET client_min_messages = warning;
@@ -71,13 +71,6 @@ ALTER SEQUENCE customer_pics_customer_pic_id_seq OWNED BY customer_pics.customer
 
 
 --
--- Name: customer_pics_customer_pic_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('customer_pics_customer_pic_id_seq', 1, false);
-
-
---
 -- Name: customers; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -120,13 +113,6 @@ ALTER SEQUENCE customers_customer_id_seq OWNED BY customers.customer_id;
 
 
 --
--- Name: customers_customer_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('customers_customer_id_seq', 2, true);
-
-
---
 -- Name: events; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -163,13 +149,6 @@ ALTER TABLE public.events_event_id_seq OWNER TO postgres;
 --
 
 ALTER SEQUENCE events_event_id_seq OWNED BY events.event_id;
-
-
---
--- Name: events_event_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('events_event_id_seq', 1, false);
 
 
 --
@@ -283,10 +262,40 @@ ALTER SEQUENCE menus_menu_id_seq OWNED BY menus.menu_id;
 
 
 --
--- Name: menus_menu_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+-- Name: quotation_files; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
-SELECT pg_catalog.setval('menus_menu_id_seq', 5, true);
+CREATE TABLE quotation_files (
+    quotation_files_id integer NOT NULL,
+    time_stamp timestamp without time zone DEFAULT now(),
+    created_by character varying DEFAULT "current_user"(),
+    quotation_id integer,
+    file_name character varying,
+    description character varying
+);
+
+
+ALTER TABLE public.quotation_files OWNER TO postgres;
+
+--
+-- Name: quotation_files_quotation_files_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE quotation_files_quotation_files_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.quotation_files_quotation_files_id_seq OWNER TO postgres;
+
+--
+-- Name: quotation_files_quotation_files_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE quotation_files_quotation_files_id_seq OWNED BY quotation_files.quotation_files_id;
 
 
 --
@@ -312,12 +321,12 @@ CREATE TABLE quotations (
     show_day_from date,
     show_day_to date,
     move_in_from_date date,
-	move_in_from_time time without time zone,
+    move_in_from_time time without time zone,
     move_in_to_date date,
-	move_in_to_time time without time zone,
+    move_in_to_time time without time zone,
     move_out_from_date date,
-	move_out_from_time time without time zone,
-	move_out_to_date date,
+    move_out_from_time time without time zone,
+    move_out_to_date date,
     move_out_to_time time without time zone,
     customer_id integer,
     customer_contacts character varying,
@@ -379,13 +388,6 @@ ALTER SEQUENCE quotation_products_quotation_product_id_seq OWNED BY quotation_pr
 
 
 --
--- Name: quotation_products_quotation_product_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('quotation_products_quotation_product_id_seq', 73, true);
-
-
---
 -- Name: quotations_quotation_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -407,13 +409,6 @@ ALTER SEQUENCE quotations_quotation_id_seq OWNED BY quotations.quotation_id;
 
 
 --
--- Name: quotations_quotation_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('quotations_quotation_id_seq', 10, true);
-
-
---
 -- Name: role_menu_maps_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -432,13 +427,6 @@ ALTER TABLE public.role_menu_maps_id_seq OWNER TO postgres;
 --
 
 ALTER SEQUENCE role_menu_maps_id_seq OWNED BY role_menu_maps.id;
-
-
---
--- Name: role_menu_maps_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('role_menu_maps_id_seq', 5, true);
 
 
 --
@@ -474,13 +462,6 @@ ALTER TABLE public.roles_role_id_seq OWNER TO postgres;
 --
 
 ALTER SEQUENCE roles_role_id_seq OWNED BY roles.role_id;
-
-
---
--- Name: roles_role_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('roles_role_id_seq', 1, true);
 
 
 --
@@ -521,13 +502,6 @@ ALTER TABLE public.supplier_pics_suplier_pic_id_seq OWNER TO postgres;
 --
 
 ALTER SEQUENCE supplier_pics_suplier_pic_id_seq OWNED BY supplier_pics.suplier_pic_id;
-
-
---
--- Name: supplier_pics_suplier_pic_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('supplier_pics_suplier_pic_id_seq', 1, false);
 
 
 --
@@ -575,13 +549,6 @@ ALTER SEQUENCE suppliers_supplier_id_seq OWNED BY suppliers.supplier_id;
 
 
 --
--- Name: suppliers_supplier_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('suppliers_supplier_id_seq', 1, false);
-
-
---
 -- Name: user_role_maps_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -600,13 +567,6 @@ ALTER TABLE public.user_role_maps_id_seq OWNER TO postgres;
 --
 
 ALTER SEQUENCE user_role_maps_id_seq OWNED BY user_role_maps.id;
-
-
---
--- Name: user_role_maps_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('user_role_maps_id_seq', 1, true);
 
 
 --
@@ -631,18 +591,11 @@ ALTER SEQUENCE users_user_id_seq OWNED BY users.user_id;
 
 
 --
--- Name: users_user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('users_user_id_seq', 2, true);
-
-
---
 -- Name: v_quotation; Type: VIEW; Schema: public; Owner: dei
 --
 
 CREATE VIEW v_quotation AS
-    SELECT quotations.quotation_id, quotations.time_stamp, quotations.created_by, quotations.quotation_number, quotations.status, quotations.revision, quotations.sales_number, quotations.quotation_date, quotations.contract_number, quotations.term_of_payment, quotations.construction_type, quotations.size, CASE WHEN (quotations.official = true) THEN 'checked'::text ELSE ''::text END AS official, quotations.event_id, quotations.venue_id, quotations.show_day_from, quotations.show_day_to, quotations.move_in_from_date, quotations.move_in_to_date, quotations.move_out_from_date, quotations.move_out_to_date, quotations.customer_id, quotations.customer_contacts, quotations.project_executive, quotations.project_supervisor, quotations.designer, quotations.notes FROM quotations;
+    SELECT quotations.quotation_id, quotations.time_stamp, quotations.created_by, quotations.quotation_number, quotations.status, quotations.revision, quotations.sales_number, quotations.quotation_date, quotations.contract_number, quotations.term_of_payment, quotations.construction_type, quotations.size, quotations.official, quotations.event_id, quotations.venue_id, quotations.show_day_from, quotations.show_day_to, quotations.move_in_from_date, quotations.move_in_from_time, quotations.move_in_to_date, quotations.move_in_to_time, quotations.move_out_from_date, quotations.move_out_from_time, quotations.move_out_to_date, quotations.move_out_to_time, quotations.customer_id, quotations.customer_contacts, quotations.project_executive, quotations.project_supervisor, quotations.designer, quotations.notes, CASE WHEN (quotations.official = true) THEN 'checked'::text ELSE ''::text END AS official2 FROM quotations;
 
 
 ALTER TABLE public.v_quotation OWNER TO dei;
@@ -688,13 +641,6 @@ ALTER SEQUENCE venues_venue_id_seq OWNED BY venues.venue_id;
 
 
 --
--- Name: venues_venue_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('venues_venue_id_seq', 1, false);
-
-
---
 -- Name: warehouses; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -735,13 +681,6 @@ ALTER SEQUENCE warehouses_warehouse_id_seq OWNED BY warehouses.warehouse_id;
 
 
 --
--- Name: warehouses_warehouse_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
---
-
-SELECT pg_catalog.setval('warehouses_warehouse_id_seq', 1, false);
-
-
---
 -- Name: customer_pic_id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -767,6 +706,13 @@ ALTER TABLE ONLY events ALTER COLUMN event_id SET DEFAULT nextval('events_event_
 --
 
 ALTER TABLE ONLY menus ALTER COLUMN menu_id SET DEFAULT nextval('menus_menu_id_seq'::regclass);
+
+
+--
+-- Name: quotation_files_id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY quotation_files ALTER COLUMN quotation_files_id SET DEFAULT nextval('quotation_files_quotation_files_id_seq'::regclass);
 
 
 --
@@ -846,17 +792,42 @@ ALTER TABLE ONLY warehouses ALTER COLUMN warehouse_id SET DEFAULT nextval('wareh
 
 
 --
+-- Name: customer_pics_customer_pic_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('customer_pics_customer_pic_id_seq', 1, false);
+
+
+--
 -- Data for Name: customers; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 INSERT INTO customers VALUES (1, '2015-01-16 23:25:27.951', 'dei', 'C140101', 'Jaya Abadi', 'Jl. Bandengan', 1, 1, 'jaya@abadi.com', 'abadi.com', '2014-01-01');
 INSERT INTO customers VALUES (2, '2015-01-16 23:26:17.802', 'dei', 'C140102', 'Tunas Jaya', 'Jl. Merbabu 2/30', 1, 1, 'tunas@jaya.com', 'jaya.com', '2014-01-01');
+INSERT INTO customers VALUES (3, '2015-01-17 21:27:00.887', 'postgres', 'C140201', 'STARBUCKS COFFEE', 'Jl. Raya Tambun No. 3', 1, 1, NULL, NULL, NULL);
+
+
+--
+-- Name: customers_customer_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('customers_customer_id_seq', 3, true);
 
 
 --
 -- Data for Name: events; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
+INSERT INTO events VALUES (1, '2015-01-17 21:27:57.967', 'postgres', 'Jakarta International Motor Show', 'JIMS', 'Automotive', NULL, NULL);
+INSERT INTO events VALUES (2, '2015-01-17 21:28:27.569', 'postgres', 'Pameran Komputer', NULL, NULL, NULL, NULL);
+INSERT INTO events VALUES (3, '2015-01-17 21:28:35.815', 'postgres', 'Event Besar', NULL, NULL, NULL, NULL);
+
+
+--
+-- Name: events_event_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('events_event_id_seq', 3, true);
 
 
 --
@@ -871,15 +842,55 @@ INSERT INTO menus VALUES (5, '2015-01-15 20:57:16.526', 'dei', 'Quotation List',
 
 
 --
+-- Name: menus_menu_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('menus_menu_id_seq', 5, true);
+
+
+--
+-- Data for Name: quotation_files; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+
+
+--
+-- Name: quotation_files_quotation_files_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('quotation_files_quotation_files_id_seq', 1, false);
+
+
+--
 -- Data for Name: quotation_products; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
+INSERT INTO quotation_products VALUES (80, '2015-01-18 14:38:48.769', 'dei', 13, 'Partisi Dua Pintu', '-', 10000000.00);
+INSERT INTO quotation_products VALUES (81, '2015-01-18 14:38:48.778', 'dei', 13, 'Dispenser air polytron', '-', 700000.00);
+
+
+--
+-- Name: quotation_products_quotation_product_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('quotation_products_quotation_product_id_seq', 81, true);
 
 
 --
 -- Data for Name: quotations; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
+INSERT INTO quotations VALUES (10, '2015-01-17 23:48:36.642', 'dei', 'Q201501/10', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, 1, 1, 1, NULL);
+INSERT INTO quotations VALUES (12, '2015-01-18 14:26:46.7', 'dei', 'Q201501/12', 0, '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, 1, 1, 1, NULL);
+INSERT INTO quotations VALUES (13, '2015-01-18 14:29:03.39', 'dei', 'Q201501/13', 0, '0', NULL, NULL, NULL, NULL, NULL, NULL, true, 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, NULL, 1, 1, 1, NULL);
+INSERT INTO quotations VALUES (11, '2015-01-17 23:50:32.927', 'dei', 'Q201501/11', NULL, '0', NULL, '2015-01-18', '1111111', 'cash', 'stand', '5x5', NULL, 1, 1, '2015-01-01', '2015-01-03', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, 1, 1, 1, NULL);
+
+
+--
+-- Name: quotations_quotation_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('quotations_quotation_id_seq', 10, true);
 
 
 --
@@ -894,10 +905,24 @@ INSERT INTO role_menu_maps VALUES (5, '2015-01-15 21:06:15.541', 'dei', 1, 5);
 
 
 --
+-- Name: role_menu_maps_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('role_menu_maps_id_seq', 5, true);
+
+
+--
 -- Data for Name: roles; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 INSERT INTO roles VALUES (1, '2015-01-12 07:43:51.491', 'dei', 'Superman');
+
+
+--
+-- Name: roles_role_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('roles_role_id_seq', 1, true);
 
 
 --
@@ -907,9 +932,23 @@ INSERT INTO roles VALUES (1, '2015-01-12 07:43:51.491', 'dei', 'Superman');
 
 
 --
+-- Name: supplier_pics_suplier_pic_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('supplier_pics_suplier_pic_id_seq', 1, false);
+
+
+--
 -- Data for Name: suppliers; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
+
+
+--
+-- Name: suppliers_supplier_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('suppliers_supplier_id_seq', 1, false);
 
 
 --
@@ -917,6 +956,14 @@ INSERT INTO roles VALUES (1, '2015-01-12 07:43:51.491', 'dei', 'Superman');
 --
 
 INSERT INTO user_role_maps VALUES (1, '2015-01-12 07:45:09.797', 'dei', 1, 1);
+INSERT INTO user_role_maps VALUES (2, '2015-01-18 09:19:47.728', 'postgres', 2, 1);
+
+
+--
+-- Name: user_role_maps_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('user_role_maps_id_seq', 2, true);
 
 
 --
@@ -928,15 +975,39 @@ INSERT INTO users VALUES (2, '2015-01-17 05:25:35.303', 'dei', NULL, 'admin', 'A
 
 
 --
+-- Name: users_user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('users_user_id_seq', 2, true);
+
+
+--
 -- Data for Name: venues; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
+INSERT INTO venues VALUES (1, '2015-01-17 21:36:22.164', 'postgres', 'Jakarta International Expo', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO venues VALUES (2, '2015-01-17 21:36:33.076', 'postgres', 'Jakarta Convention Centre', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO venues VALUES (3, '2015-01-17 21:36:46.691', 'postgres', 'Jakarta Design Center', NULL, NULL, NULL, NULL, NULL);
+
+
+--
+-- Name: venues_venue_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('venues_venue_id_seq', 3, true);
 
 
 --
 -- Data for Name: warehouses; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
+
+
+--
+-- Name: warehouses_warehouse_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('warehouses_warehouse_id_seq', 1, false);
 
 
 --
@@ -1083,6 +1154,13 @@ CREATE INDEX fki_qp_q_fk ON quotation_products USING btree (quotation_id);
 
 
 --
+-- Name: fki_quotations_file_to_quotations; Type: INDEX; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE INDEX fki_quotations_file_to_quotations ON quotation_files USING btree (quotation_id);
+
+
+--
 -- Name: customer_pic_maps; Type: FK CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1096,6 +1174,14 @@ ALTER TABLE ONLY customer_pics
 
 ALTER TABLE ONLY quotation_products
     ADD CONSTRAINT qp_q_fk FOREIGN KEY (quotation_id) REFERENCES quotations(quotation_id) ON UPDATE CASCADE ON DELETE CASCADE;
+
+
+--
+-- Name: quotations_file_to_quotations; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY quotation_files
+    ADD CONSTRAINT quotations_file_to_quotations FOREIGN KEY (quotation_id) REFERENCES quotations(quotation_id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
