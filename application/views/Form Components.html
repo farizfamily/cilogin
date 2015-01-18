@@ -1,0 +1,1353 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)http://thevectorlab.net/adminlab/form_component.html -->
+<html lang="en"><!--<![endif]--><!-- BEGIN HEAD --><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <meta charset="utf-8">
+   <title>Form Components</title>
+   <meta content="width=device-width, initial-scale=1.0" name="viewport">
+   <meta content="" name="description">
+   <meta content="" name="author">
+   <link href="http://thevectorlab.net/adminlab/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+   <link href="http://thevectorlab.net/adminlab/assets/bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
+   <link href="http://thevectorlab.net/adminlab/assets/bootstrap/css/bootstrap-fileupload.css" rel="stylesheet">
+   <link href="http://thevectorlab.net/adminlab/assets/font-awesome/css/font-awesome.css" rel="stylesheet">
+   <link href="http://thevectorlab.net/adminlab/css/style.css" rel="stylesheet">
+   <link href="http://thevectorlab.net/adminlab/css/style_responsive.css" rel="stylesheet">
+   <link href="http://thevectorlab.net/adminlab/css/style_default.css" rel="stylesheet" id="style_color">
+
+   <link href="http://thevectorlab.net/adminlab/assets/fancybox/source/jquery.fancybox.css" rel="stylesheet">
+   <link rel="stylesheet" type="text/css" href="./Form Components_files/jquery.gritter.css">
+   <link rel="stylesheet" type="text/css" href="./Form Components_files/uniform.default.css">
+   <link rel="stylesheet" type="text/css" href="./Form Components_files/chosen.css">
+   <link rel="stylesheet" type="text/css" href="./Form Components_files/jquery.tagsinput.css">    
+   <link rel="stylesheet" type="text/css" href="./Form Components_files/clockface.css">
+   <link rel="stylesheet" type="text/css" href="./Form Components_files/bootstrap-wysihtml5.css">
+   <link rel="stylesheet" type="text/css" href="./Form Components_files/datepicker.css">
+   <link rel="stylesheet" type="text/css" href="./Form Components_files/timepicker.css">
+   <link rel="stylesheet" type="text/css" href="./Form Components_files/colorpicker.css">
+   <link rel="stylesheet" href="http://thevectorlab.net/adminlab/assets/bootstrap-toggle-buttons/static/stylesheets/bootstrap-toggle-buttons.css">
+   <link rel="stylesheet" href="http://thevectorlab.net/adminlab/assets/data-tables/DT_bootstrap.css">
+   <link rel="stylesheet" type="text/css" href="./Form Components_files/daterangepicker.css">
+<style>.cke{visibility:hidden;}</style><script type="text/javascript" src="./Form Components_files/config.js"></script><link rel="stylesheet" type="text/css" href="./Form Components_files/editor.css"><script type="text/javascript" src="./Form Components_files/en.js"></script><script type="text/javascript" src="./Form Components_files/styles.js"></script></head>
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+<body class="fixed-top wysihtml5-supported">
+   <!-- BEGIN HEADER -->
+   <div id="header" class="navbar navbar-inverse navbar-fixed-top">
+       <!-- BEGIN TOP NAVIGATION BAR -->
+       <div class="navbar-inner">
+           <div class="container-fluid">
+               <!-- BEGIN LOGO -->
+               <a class="brand" href="http://thevectorlab.net/adminlab/index.html">
+                   <img src="./Form Components_files/logo.png" alt="Admin Lab">
+               </a>
+               <!-- END LOGO -->
+               <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+               <a class="btn btn-navbar collapsed" id="main_menu_trigger" data-toggle="collapse" data-target=".nav-collapse">
+                   <span class="icon-bar"></span>
+                   <span class="icon-bar"></span>
+                   <span class="icon-bar"></span>
+                   <span class="arrow"></span>
+               </a>
+               <!-- END RESPONSIVE MENU TOGGLER -->
+               <div id="top_menu" class="nav notify-row">
+                   <!-- BEGIN NOTIFICATION -->
+                   <ul class="nav top-menu">
+                       <!-- BEGIN SETTINGS -->
+                       <li class="dropdown">
+                           <a class="dropdown-toggle element" data-placement="bottom" data-toggle="tooltip" href="http://thevectorlab.net/adminlab/form_component.html#" data-original-title="Settings">
+                               <i class="icon-cog"></i>
+                           </a>
+                       </li>
+                       <!-- END SETTINGS -->
+                       <!-- BEGIN INBOX DROPDOWN -->
+                       <li class="dropdown" id="header_inbox_bar">
+                           <a href="http://thevectorlab.net/adminlab/form_component.html#" class="dropdown-toggle" data-toggle="dropdown">
+                               <i class="icon-envelope-alt"></i>
+                               <span class="badge badge-important">5</span>
+                           </a>
+                           <ul class="dropdown-menu extended inbox">
+                               <li>
+                                   <p>You have 5 new messages</p>
+                               </li>
+                               <li>
+                                   <a href="http://thevectorlab.net/adminlab/form_component.html#">
+                                       <span class="photo"><img src="./Form Components_files/avatar-mini.png" alt="avatar"></span>
+									<span class="subject">
+									<span class="from">Dulal Khan</span>
+									<span class="time">Just now</span>
+									</span>
+									<span class="message">
+									    Hello, this is an example messages please check
+									</span>
+                                   </a>
+                               </li>
+                               <li>
+                                   <a href="http://thevectorlab.net/adminlab/form_component.html#">
+                                       <span class="photo"><img src="./Form Components_files/avatar-mini.png" alt="avatar"></span>
+									<span class="subject">
+									<span class="from">Rafiqul Islam</span>
+									<span class="time">10 mins</span>
+									</span>
+									<span class="message">
+									 Hi, Mosaddek Bhai how are you ?
+									</span>
+                                   </a>
+                               </li>
+                               <li>
+                                   <a href="http://thevectorlab.net/adminlab/form_component.html#">
+                                       <span class="photo"><img src="./Form Components_files/avatar-mini.png" alt="avatar"></span>
+									<span class="subject">
+									<span class="from">Sumon Ahmed</span>
+									<span class="time">3 hrs</span>
+									</span>
+									<span class="message">
+									    This is awesome dashboard templates
+									</span>
+                                   </a>
+                               </li>
+                               <li>
+                                   <a href="http://thevectorlab.net/adminlab/form_component.html#">
+                                       <span class="photo"><img src="./Form Components_files/avatar-mini.png" alt="avatar"></span>
+									<span class="subject">
+									<span class="from">Dulal Khan</span>
+									<span class="time">Just now</span>
+									</span>
+									<span class="message">
+									    Hello, this is an example messages please check
+									</span>
+                                   </a>
+                               </li>
+                               <li>
+                                   <a href="http://thevectorlab.net/adminlab/form_component.html#">See all messages</a>
+                               </li>
+                           </ul>
+                       </li>
+                       <!-- END INBOX DROPDOWN -->
+                       <!-- BEGIN NOTIFICATION DROPDOWN -->
+                       <li class="dropdown" id="header_notification_bar">
+                           <a href="http://thevectorlab.net/adminlab/form_component.html#" class="dropdown-toggle" data-toggle="dropdown">
+
+                               <i class="icon-bell-alt"></i>
+                               <span class="badge badge-warning">7</span>
+                           </a>
+                           <ul class="dropdown-menu extended notification">
+                               <li>
+                                   <p>You have 7 new notifications</p>
+                               </li>
+                               <li>
+                                   <a href="http://thevectorlab.net/adminlab/form_component.html#">
+                                       <span class="label label-important"><i class="icon-bolt"></i></span>
+                                       Server #3 overloaded.
+                                       <span class="small italic">34 mins</span>
+                                   </a>
+                               </li>
+                               <li>
+                                   <a href="http://thevectorlab.net/adminlab/form_component.html#">
+                                       <span class="label label-warning"><i class="icon-bell"></i></span>
+                                       Server #10 not respoding.
+                                       <span class="small italic">1 Hours</span>
+                                   </a>
+                               </li>
+                               <li>
+                                   <a href="http://thevectorlab.net/adminlab/form_component.html#">
+                                       <span class="label label-important"><i class="icon-bolt"></i></span>
+                                       Database overloaded 24%.
+                                       <span class="small italic">4 hrs</span>
+                                   </a>
+                               </li>
+                               <li>
+                                   <a href="http://thevectorlab.net/adminlab/form_component.html#">
+                                       <span class="label label-success"><i class="icon-plus"></i></span>
+                                       New user registered.
+                                       <span class="small italic">Just now</span>
+                                   </a>
+                               </li>
+                               <li>
+                                   <a href="http://thevectorlab.net/adminlab/form_component.html#">
+                                       <span class="label label-info"><i class="icon-bullhorn"></i></span>
+                                       Application error.
+                                       <span class="small italic">10 mins</span>
+                                   </a>
+                               </li>
+                               <li>
+                                   <a href="http://thevectorlab.net/adminlab/form_component.html#">See all notifications</a>
+                               </li>
+                           </ul>
+                       </li>
+                       <!-- END NOTIFICATION DROPDOWN -->
+
+                   </ul>
+               </div>
+               <!-- END  NOTIFICATION -->
+               <div class="top-nav ">
+                   <ul class="nav pull-right top-menu">
+                       <!-- BEGIN SUPPORT -->
+                       <li class="dropdown mtop5">
+
+                           <a class="dropdown-toggle element" data-placement="bottom" data-toggle="tooltip" href="http://thevectorlab.net/adminlab/form_component.html#" data-original-title="Chat">
+                               <i class="icon-comments-alt"></i>
+                           </a>
+                       </li>
+                       <li class="dropdown mtop5">
+                           <a class="dropdown-toggle element" data-placement="bottom" data-toggle="tooltip" href="http://thevectorlab.net/adminlab/form_component.html#" data-original-title="Help">
+                               <i class="icon-headphones"></i>
+                           </a>
+                       </li>
+                       <!-- END SUPPORT -->
+                       <!-- BEGIN USER LOGIN DROPDOWN -->
+                       <li class="dropdown">
+                           <a href="http://thevectorlab.net/adminlab/form_component.html#" class="dropdown-toggle" data-toggle="dropdown">
+                               <img src="./Form Components_files/avatar1_small.jpg" alt="">
+                               <span class="username">Mosaddek Hossain</span>
+                               <b class="caret"></b>
+                           </a>
+                           <ul class="dropdown-menu">
+                               <li><a href="http://thevectorlab.net/adminlab/form_component.html#"><i class="icon-user"></i> My Profile</a></li>
+                               <li><a href="http://thevectorlab.net/adminlab/form_component.html#"><i class="icon-tasks"></i> My Tasks</a></li>
+                               <li><a href="http://thevectorlab.net/adminlab/form_component.html#"><i class="icon-calendar"></i> Calendar</a></li>
+                               <li class="divider"></li>
+                               <li><a href="http://thevectorlab.net/adminlab/login.html"><i class="icon-key"></i> Log Out</a></li>
+                           </ul>
+                       </li>
+                       <!-- END USER LOGIN DROPDOWN -->
+                   </ul>
+                   <!-- END TOP NAVIGATION MENU -->
+               </div>
+           </div>
+       </div>
+       <!-- END TOP NAVIGATION BAR -->
+   </div>
+   <!-- END HEADER -->
+   <!-- BEGIN CONTAINER -->
+   <div id="container" class="row-fluid">
+      <!-- BEGIN SIDEBAR -->
+      <div id="sidebar" class="nav-collapse collapse">
+
+         <div class="sidebar-toggler hidden-phone"></div>   
+
+         <!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
+         <div class="navbar-inverse">
+            <form class="navbar-search visible-phone">
+               <input type="text" class="search-query" placeholder="Search">
+            </form>
+         </div>
+         <!-- END RESPONSIVE QUICK SEARCH FORM -->
+         <!-- BEGIN SIDEBAR MENU -->
+          <ul class="sidebar-menu">
+              <li class="has-sub">
+                  <a href="javascript:;" class="">
+                      <span class="icon-box"> <i class="icon-dashboard"></i></span> Dashboard
+                      <span class="arrow"></span>
+                  </a>
+                  <ul class="sub">
+                      <li><a class="" href="http://thevectorlab.net/adminlab/index.html">Dashboard 1</a></li>
+                      <li><a class="" href="http://thevectorlab.net/adminlab/index_2.html">Dashboard 2</a></li>
+
+                  </ul>
+              </li>
+              <li class="has-sub">
+                  <a href="javascript:;" class="">
+                      <span class="icon-box"> <i class="icon-book"></i></span> UI Elements
+                      <span class="arrow"></span>
+                  </a>
+                  <ul class="sub">
+                      <li><a class="" href="http://thevectorlab.net/adminlab/ui_elements_general.html">General</a></li>
+                      <li><a class="" href="http://thevectorlab.net/adminlab/ui_elements_buttons.html">Buttons</a></li>
+                      <li><a class="" href="http://thevectorlab.net/adminlab/jquery_ui.html">jQuery UI Component</a></li>
+                      <li><a class="" href="http://thevectorlab.net/adminlab/ui_elements_tabs_accordions.html">Tabs &amp; Accordions</a></li>
+                      <li><a class="" href="http://thevectorlab.net/adminlab/ui_elements_typography.html">Typography</a></li>
+                      <li><a class="" href="http://thevectorlab.net/adminlab/tree_view.html">Tree View</a></li>
+                      <li><a class="" href="http://thevectorlab.net/adminlab/nestable.html">Nestable List</a></li>
+                  </ul>
+              </li>
+              <li class="has-sub">
+                  <a href="javascript:;" class="">
+                      <span class="icon-box"><i class="icon-cogs"></i></span> Components
+                      <span class="arrow"></span>
+                  </a>
+                  <ul class="sub">
+                      <li><a class="" href="http://thevectorlab.net/adminlab/calendar.html">Calendar</a></li>
+                      <li><a class="" href="http://thevectorlab.net/adminlab/grids.html">Grids</a></li>
+                      <li><a class="" href="http://thevectorlab.net/adminlab/charts.html">Visual Charts</a></li>
+                      <li><a class="" href="http://thevectorlab.net/adminlab/messengers.html">Conversations</a></li>
+                      <li><a class="" href="http://thevectorlab.net/adminlab/gallery.html"> Gallery</a></li>
+                  </ul>
+              </li>
+              <li class="has-sub active">
+                  <a href="javascript:;" class="">
+                      <span class="icon-box"><i class="icon-tasks"></i></span> Form Stuff
+                      <span class="arrow"></span>
+                  </a>
+                  <ul class="sub">
+                      <li><a class="" href="http://thevectorlab.net/adminlab/form_layout.html">Form Layouts</a></li>
+                      <li class="active"><a class="" href="./Form Components_files/Form Components.html">Form Components</a></li>
+                      <li><a class="" href="http://thevectorlab.net/adminlab/form_wizard.html">Form Wizard</a></li>
+                      <li><a class="" href="http://thevectorlab.net/adminlab/form_validation.html">Form Validation</a></li>
+                      <li><a class="" href="http://thevectorlab.net/adminlab/dropzone.html">Dropzone File Upload </a></li>
+                  </ul>
+              </li>
+              <li class="has-sub">
+                  <a href="javascript:;" class="">
+                      <span class="icon-box"><i class="icon-th"></i></span> Data Tables
+                      <span class="arrow"></span>
+                  </a>
+                  <ul class="sub">
+                      <li><a class="" href="http://thevectorlab.net/adminlab/basic_table.html">Basic Table</a></li>
+                      <li><a class="" href="http://thevectorlab.net/adminlab/managed_table.html">Managed Table</a></li>
+                      <li><a class="" href="http://thevectorlab.net/adminlab/editable_table.html">Editable Table</a></li>
+                  </ul>
+              </li>
+              <li class="has-sub">
+                  <a href="javascript:;" class="">
+                      <span class="icon-box"><i class=" icon-qrcode"></i></span> Portlets
+                      <span class="arrow"></span>
+                  </a>
+                  <ul class="sub">
+                      <li><a class="" href="http://thevectorlab.net/adminlab/general_portlet.html">General Portlets</a></li>
+                      <li><a class="" href="http://thevectorlab.net/adminlab/draggable_portlet.html">Draggable Portlets</a></li>
+                  </ul>
+              </li>
+
+              <li class="has-sub">
+                  <a href="javascript:;" class="">
+                      <span class="icon-box"><i class="icon-fire"></i></span> Icons
+                      <span class="arrow"></span>
+                  </a>
+                  <ul class="sub">
+                      <li><a class="" href="http://thevectorlab.net/adminlab/font_awesome.html">Font Awesome</a></li>
+                      <li><a class="" href="http://thevectorlab.net/adminlab/glyphicons.html">Glyphicons</a></li>
+                  </ul>
+              </li>
+              <li class="has-sub">
+                  <a href="javascript:;" class="">
+                      <span class="icon-box"><i class="icon-map-marker"></i></span> Maps
+                      <span class="arrow"></span>
+                  </a>
+                  <ul class="sub">
+                      <li><a class="" href="http://thevectorlab.net/adminlab/maps_google.html"> Google Maps</a></li>
+                      <li><a class="" href="http://thevectorlab.net/adminlab/maps_vector.html"> Vector Maps</a></li>
+                  </ul>
+              </li>
+              <li class="has-sub">
+                  <a href="javascript:;" class="">
+                      <span class="icon-box"><i class="icon-file-alt"></i></span> Sample Pages
+                      <span class="arrow"></span>
+                  </a>
+                  <ul class="sub">
+                      <li><a class="" href="http://thevectorlab.net/adminlab/blank.html">Blank Page</a></li>
+                      <li><a class="" href="http://thevectorlab.net/adminlab/sidebar_closed.html">Sidebar Closed Page</a></li>
+                      <li><a class="" href="http://thevectorlab.net/adminlab/coming_soon.html">Coming Soon</a></li>
+                      <li><a class="" href="http://thevectorlab.net/adminlab/blog.html">Blog</a></li>
+                      <li><a class="" href="http://thevectorlab.net/adminlab/news.html">News</a></li>
+                      <li><a class="" href="http://thevectorlab.net/adminlab/about_us.html">About Us</a></li>
+                      <li><a class="" href="http://thevectorlab.net/adminlab/contact_us.html">Contact Us</a></li>
+                      <li><a class="" href="http://thevectorlab.net/adminlab/email_templates.html">Email Templates</a></li>
+                  </ul>
+              </li>
+              <li class="has-sub">
+                  <a href="javascript:;" class="">
+                      <span class="icon-box"><i class="icon-glass"></i></span> Extra
+                      <span class="arrow"></span>
+                  </a>
+                  <ul class="sub">
+                      <li><a class="" href="http://thevectorlab.net/adminlab/lock.html">Lock Screen</a></li>
+                      <li><a class="" href="http://thevectorlab.net/adminlab/profile.html">Profile</a></li>
+                      <li><a class="" href="http://thevectorlab.net/adminlab/invoice.html">Invoice</a></li>
+                      <li><a class="" href="http://thevectorlab.net/adminlab/pricing_tables.html">Pricing Tables</a></li>
+                      <li><a class="" href="http://thevectorlab.net/adminlab/inbox.html">Inbox</a></li>
+                      <li><a class="" href="http://thevectorlab.net/adminlab/search_result.html">Search Result</a></li>
+                      <li><a class="" href="http://thevectorlab.net/adminlab/faq.html">FAQ</a></li>
+                      <li><a class="" href="http://thevectorlab.net/adminlab/404.html">404 Error</a></li>
+                      <li><a class="" href="http://thevectorlab.net/adminlab/500.html">500 Error</a></li>
+                  </ul>
+              </li>
+              <li><a class="" href="http://thevectorlab.net/adminlab/login.html"><span class="icon-box"><i class="icon-user"></i></span> Login Page</a></li>
+          </ul>
+         <!-- END SIDEBAR MENU -->
+      </div>
+      <!-- END SIDEBAR -->
+      <!-- BEGIN PAGE -->  
+      <div id="main-content">
+         <!-- BEGIN PAGE CONTAINER-->
+         <div class="container-fluid">
+            <!-- BEGIN PAGE HEADER-->   
+            <div class="row-fluid">
+               <div class="span12">
+                   <!-- BEGIN THEME CUSTOMIZER-->
+                   <div id="theme-change" class="hidden-phone">
+                       <i class="icon-cogs"></i>
+                        <span class="settings">
+                            <span class="text">Theme:</span>
+                            <span class="colors">
+                                <span class="color-default" data-style="default"></span>
+                                <span class="color-gray" data-style="gray"></span>
+                                <span class="color-purple" data-style="purple"></span>
+                                <span class="color-navy-blue" data-style="navy-blue"></span>
+                            </span>
+                        </span>
+                   </div>
+                   <!-- END THEME CUSTOMIZER-->
+                  <h3 class="page-title">
+                     Form Components
+                     <small>form components and widgets</small>
+                  </h3>
+                   <ul class="breadcrumb">
+                       <li>
+                           <a href="http://thevectorlab.net/adminlab/form_component.html#"><i class="icon-home"></i></a><span class="divider">&nbsp;</span>
+                       </li>
+                       <li>
+                           <a href="http://thevectorlab.net/adminlab/form_component.html#">Form Stuff</a> <span class="divider">&nbsp;</span>
+                       </li>
+                       <li><a href="http://thevectorlab.net/adminlab/form_component.html#">Form Components</a><span class="divider-last">&nbsp;</span></li>
+                   </ul>
+               </div>
+            </div>
+            <!-- END PAGE HEADER-->
+            <!-- BEGIN PAGE CONTENT-->
+            <div class="row-fluid">
+               <div class="span12">
+                  <!-- BEGIN SAMPLE FORM widget-->   
+                  <div class="widget">
+                     <div class="widget-title">
+                        <h4><i class="icon-reorder"></i>Sample Form</h4>
+                        <span class="tools">
+                           <a href="javascript:;" class="icon-chevron-down"></a>
+                           <a href="javascript:;" class="icon-remove"></a>
+                        </span>
+                     </div>
+                     <div class="widget-body form">
+                        <!-- BEGIN FORM-->
+                        <form action="http://thevectorlab.net/adminlab/form_component.html#" class="form-horizontal">
+                           <div class="control-group">
+                              <label class="control-label">Input</label>
+                              <div class="controls">
+                                 <input type="text" class="span6 ">
+                                 <span class="help-inline">Some hint here</span>
+                              </div>
+                           </div>
+                           <div class="control-group">
+                              <label class="control-label">Disabled Input</label>
+                              <div class="controls">
+                                 <input class="span6 " type="text" placeholder="Disabled input here..." disabled="">
+                                 <span class="help-inline">Some hint here</span>
+                              </div>
+                           </div>
+                           <div class="control-group">
+                              <label class="control-label">Readonly Input</label>
+                              <div class="controls">
+                                 <input class="span6 " type="text" placeholder="Readonly input here..." disabled="">
+                                 <span class="help-inline">Some hint here</span>
+                              </div>
+                           </div>
+                           <div class="control-group">
+                              <label class="control-label">Input with Popover</label>
+                              <div class="controls">
+                                 <input type="text" class="span6  popovers" data-trigger="hover" data-content="Popover body goes here. Popover body goes here." data-original-title="Popover header">
+                              </div>
+                           </div>
+                           <div class="control-group">
+                              <label class="control-label">Input with Tooltip</label>
+                              <div class="controls">
+                                 <input type="text" class="span6  tooltips" data-trigger="hover" data-original-title="Tooltip text goes here. Tooltip text goes here.">                       
+                              </div>
+                           </div>
+                           <div class="control-group">
+                              <label class="control-label">Auto Complete</label>
+                              <div class="controls">
+                                 <input type="text" class="span6 " style="margin: 0 auto;" data-provide="typeahead" data-items="4" data-source="[&quot;Alabama&quot;,&quot;Alaska&quot;,&quot;Arizona&quot;,&quot;Arkansas&quot;,&quot;California&quot;,&quot;Colorado&quot;,&quot;Connecticut&quot;,&quot;Delaware&quot;,&quot;Florida&quot;,&quot;Georgia&quot;,&quot;Hawaii&quot;,&quot;Idaho&quot;,&quot;Illinois&quot;,&quot;Indiana&quot;,&quot;Iowa&quot;,&quot;Kansas&quot;,&quot;Kentucky&quot;,&quot;Louisiana&quot;,&quot;Maine&quot;,&quot;Maryland&quot;,&quot;Massachusetts&quot;,&quot;Michigan&quot;,&quot;Minnesota&quot;,&quot;Mississippi&quot;,&quot;Missouri&quot;,&quot;Montana&quot;,&quot;Nebraska&quot;,&quot;Nevada&quot;,&quot;New Hampshire&quot;,&quot;New Jersey&quot;,&quot;New Mexico&quot;,&quot;New York&quot;,&quot;North Dakota&quot;,&quot;North Carolina&quot;,&quot;Ohio&quot;,&quot;Oklahoma&quot;,&quot;Oregon&quot;,&quot;Pennsylvania&quot;,&quot;Rhode Island&quot;,&quot;South Carolina&quot;,&quot;South Dakota&quot;,&quot;Tennessee&quot;,&quot;Texas&quot;,&quot;Utah&quot;,&quot;Vermont&quot;,&quot;Virginia&quot;,&quot;Washington&quot;,&quot;West Virginia&quot;,&quot;Wisconsin&quot;,&quot;Wyoming&quot;]">
+                                 <p class="help-block">Start typing to auto complete!. E.g: Florida</p>
+                              </div>
+                           </div>
+                           <div class="control-group">
+                              <label class="control-label">Email Address Input</label>
+                              <div class="controls">
+                                 <div class="input-prepend">
+                                    <span class="add-on">@</span><input class=" " type="text" placeholder="Email Address">
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="control-group">
+                              <label class="control-label">Email Address Input</label>
+                              <div class="controls">
+                                 <div class="input-icon left">
+                                    <i class="icon-envelope"></i>
+                                    <input class=" " type="text" placeholder="Email Address">    
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="control-group">
+                              <label class="control-label">Currency Input</label>
+                              <div class="controls">
+                                 <div class="input-prepend input-append">
+                                    <span class="add-on">$</span><input class=" " type="text"><span class="add-on">.00</span>
+                                 </div>
+                              </div>
+                           </div>
+                           <div class="control-group">
+                              <label class="control-label">Default Dropdown</label>
+                              <div class="controls">
+                                 <select class="span6 " data-placeholder="Choose a Category" tabindex="1">
+                                    <option value="">Select...</option>
+                                    <option value="Category 1">Category 1</option>
+                                    <option value="Category 2">Category 2</option>
+                                    <option value="Category 3">Category 5</option>
+                                    <option value="Category 4">Category 4</option>
+                                 </select>
+                              </div>
+                           </div>
+                           <div class="control-group">
+                              <label class="control-label">Default Dropdown(Multiple)</label>
+                              <div class="controls">
+                                 <select class="span6 " multiple="multiple" data-placeholder="Choose a Category" tabindex="1">
+                                    <option value="Category 1">Category 1</option>
+                                    <option value="Category 2">Category 2</option>
+                                    <option value="Category 3">Category 5</option>
+                                    <option value="Category 4">Category 4</option>
+                                    <option value="Category 3">Category 6</option>
+                                    <option value="Category 4">Category 7</option>
+                                    <option value="Category 3">Category 8</option>
+                                    <option value="Category 4">Category 9</option>
+                                 </select>
+                              </div>
+                           </div>
+                           <div class="control-group">
+                              <label class="control-label">Custom Dropdown</label>
+                              <div class="controls">
+                                 <select class="span6 chosen chzn-done" data-placeholder="Choose a Category" tabindex="-1" id="selXD1" style="display: none;">
+                                    <option value=""></option>
+                                    <option value="Category 1">Category 1</option>
+                                    <option value="Category 2">Category 2</option>
+                                    <option value="Category 3">Category 5</option>
+                                    <option value="Category 4">Category 4</option>
+                                 </select><div id="selXD1_chzn" class="chzn-container chzn-container-single" style="width: 431px;"><a href="javascript:void(0)" class="chzn-single chzn-default" tabindex="-1"><span>Choose a Category</span><div><b></b></div></a><div class="chzn-drop" style="left: -9000px; width: 429px; top: 32px;"><div class="chzn-search"><input type="text" autocomplete="off" tabindex="1" style="width: 394px;"></div><ul class="chzn-results"><li id="selXD1_chzn_o_1" class="active-result" style="">Category 1</li><li id="selXD1_chzn_o_2" class="active-result" style="">Category 2</li><li id="selXD1_chzn_o_3" class="active-result" style="">Category 5</li><li id="selXD1_chzn_o_4" class="active-result" style="">Category 4</li></ul></div></div>
+                              </div>
+                           </div>
+                           <div class="control-group">
+                              <label class="control-label">Grouped Custom Dropdown</label>
+                              <div class="controls">
+                                 <select data-placeholder="Your Favorite Team" class="chosen span6 chzn-done" tabindex="-1" id="selS0V" style="display: none;">
+                                    <option value=""></option>
+                                    <optgroup label="NFC EAST">
+                                       <option>Dallas Cowboys</option>
+                                       <option>New York Giants</option>
+                                       <option>Philadelphia Eagles</option>
+                                       <option>Washington Redskins</option>
+                                    </optgroup>
+                                    <optgroup label="NFC NORTH">
+                                       <option>Chicago Bears</option>
+                                       <option>Detroit Lions</option>
+                                       <option>Green Bay Packers</option>
+                                       <option>Minnesota Vikings</option>
+                                    </optgroup>
+                                    <optgroup label="NFC SOUTH">
+                                       <option>Atlanta Falcons</option>
+                                       <option>Carolina Panthers</option>
+                                       <option>New Orleans Saints</option>
+                                       <option>Tampa Bay Buccaneers</option>
+                                    </optgroup>
+                                    <optgroup label="NFC WEST">
+                                       <option>Arizona Cardinals</option>
+                                       <option>St. Louis Rams</option>
+                                       <option>San Francisco 49ers</option>
+                                       <option>Seattle Seahawks</option>
+                                    </optgroup>
+                                    <optgroup label="AFC EAST">
+                                       <option>Buffalo Bills</option>
+                                       <option>Miami Dolphins</option>
+                                       <option>New England Patriots</option>
+                                       <option>New York Jets</option>
+                                    </optgroup>
+                                    <optgroup label="AFC NORTH">
+                                       <option>Baltimore Ravens</option>
+                                       <option>Cincinnati Bengals</option>
+                                       <option>Cleveland Browns</option>
+                                       <option>Pittsburgh Steelers</option>
+                                    </optgroup>
+                                    <optgroup label="AFC SOUTH">
+                                       <option>Houston Texans</option>
+                                       <option>Indianapolis Colts</option>
+                                       <option>Jacksonville Jaguars</option>
+                                       <option>Tennessee Titans</option>
+                                    </optgroup>
+                                    <optgroup label="AFC WEST">
+                                       <option>Denver Broncos</option>
+                                       <option>Kansas City Chiefs</option>
+                                       <option>Oakland Raiders</option>
+                                       <option>San Diego Chargers</option>
+                                    </optgroup>
+                                 </select><div id="selS0V_chzn" class="chzn-container chzn-container-single" style="width: 431px;"><a href="javascript:void(0)" class="chzn-single chzn-default" tabindex="-1"><span>Your Favorite Team</span><div><b></b></div></a><div class="chzn-drop" style="left: -9000px; width: 429px; top: 33px;"><div class="chzn-search"><input type="text" autocomplete="off" tabindex="-1" style="width: 394px;"></div><ul class="chzn-results"><li id="selS0V_chzn_g_1" class="group-result">NFC EAST</li><li id="selS0V_chzn_o_2" class="active-result group-option" style="">Dallas Cowboys</li><li id="selS0V_chzn_o_3" class="active-result group-option" style="">New York Giants</li><li id="selS0V_chzn_o_4" class="active-result group-option" style="">Philadelphia Eagles</li><li id="selS0V_chzn_o_5" class="active-result group-option" style="">Washington Redskins</li><li id="selS0V_chzn_g_6" class="group-result">NFC NORTH</li><li id="selS0V_chzn_o_7" class="active-result group-option" style="">Chicago Bears</li><li id="selS0V_chzn_o_8" class="active-result group-option" style="">Detroit Lions</li><li id="selS0V_chzn_o_9" class="active-result group-option" style="">Green Bay Packers</li><li id="selS0V_chzn_o_10" class="active-result group-option" style="">Minnesota Vikings</li><li id="selS0V_chzn_g_11" class="group-result">NFC SOUTH</li><li id="selS0V_chzn_o_12" class="active-result group-option" style="">Atlanta Falcons</li><li id="selS0V_chzn_o_13" class="active-result group-option" style="">Carolina Panthers</li><li id="selS0V_chzn_o_14" class="active-result group-option" style="">New Orleans Saints</li><li id="selS0V_chzn_o_15" class="active-result group-option" style="">Tampa Bay Buccaneers</li><li id="selS0V_chzn_g_16" class="group-result">NFC WEST</li><li id="selS0V_chzn_o_17" class="active-result group-option" style="">Arizona Cardinals</li><li id="selS0V_chzn_o_18" class="active-result group-option" style="">St. Louis Rams</li><li id="selS0V_chzn_o_19" class="active-result group-option" style="">San Francisco 49ers</li><li id="selS0V_chzn_o_20" class="active-result group-option" style="">Seattle Seahawks</li><li id="selS0V_chzn_g_21" class="group-result">AFC EAST</li><li id="selS0V_chzn_o_22" class="active-result group-option" style="">Buffalo Bills</li><li id="selS0V_chzn_o_23" class="active-result group-option" style="">Miami Dolphins</li><li id="selS0V_chzn_o_24" class="active-result group-option" style="">New England Patriots</li><li id="selS0V_chzn_o_25" class="active-result group-option" style="">New York Jets</li><li id="selS0V_chzn_g_26" class="group-result">AFC NORTH</li><li id="selS0V_chzn_o_27" class="active-result group-option" style="">Baltimore Ravens</li><li id="selS0V_chzn_o_28" class="active-result group-option" style="">Cincinnati Bengals</li><li id="selS0V_chzn_o_29" class="active-result group-option" style="">Cleveland Browns</li><li id="selS0V_chzn_o_30" class="active-result group-option" style="">Pittsburgh Steelers</li><li id="selS0V_chzn_g_31" class="group-result">AFC SOUTH</li><li id="selS0V_chzn_o_32" class="active-result group-option" style="">Houston Texans</li><li id="selS0V_chzn_o_33" class="active-result group-option" style="">Indianapolis Colts</li><li id="selS0V_chzn_o_34" class="active-result group-option" style="">Jacksonville Jaguars</li><li id="selS0V_chzn_o_35" class="active-result group-option" style="">Tennessee Titans</li><li id="selS0V_chzn_g_36" class="group-result">AFC WEST</li><li id="selS0V_chzn_o_37" class="active-result group-option" style="">Denver Broncos</li><li id="selS0V_chzn_o_38" class="active-result group-option" style="">Kansas City Chiefs</li><li id="selS0V_chzn_o_39" class="active-result group-option" style="">Oakland Raiders</li><li id="selS0V_chzn_o_40" class="active-result group-option" style="">San Diego Chargers</li></ul></div></div>
+                              </div>
+                           </div>
+                           <div class="control-group">
+                              <label class="control-label">Custom Dropdown Multiple Select</label>
+                              <div class="controls">
+                                 <select data-placeholder="Your Favorite Teams" class="chosen span6 chzn-done" multiple="multiple" tabindex="-1" id="selTTZ" style="display: none;">
+                                    <option value=""></option>
+                                    <optgroup label="NFC EAST">
+                                       <option>Dallas Cowboys</option>
+                                       <option>New York Giants</option>
+                                       <option>Philadelphia Eagles</option>
+                                       <option>Washington Redskins</option>
+                                    </optgroup>
+                                    <optgroup label="NFC NORTH">
+                                       <option selected="">Chicago Bears</option>
+                                       <option>Detroit Lions</option>
+                                       <option>Green Bay Packers</option>
+                                       <option>Minnesota Vikings</option>
+                                    </optgroup>
+                                    <optgroup label="NFC SOUTH">
+                                       <option>Atlanta Falcons</option>
+                                       <option selected="">Carolina Panthers</option>
+                                       <option>New Orleans Saints</option>
+                                       <option>Tampa Bay Buccaneers</option>
+                                    </optgroup>
+                                    <optgroup label="NFC WEST">
+                                       <option>Arizona Cardinals</option>
+                                       <option>St. Louis Rams</option>
+                                       <option>San Francisco 49ers</option>
+                                       <option>Seattle Seahawks</option>
+                                    </optgroup>
+                                    <optgroup label="AFC EAST">
+                                       <option>Buffalo Bills</option>
+                                       <option>Miami Dolphins</option>
+                                       <option>New England Patriots</option>
+                                       <option>New York Jets</option>
+                                    </optgroup>
+                                    <optgroup label="AFC NORTH">
+                                       <option>Baltimore Ravens</option>
+                                       <option>Cincinnati Bengals</option>
+                                       <option>Cleveland Browns</option>
+                                       <option>Pittsburgh Steelers</option>
+                                    </optgroup>
+                                    <optgroup label="AFC SOUTH">
+                                       <option>Houston Texans</option>
+                                       <option>Indianapolis Colts</option>
+                                       <option>Jacksonville Jaguars</option>
+                                       <option>Tennessee Titans</option>
+                                    </optgroup>
+                                    <optgroup label="AFC WEST">
+                                       <option>Denver Broncos</option>
+                                       <option>Kansas City Chiefs</option>
+                                       <option>Oakland Raiders</option>
+                                       <option>San Diego Chargers</option>
+                                    </optgroup>
+                                 </select><div id="selTTZ_chzn" class="chzn-container chzn-container-multi" style="width: 431px;"><ul class="chzn-choices"><li class="search-choice" id="selTTZ_chzn_c_7"><span>Chicago Bears</span><a href="javascript:void(0)" class="search-choice-close" rel="7"></a></li><li class="search-choice" id="selTTZ_chzn_c_13"><span>Carolina Panthers</span><a href="javascript:void(0)" class="search-choice-close" rel="13"></a></li><li class="search-field"><input type="text" value="Your Favorite Teams" class="" autocomplete="off" style="width: 25px;" tabindex="6"></li></ul><div class="chzn-drop" style="left: -9000px; width: 429px; top: 30px;"><ul class="chzn-results"><li id="selTTZ_chzn_g_1" class="group-result">NFC EAST</li><li id="selTTZ_chzn_o_2" class="active-result group-option" style="">Dallas Cowboys</li><li id="selTTZ_chzn_o_3" class="active-result group-option" style="">New York Giants</li><li id="selTTZ_chzn_o_4" class="active-result group-option" style="">Philadelphia Eagles</li><li id="selTTZ_chzn_o_5" class="active-result group-option" style="">Washington Redskins</li><li id="selTTZ_chzn_g_6" class="group-result">NFC NORTH</li><li id="selTTZ_chzn_o_7" class="result-selected group-option" style="">Chicago Bears</li><li id="selTTZ_chzn_o_8" class="active-result group-option" style="">Detroit Lions</li><li id="selTTZ_chzn_o_9" class="active-result group-option" style="">Green Bay Packers</li><li id="selTTZ_chzn_o_10" class="active-result group-option" style="">Minnesota Vikings</li><li id="selTTZ_chzn_g_11" class="group-result">NFC SOUTH</li><li id="selTTZ_chzn_o_12" class="active-result group-option" style="">Atlanta Falcons</li><li id="selTTZ_chzn_o_13" class="result-selected group-option" style="">Carolina Panthers</li><li id="selTTZ_chzn_o_14" class="active-result group-option" style="">New Orleans Saints</li><li id="selTTZ_chzn_o_15" class="active-result group-option" style="">Tampa Bay Buccaneers</li><li id="selTTZ_chzn_g_16" class="group-result">NFC WEST</li><li id="selTTZ_chzn_o_17" class="active-result group-option" style="">Arizona Cardinals</li><li id="selTTZ_chzn_o_18" class="active-result group-option" style="">St. Louis Rams</li><li id="selTTZ_chzn_o_19" class="active-result group-option" style="">San Francisco 49ers</li><li id="selTTZ_chzn_o_20" class="active-result group-option" style="">Seattle Seahawks</li><li id="selTTZ_chzn_g_21" class="group-result">AFC EAST</li><li id="selTTZ_chzn_o_22" class="active-result group-option" style="">Buffalo Bills</li><li id="selTTZ_chzn_o_23" class="active-result group-option" style="">Miami Dolphins</li><li id="selTTZ_chzn_o_24" class="active-result group-option" style="">New England Patriots</li><li id="selTTZ_chzn_o_25" class="active-result group-option" style="">New York Jets</li><li id="selTTZ_chzn_g_26" class="group-result">AFC NORTH</li><li id="selTTZ_chzn_o_27" class="active-result group-option" style="">Baltimore Ravens</li><li id="selTTZ_chzn_o_28" class="active-result group-option" style="">Cincinnati Bengals</li><li id="selTTZ_chzn_o_29" class="active-result group-option" style="">Cleveland Browns</li><li id="selTTZ_chzn_o_30" class="active-result group-option" style="">Pittsburgh Steelers</li><li id="selTTZ_chzn_g_31" class="group-result">AFC SOUTH</li><li id="selTTZ_chzn_o_32" class="active-result group-option" style="">Houston Texans</li><li id="selTTZ_chzn_o_33" class="active-result group-option" style="">Indianapolis Colts</li><li id="selTTZ_chzn_o_34" class="active-result group-option" style="">Jacksonville Jaguars</li><li id="selTTZ_chzn_o_35" class="active-result group-option" style="">Tennessee Titans</li><li id="selTTZ_chzn_g_36" class="group-result">AFC WEST</li><li id="selTTZ_chzn_o_37" class="active-result group-option" style="">Denver Broncos</li><li id="selTTZ_chzn_o_38" class="active-result group-option" style="">Kansas City Chiefs</li><li id="selTTZ_chzn_o_39" class="active-result group-option" style="">Oakland Raiders</li><li id="selTTZ_chzn_o_40" class="active-result group-option" style="">San Diego Chargers</li></ul></div></div>
+                              </div>
+                           </div>
+                           <div class="control-group">
+                              <label class="control-label">Custom Dropdown Diselect</label>
+                              <div class="controls">
+                                 <select data-placeholder="Your Favorite Type of Bear" class="chosen-with-diselect span6 chzn-done" tabindex="-1" id="selCSI" style="display: none;">
+                                    <option value=""></option>
+                                    <option>American Black Bear</option>
+                                    <option>Asiatic Black Bear</option>
+                                    <option>Brown Bear</option>
+                                    <option>Giant Panda</option>
+                                    <option selected="">Sloth Bear</option>
+                                    <option>Sun Bear</option>
+                                    <option>Polar Bear</option>
+                                    <option>Spectacled Bear</option>
+                                 </select><div id="selCSI_chzn" class="chzn-container chzn-container-single" style="width: 431px;"><a href="javascript:void(0)" class="chzn-single" tabindex="-1"><span>Sloth Bear</span><abbr class="search-choice-close"></abbr><div><b></b></div></a><div class="chzn-drop" style="left: -9000px; width: 429px; top: 32px;"><div class="chzn-search"><input type="text" autocomplete="off" tabindex="-1" style="width: 394px;"></div><ul class="chzn-results"><li id="selCSI_chzn_o_1" class="active-result" style="">American Black Bear</li><li id="selCSI_chzn_o_2" class="active-result" style="">Asiatic Black Bear</li><li id="selCSI_chzn_o_3" class="active-result" style="">Brown Bear</li><li id="selCSI_chzn_o_4" class="active-result" style="">Giant Panda</li><li id="selCSI_chzn_o_5" class="active-result result-selected" style="">Sloth Bear</li><li id="selCSI_chzn_o_6" class="active-result" style="">Sun Bear</li><li id="selCSI_chzn_o_7" class="active-result" style="">Polar Bear</li><li id="selCSI_chzn_o_8" class="active-result" style="">Spectacled Bear</li></ul></div></div>
+                              </div>
+                           </div>
+                           <div class="control-group">
+                              <label class="control-label">Radio Buttons</label>
+                              <div class="controls">
+                                 <label class="radio">
+                                 <div class="radio" id="uniform-undefined"><span><input type="radio" name="optionsRadios1" value="option1" style="opacity: 0;"></span></div>
+                                 Option 1
+                                 </label>
+                                 <label class="radio">
+                                 <div class="radio" id="uniform-undefined"><span class="checked"><input type="radio" name="optionsRadios1" value="option2" checked="" style="opacity: 0;"></span></div>
+                                 Option 2
+                                 </label>  
+                                 <label class="radio">
+                                 <div class="radio" id="uniform-undefined"><span><input type="radio" name="optionsRadios1" value="option2" style="opacity: 0;"></span></div>
+                                 Option 3
+                                 </label>  
+                              </div>
+                           </div>
+                           <div class="control-group">
+                              <label class="control-label">Radio Buttons</label>
+                              <div class="controls">
+                                 <label class="radio line">
+                                 <div class="radio" id="uniform-undefined"><span><input type="radio" name="optionsRadios2" value="option1" style="opacity: 0;"></span></div>
+                                 Option 1
+                                 </label>
+                                 <label class="radio line">
+                                 <div class="radio" id="uniform-undefined"><span class="checked"><input type="radio" name="optionsRadios2" value="option2" checked="" style="opacity: 0;"></span></div>
+                                 Option 2
+                                 </label>  
+                                 <label class="radio line">
+                                 <div class="radio" id="uniform-undefined"><span><input type="radio" name="optionsRadios2" value="option2" style="opacity: 0;"></span></div>
+                                 Option 3
+                                 </label>  
+                              </div>
+                           </div>
+                           <div class="control-group">
+                              <label class="control-label">Checkbox</label>
+                              <div class="controls">
+                                 <label class="checkbox">
+                                 <div class="checker" id="uniform-undefined"><span><input type="checkbox" value="" style="opacity: 0;"></span></div> Checkbox 1
+                                 </label>
+                                 <label class="checkbox">
+                                 <div class="checker" id="uniform-undefined"><span><input type="checkbox" value="" style="opacity: 0;"></span></div> Checkbox 2
+                                 </label>
+                              </div>
+                           </div>
+                           <div class="control-group">
+                              <label class="control-label">Checkbox</label>
+                              <div class="controls">
+                                 <label class="checkbox line">
+                                 <div class="checker" id="uniform-undefined"><span><input type="checkbox" value="" style="opacity: 0;"></span></div> Checkbox 1
+                                 </label>
+                                 <label class="checkbox line">
+                                 <div class="checker" id="uniform-undefined"><span><input type="checkbox" value="" style="opacity: 0;"></span></div> Checkbox 2
+                                 </label>
+                              </div>
+                           </div>
+                           <div class="control-group">
+                              <label class="control-label">Textarea</label>
+                              <div class="controls">
+                                 <textarea class="span6 " rows="3"></textarea>
+                              </div>
+                           </div>
+                           <div class="form-actions">
+                              <button type="submit" class="btn btn-success">Submit</button>
+                              <button type="button" class="btn">Cancel</button>
+                           </div>
+                        </form>
+                        <!-- END FORM-->           
+                     </div>
+                  </div>
+                  <!-- END SAMPLE FORM widget-->
+               </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span12">
+                    <!-- BEGIN widget-->
+                    <div class="widget">
+                        <div class="widget-title">
+                            <h4><i class="icon-reorder"></i>
+                                Masked inputs
+                            </h4>
+                        <span class="tools">
+                           <a href="javascript:;" class="icon-chevron-down"></a>
+                           <a href="javascript:;" class="icon-remove"></a>
+                           </span>
+                        </div>
+                        <div class="widget-body form">
+                            <!-- BEGIN FORM-->
+                            <form class="form-horizontal" action="http://thevectorlab.net/adminlab/form_component.html#">
+                                <div class="control-group">
+                                    <label class="control-label">ISBN 1</label>
+                                    <div class="controls">
+                                        <input class="span5" type="text" data-mask="999-99-999-9999-9" placeholder="">
+                                        <span class="help-inline">999-99-999-9999-9</span>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">ISBN 2</label>
+                                    <div class="controls">
+                                        <input class="span5" type="text" data-mask="999 99 999 9999 9" placeholder="">
+                                        <span class="help-inline">999 99 999 9999 9</span>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">ISBN 3</label>
+                                    <div class="controls">
+                                        <input class="span5" type="text" data-mask="999/99/999/9999/9" placeholder="">
+                                        <span class="help-inline">999/99/999/9999/9</span>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">IPV4</label>
+                                    <div class="controls">
+                                        <input class="span5" type="text" data-mask="999.999.999.9999" placeholder="">
+                                        <span class="help-inline">192.168.110.310</span>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">IPV6</label>
+                                    <div class="controls">
+                                        <input class="span5" type="text" data-mask="9999:9999:9999:9:999:9999:9999:9999" placeholder="">
+                                        <span class="help-inline">4deg:1340:6547:2:540:h8je:ve73:98pd</span>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">Tax ID</label>
+                                    <div class="controls">
+                                        <input class="span5" type="text" data-mask="99-9999999" placeholder="">
+                                        <span class="help-inline">99-9999999</span>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">Phone</label>
+                                    <div class="controls">
+                                        <input class="span5" type="text" data-mask="(999) 999-9999" placeholder="">
+                                        <span class="help-inline">(999) 999-9999</span>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">Currency</label>
+                                    <div class="controls">
+                                        <input class="span5" type="text" data-mask="$ 999,999,999.99" placeholder="">
+                                        <span class="help-inline">$ 999,999,999.99</span>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">Date</label>
+                                    <div class="controls">
+                                        <input class="span5" type="text" data-mask="99/99/9999" placeholder="">
+                                        <span class="help-inline">dd/mm/yyyy</span>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">Date 2</label>
+                                    <div class="controls">
+                                        <input class="span5" type="text" data-mask="99-99-9999" placeholder="">
+                                        <span class="help-inline">dd-mm-yyyy</span>
+                                    </div>
+                                </div>
+
+                            </form>
+                            <!-- END FORM-->
+                        </div>
+                    </div>
+                    <!-- END widget-->
+                </div>
+            </div>
+            <div class="row-fluid">
+               <div class="span12">
+                  <!-- BEGIN widget-->   
+                  <div class="widget">
+                     <div class="widget-title">
+                        <h4><i class="icon-reorder"></i>Tags Input</h4>
+                        <span class="tools">
+                           <a href="javascript:;" class="icon-chevron-down"></a>
+                           <a href="javascript:;" class="icon-remove"></a>
+                           </span>
+                     </div>
+                     <div class="widget-body form">
+                        <!-- BEGIN FORM-->
+                        <form action="http://thevectorlab.net/adminlab/form_component.html#" class="form-horizontal">
+                           <div class="control-group">
+                              <label class="control-label">Default</label>
+                              <div class="controls">
+                                 <input id="tags_1" type="text" class="m-wra tags" value="foo,bar,baz,roffle" style="display: none;"><div id="tags_1_tagsinput" class="tagsinput" style="width: auto; height: 100px;"><span class="tag"><span>bar&nbsp;&nbsp;</span><a href="http://thevectorlab.net/adminlab/form_component.html#" title="Removing tag">x</a></span><span class="tag"><span>roffle&nbsp;&nbsp;</span><a href="http://thevectorlab.net/adminlab/form_component.html#" title="Removing tag">x</a></span><span class="tag"><span>fddfs&nbsp;&nbsp;</span><a href="http://thevectorlab.net/adminlab/form_component.html#" title="Removing tag">x</a></span><div id="tags_1_addTag"><input id="tags_1_tag" value="" data-default="add a tag" style="color: rgb(102, 102, 102); width: 80px;"></div><div class="tags_clear"></div></div>
+                              </div>
+                           </div>
+                           <div class="control-group">
+                              <label class="control-label">Fixed Width</label>
+                              <div class="controls">
+                                 <input id="tags_2" type="text" class="m-wra tags medium" value="tag1,tag2" style="display: none;"><div id="tags_2_tagsinput" class="tagsinput" style="width: 240px; height: 100px;"><span class="tag"><span>tag1&nbsp;&nbsp;</span><a href="http://thevectorlab.net/adminlab/form_component.html#" title="Removing tag">x</a></span><span class="tag"><span>tag2&nbsp;&nbsp;</span><a href="http://thevectorlab.net/adminlab/form_component.html#" title="Removing tag">x</a></span><div id="tags_2_addTag"><input id="tags_2_tag" value="" data-default="add a tag" style="color: rgb(102, 102, 102); width: 80px;"></div><div class="tags_clear"></div></div>
+                              </div>
+                           </div>
+                        </form>
+                        <!-- END FORM-->  
+                     </div>
+                  </div>
+                  <!-- END widget-->
+               </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span6">
+                    <!-- BEGIN widget-->
+                    <div class="widget">
+                        <div class="widget-title">
+                            <h4><i class="icon-reorder"></i>Color Pickers</h4>
+                        <span class="tools">
+                           <a href="javascript:;" class="icon-chevron-down"></a>
+                           <a href="javascript:;" class="icon-remove"></a>
+                           </span>
+                        </div>
+                        <div class="widget-body form">
+                            <!-- BEGIN FORM-->
+                            <form action="http://thevectorlab.net/adminlab/form_component.html#" class="form-horizontal">
+                                <div class="control-group">
+                                    <label class="control-label">Default</label>
+                                    <div class="controls">
+                                        <input type="text" class="colorpicker-default " value="#8fff00">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">RGBA</label>
+                                    <div class="controls">
+                                        <input type="text" class="colorpicker-rgba " value="rgb(0,194,255,0.78)" data-color-format="rgba">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">As Component</label>
+                                    <div class="controls">
+                                        <div class="input-append color colorpicker-default" data-color="#87BB33" data-color-format="rgba">
+                                            <input type="text" class="" value="#87BB33" readonly="">
+                                            <span class="add-on"><i style="background-color: rgb(135, 187, 51);"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- END FORM-->
+                        </div>
+                    </div>
+                    <!-- END widget-->
+                    <!-- BEGIN widget-->
+                    <div class="widget">
+                        <div class="widget-title">
+                            <h4><i class="icon-reorder"></i>Time Pickers</h4>
+                       <span class="tools">
+                           <a href="javascript:;" class="icon-chevron-down"></a>
+                           <a href="javascript:;" class="icon-remove"></a>
+                           </span>
+                        </div>
+                        <div class="widget-body form">
+                            <!-- BEGIN FORM-->
+                            <form action="http://thevectorlab.net/adminlab/form_component.html#" class="form-horizontal">
+                                <div class="control-group">
+                                    <label class="control-label">Default Timepicker</label>
+                                    <div class="controls">
+                                        <div class="input-append bootstrap-timepicker-component">
+                                            <input class=" m-ctrl-small timepicker-default" type="text">
+                                            <span class="add-on"><i class="icon-time"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">24hr Timepicker</label>
+                                    <div class="controls">
+                                        <div class="input-append bootstrap-timepicker-component">
+                                            <input class=" m-ctrl-small timepicker-24" type="text">
+                                            <span class="add-on"><i class="icon-time"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- END FORM-->
+                        </div>
+                    </div>
+                    <!-- END widget-->
+                    <!-- BEGIN widget-->
+                    <div class="widget">
+                        <div class="widget-title">
+                            <h4><i class="icon-reorder"></i>
+                                Clockface Time Pickers
+                            </h4>
+                       <span class="tools">
+                           <a href="javascript:;" class="icon-chevron-down"></a>
+                           <a href="javascript:;" class="icon-remove"></a>
+                       </span>
+                        </div>
+                        <div class="widget-body form">
+                            <form action="http://thevectorlab.net/adminlab/form_component.html#" class="form-horizontal">
+                                <div class="control-group">
+                                    <label class="control-label">Input</label>
+                                    <div class="controls">
+                                        <input type="text" id="clockface_1" value="2:30 PM" data-format="hh:mm A" class=" small">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">Button</label>
+                                    <div class="controls">
+                                        <div class="input-append">
+                                            <input type="text" id="clockface_2" value="14:30" class=" small" readonly="">
+                                            <button class="btn" type="button" id="clockface_2_toggle-btn">
+                                                <i class="icon-time"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">Inline</label>
+                                    <div class="controls">
+                                        <div id="clockface_3" class="well" style="padding: 0; float: left"><div class="clockface clockface-inline" style=""><div class="l1"><div class="cell"><div class="outer">55</div><div class="inner">23</div></div><div class="cell"><div class="outer">00</div><div class="inner">12</div></div><div class="cell"><div class="outer">05</div><div class="inner">13</div></div></div><div class="l2"><div class="cell left"><div class="outer">50</div><div class="inner">22</div></div><div class="cell right"><div class="inner active">14</div><div class="outer">10</div></div></div><div class="l3"><div class="cell left"><div class="outer">45</div><div class="inner">21</div></div><div class="cell right"><div class="inner">15</div><div class="outer">15</div></div><div class="center"><a href="http://thevectorlab.net/adminlab/form_component.html#" class="ampm">0-11</a></div></div><div class="l4"><div class="cell left"><div class="outer">40</div><div class="inner">20</div></div><div class="cell right"><div class="inner">16</div><div class="outer">20</div></div></div><div class="l5"><div class="cell"><div class="inner">19</div><div class="outer">35</div></div><div class="cell"><div class="inner">18</div><div class="outer active">30</div></div><div class="cell"><div class="inner">17</div><div class="outer">25</div></div></div></div></div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- END widget-->
+                    <!-- BEGIN widget-->
+                    <div class="widget">
+                        <div class="widget-title">
+                            <h4><i class="icon-reorder"></i>Date Pickers</h4>
+                       <span class="tools">
+                           <a href="javascript:;" class="icon-chevron-down"></a>
+                           <a href="javascript:;" class="icon-remove"></a>
+                           </span>
+                        </div>
+                        <div class="widget-body form">
+                            <!-- BEGIN FORM-->
+                            <form action="http://thevectorlab.net/adminlab/form_component.html#" class="form-horizontal">
+                                <div class="control-group">
+                                    <label class="control-label">Default datepicker</label>
+                                    <div class="controls">
+                                        <input class=" m-ctrl-medium date-picker" size="16" type="text" value="12-02-2012">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">Starts with years view</label>
+                                    <div class="controls">
+                                        <div class="input-append date date-picker" data-date="12-02-2012" data-date-format="dd-mm-yyyy" data-date-viewmode="years">
+                                            <input class=" m-ctrl-medium date-picker" size="16" type="text" value="12-02-2012"><span class="add-on"><i class="icon-calendar"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">Limit the view mode to months</label>
+                                    <div class="controls">
+                                        <div class="input-append date date-picker" data-date="102/2012" data-date-format="mm/yyyy" data-date-viewmode="years" data-date-minviewmode="months">
+                                            <input class=" m-ctrl-medium date-picker" size="16" type="text" value="02/2012"><span class="add-on"><i class="icon-calendar"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- END FORM-->
+                        </div>
+                    </div>
+                    <!-- END widget-->
+                    <!-- BEGIN widget-->
+                    <div class="widget">
+                        <div class="widget-title">
+                            <h4><i class="icon-reorder"></i>Date Range Pickers</h4>
+                        <span class="tools">
+                           <a href="javascript:;" class="icon-chevron-down"></a>
+                           <a href="javascript:;" class="icon-remove"></a>
+                           </span>
+                        </div>
+                        <div class="widget-body form">
+                            <!-- BEGIN FORM-->
+                            <form action="http://thevectorlab.net/adminlab/form_component.html#" class="form-horizontal">
+                                <div class="control-group">
+                                    <label class="control-label">Default Date Ranges</label>
+                                    <div class="controls">
+                                        <div class="input-prepend">
+                                            <span class="add-on"><i class="icon-calendar"></i></span><input type="text" class=" m-ctrl-medium date-range">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">Advance Date Ranges</label>
+                                    <div class="controls">
+                                        <div id="form-date-range" class="btn">
+                                            <i class="icon-calendar"></i>
+                                            &nbsp;<span>December 15, 2014 - January 13, 2015</span>
+                                            <b class="caret"></b>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- END FORM-->
+                        </div>
+                    </div>
+                    <!-- END widget-->
+                </div>
+                <div class="span6">
+                    <!-- BEGIN widget-->
+                    <div class="widget">
+                        <div class="widget-title">
+                            <h4><i class="icon-reorder"></i>File Upload</h4>
+                        <span class="tools">
+                           <a href="javascript:;" class="icon-chevron-down"></a>
+                           <a href="javascript:;" class="icon-remove"></a>
+                           </span>
+                        </div>
+                        <div class="widget-body form">
+                            <!-- BEGIN FORM-->
+                            <form action="http://thevectorlab.net/adminlab/form_component.html#" class="form-horizontal">
+                                <div class="control-group">
+                                    <label class="control-label">Default</label>
+                                    <div class="controls">
+                                        <input type="file" class="default">
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">Advanced</label>
+                                    <div class="controls">
+                                        <div class="fileupload fileupload-exists" data-provides="fileupload"><input type="hidden" value="" name="">
+                                            <div class="input-append">
+                                                <div class="uneditable-input">
+                                                    <i class="icon-file fileupload-exists"></i>
+                                                    <span class="fileupload-preview">SIGN.png</span>
+                                                </div>
+                                       <span class="btn btn-file">
+                                       <span class="fileupload-new">Select file</span>
+                                       <span class="fileupload-exists">Change</span>
+                                       <input type="file" class="default">
+                                       </span>
+                                                <a href="http://thevectorlab.net/adminlab/form_component.html#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">Without input</label>
+                                    <div class="controls">
+                                        <div class="fileupload fileupload-new" data-provides="fileupload"><input type="hidden" value="" name="">
+                                    <span class="btn btn-file">
+                                    <span class="fileupload-new">Select file</span>
+                                    <span class="fileupload-exists">Change</span>
+                                    <input type="file" class="default" name="">
+                                    </span>
+                                            <span class="fileupload-preview"></span>
+                                            <a href="http://thevectorlab.net/adminlab/form_component.html#" class="close fileupload-exists" data-dismiss="fileupload" style="float: none">×</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="control-group">
+                                    <label class="control-label">Image Upload</label>
+                                    <div class="controls">
+                                        <div class="fileupload fileupload-new" data-provides="fileupload"><input type="hidden" value="" name="">
+                                            <div class="fileupload-new thumbnail" style="width: 200px; height: 150px;">
+                                                <img src="./Form Components_files/AAAAAA&text=no+image" alt="">
+                                            </div>
+                                            <div class="fileupload-preview fileupload-exists thumbnail" style="max-width: 200px; max-height: 150px; line-height: 20px;"></div>
+                                            <div>
+                                       <span class="btn btn-file"><span class="fileupload-new">Select image</span>
+                                       <span class="fileupload-exists">Change</span>
+                                       <input type="file" class="default" name=""></span>
+                                                <a href="http://thevectorlab.net/adminlab/form_component.html#" class="btn fileupload-exists" data-dismiss="fileupload">Remove</a>
+                                            </div>
+                                        </div>
+                                        <span class="label label-important">NOTE!</span>
+                                 <span>
+                                 Attached image thumbnail is
+                                 supported in Latest Firefox, Chrome, Opera,
+                                 Safari and Internet Explorer 10 only
+                                 </span>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- END FORM-->
+                        </div>
+                    </div>
+                    <!-- END widget-->
+                    <!-- BEGIN widget-->
+                    <div class="widget">
+                        <div class="widget-title">
+                            <h4><i class="icon-reorder"></i>
+                                Switch Buttons
+                            </h4>
+                        <span class="tools">
+                           <a href="javascript:;" class="icon-chevron-down"></a>
+                           <a href="javascript:;" class="icon-remove"></a>
+                           </span>
+                        </div>
+                        <div class="widget-body form switch-form">
+                            <div class="widget-body form">
+                                <!-- BEGIN FORM-->
+                                <form action="http://thevectorlab.net/adminlab/form_component.html#" class="form-horizontal">
+                                    <div class="control-group">
+                                        <label class="control-label">Right Action Input</label>
+                                        <div class="controls">
+                                            <div class="input-append">
+                                                <input class=" medium" type="text">
+                                                <div class="btn-group">
+                                                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                                                        Action <span class="caret"></span>
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a href="http://thevectorlab.net/adminlab/form_component.html#">Action</a></li>
+                                                        <li><a href="http://thevectorlab.net/adminlab/form_component.html#">Another action</a></li>
+                                                        <li><a href="http://thevectorlab.net/adminlab/form_component.html#">Something else here</a></li>
+                                                        <li class="divider"></li>
+                                                        <li><a href="http://thevectorlab.net/adminlab/form_component.html#">Separated link</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label">Left Action Input</label>
+                                        <div class="controls">
+                                            <div class="input-prepend">
+                                                <div class="btn-group">
+                                                    <button class="btn dropdown-toggle" data-toggle="dropdown">
+                                                        Action
+                                                        <span class="caret"></span>
+                                                    </button>
+                                                    <ul class="dropdown-menu">
+                                                        <li><a href="http://thevectorlab.net/adminlab/form_component.html#">Action</a></li>
+                                                        <li><a href="http://thevectorlab.net/adminlab/form_component.html#">Another action</a></li>
+                                                        <li><a href="http://thevectorlab.net/adminlab/form_component.html#">Something else here</a></li>
+                                                        <li class="divider"></li>
+                                                        <li><a href="http://thevectorlab.net/adminlab/form_component.html#">Separated link</a></li>
+                                                    </ul>
+                                                </div>
+                                                <!-- /btn-group -->
+                                                <input class=" medium" type="text">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label">Basic Toggle Button</label>
+                                        <div class="controls">
+                                            <div class="basic-toggle-button toggle-button" style="width: 100px; height: 25px;">
+                                                <div style="left: 0px; width: 150px;"><input type="checkbox" class="toggle" checked="checked"><span class="labelLeft" style="width: 50px; height: 25px; line-height: 25px;">ON</span><label style="width: 50px; height: 25px;"></label><span class="labelRight" style="width: 50px; height: 25px; line-height: 25px;">OFF </span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label">Toggle Buttons with Text</label>
+                                        <div class="controls">
+                                            <div class="text-toggle-button toggle-button" style="width: 200px; height: 25px;">
+                                                <div style="left: -50%; width: 300px;"><input type="checkbox" class="toggle"><span class="labelLeft" style="width: 100px; height: 25px; line-height: 25px;">Lorem Ipsum</span><label style="width: 100px; height: 25px;"></label><span class="labelRight" style="width: 100px; height: 25px; line-height: 25px;">Dolor Sit</span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label">Not Animated</label>
+                                        <div class="controls">
+                                            <div class="not-animated-toggle-button toggle-button" style="width: 100px; height: 25px;">
+                                                <div style="left: -50%; width: 150px;"><input type="checkbox" class="toggle"><span class="labelLeft" style="width: 50px; height: 25px; line-height: 25px;">ON</span><label style="width: 50px; height: 25px;"></label><span class="labelRight" style="width: 50px; height: 25px; line-height: 25px;">OFF </span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label">Transition Speed</label>
+                                        <div class="controls">
+                                            <div class="transition-value-toggle-button toggle-button" style="width: 100px; height: 25px;">
+                                                <div style="left: -50%; width: 150px;"><input type="checkbox" class="toggle"><span class="labelLeft" style="width: 50px; height: 25px; line-height: 25px;">ON</span><label style="width: 50px; height: 25px;"></label><span class="labelRight" style="width: 50px; height: 25px; line-height: 25px;">OFF </span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label">Styled Toggle Button</label>
+                                        <div class="controls">
+                                            <div class="danger-toggle-button toggle-button" style="width: 100px; height: 25px;">
+                                                <div style="left: 0px; width: 150px;"><input type="checkbox" class="toggle" checked="checked"><span class="labelLeft danger" style="width: 50px; height: 25px; line-height: 25px;">ON</span><label style="width: 50px; height: 25px;"></label><span class="labelRight info" style="width: 50px; height: 25px; line-height: 25px;">OFF </span></div>
+                                            </div>
+                                            <div class="info-toggle-button toggle-button" style="width: 100px; height: 25px;">
+                                                <div style="left: 0px; width: 150px;"><input type="checkbox" class="toggle" checked="checked"><span class="labelLeft info" style="width: 50px; height: 25px; line-height: 25px;">ON</span><label style="width: 50px; height: 25px;"></label><span class="labelRight" style="width: 50px; height: 25px; line-height: 25px;">OFF </span></div>
+                                            </div>
+                                            <div class="success-toggle-button toggle-button" style="width: 100px; height: 25px;">
+                                                <div style="left: 0px; width: 150px;"><input type="checkbox" class="toggle" checked="checked"><span class="labelLeft success" style="width: 50px; height: 25px; line-height: 25px;">ON</span><label style="width: 50px; height: 25px;"></label><span class="labelRight danger" style="width: 50px; height: 25px; line-height: 25px;">OFF </span></div>
+                                            </div>
+                                            <div class="warning-toggle-button toggle-button" style="width: 100px; height: 25px;">
+                                                <div style="left: 0px; width: 150px;"><input type="checkbox" class="toggle" checked="checked"><span class="labelLeft warning" style="width: 50px; height: 25px; line-height: 25px;">ON</span><label style="width: 50px; height: 25px;"></label><span class="labelRight success" style="width: 50px; height: 25px; line-height: 25px;">OFF </span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label">Height Toggle Button</label>
+                                        <div class="controls">
+                                            <div class="height-toggle-button toggle-button" style="width: 100px; height: 100px;">
+                                                <div style="left: -50%; width: 150px;"><input type="checkbox" class="toggle"><span class="labelLeft" style="width: 50px; height: 100px; line-height: 100px; font-size: 20px; font-style: italic;">ON</span><label style="width: 50px; height: 100px;"></label><span class="labelRight" style="width: 50px; height: 100px; line-height: 100px; font-size: 20px; font-style: italic;">OFF </span></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                                <div class="space20"></div>
+                                <!-- END FORM-->
+                            </div>
+                        </div>
+                    </div>
+                    <!-- END widget-->
+
+                </div>
+            </div>
+
+            <div class="row-fluid">
+               <div class="span12">
+                  <!-- BEGIN  widget-->
+                  <div class="widget">
+                     <div class="widget-title">
+                        <h4><i class="icon-reorder"></i>WYSIWYG Editor</h4>
+                        <span class="tools">
+                           <a href="javascript:;" class="icon-chevron-down"></a>
+                           <a href="javascript:;" class="icon-remove"></a>
+                        </span>
+                     </div>
+                     <div class="widget-body form">
+                        <!-- BEGIN FORM-->
+                        <form action="http://thevectorlab.net/adminlab/form_component.html#" class="form-horizontal">
+                           <div class="control-group">
+                              <label class="control-label">WYSIWYG Editor</label>
+                              <div class="controls">
+                                 <ul class="wysihtml5-toolbar"><li class="dropdown"><a class="btn dropdown-toggle" data-toggle="dropdown" href="http://thevectorlab.net/adminlab/form_component.html#"><i class="icon-font"></i>&nbsp;<span class="current-font">Normal text</span>&nbsp;<b class="caret"></b></a><ul class="dropdown-menu"><li><a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="div" href="javascript:;" unselectable="on">Normal text</a></li><li><a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h1" href="javascript:;" unselectable="on">Heading 1</a></li><li><a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h2" href="javascript:;" unselectable="on">Heading 2</a></li><li><a data-wysihtml5-command="formatBlock" data-wysihtml5-command-value="h3" href="javascript:;" unselectable="on">Heading 3</a></li></ul></li><li><div class="btn-group"><a class="btn" data-wysihtml5-command="bold" title="CTRL+B" href="javascript:;" unselectable="on">Bold</a><a class="btn" data-wysihtml5-command="italic" title="CTRL+I" href="javascript:;" unselectable="on">Italic</a><a class="btn" data-wysihtml5-command="underline" title="CTRL+U" href="javascript:;" unselectable="on">Underline</a></div></li><li><div class="btn-group"><a class="btn" data-wysihtml5-command="insertUnorderedList" title="Unordered list" href="javascript:;" unselectable="on"><i class="icon-list"></i></a><a class="btn" data-wysihtml5-command="insertOrderedList" title="Ordered list" href="javascript:;" unselectable="on"><i class="icon-th-list"></i></a><a class="btn" data-wysihtml5-command="Outdent" title="Outdent" href="javascript:;" unselectable="on"><i class="icon-indent-right"></i></a><a class="btn" data-wysihtml5-command="Indent" title="Indent" href="javascript:;" unselectable="on"><i class="icon-indent-left"></i></a></div></li><li><div class="bootstrap-wysihtml5-insert-link-modal modal hide fade"><div class="modal-header"><a class="close" data-dismiss="modal">×</a><h3>Insert link</h3></div><div class="modal-body"><input value="http://" class="bootstrap-wysihtml5-insert-link-url input-xlarge"></div><div class="modal-footer"><a href="http://thevectorlab.net/adminlab/form_component.html#" class="btn" data-dismiss="modal">Cancel</a><a href="http://thevectorlab.net/adminlab/form_component.html#" class="btn btn-primary" data-dismiss="modal">Insert link</a></div></div><a class="btn" data-wysihtml5-command="createLink" title="Insert link" href="javascript:;" unselectable="on"><i class="icon-share"></i></a></li><li><div class="bootstrap-wysihtml5-insert-image-modal modal hide fade"><div class="modal-header"><a class="close" data-dismiss="modal">×</a><h3>Insert image</h3></div><div class="modal-body"><input value="http://" class="bootstrap-wysihtml5-insert-image-url input-xlarge"></div><div class="modal-footer"><a href="http://thevectorlab.net/adminlab/form_component.html#" class="btn" data-dismiss="modal">Cancel</a><a href="http://thevectorlab.net/adminlab/form_component.html#" class="btn btn-primary" data-dismiss="modal">Insert image</a></div></div><a class="btn" data-wysihtml5-command="insertImage" title="Insert image" href="javascript:;" unselectable="on"><i class="icon-picture"></i></a></li></ul><textarea class="span12 wysihtml5" rows="6" style="display: none;"></textarea><input type="hidden" name="_wysihtml5_mode" value="1"><iframe class="wysihtml5-sandbox" security="restricted" allowtransparency="true" frameborder="0" width="0" height="0" marginwidth="0" marginheight="0" style="border-collapse: separate; border: 1px solid rgb(221, 221, 221); clear: none; display: inline-block; float: none; margin: 0px; outline: rgb(85, 85, 85) none 0px; outline-offset: 0px; padding: 4px 6px; position: static; top: auto; left: auto; right: auto; bottom: auto; z-index: auto; vertical-align: middle; text-align: start; box-sizing: border-box; -webkit-box-shadow: none; box-shadow: none; border-radius: 0px; width: 884px; height: 130px; background-color: rgb(255, 255, 255);"></iframe>
+                              </div>
+                           </div>
+                        </form>
+                        <!-- END FORM-->
+                     </div>
+                  </div>
+                  <!-- END EXTRAS widget-->
+               </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span12">
+                    <!-- BEGIN  widget-->
+                    <div class="widget">
+                        <div class="widget-title">
+                            <h4><i class="icon-reorder"></i>CKEditor</h4>
+                        <span class="tools">
+                           <a href="javascript:;" class="icon-chevron-down"></a>
+                           <a href="javascript:;" class="icon-remove"></a>
+                           </span>
+                        </div>
+                        <div class="widget-body form">
+                            <!-- BEGIN FORM-->
+                            <form action="http://thevectorlab.net/adminlab/form_component.html#" class="form-horizontal">
+                                <div class="control-group">
+                                    <label class="control-label">CKEditor</label>
+                                    <div class="controls">
+                                        <textarea class="span12 ckeditor" name="editor1" rows="6" style="visibility: hidden; display: none;"></textarea><div id="cke_editor1" class="cke_1 cke cke_reset cke_chrome cke_editor_editor1 cke_ltr cke_browser_webkit" dir="ltr" lang="en" role="application" aria-labelledby="cke_editor1_arialbl"><span id="cke_editor1_arialbl" class="cke_voice_label">Rich Text Editor</span><div class="cke_inner cke_reset" role="presentation"><span id="cke_1_top" class="cke_top cke_reset_all" role="presentation" style="height: auto; -webkit-user-select: none;"><span id="cke_4" class="cke_voice_label">Editor toolbars</span><span id="cke_1_toolbox" class="cke_toolbox" role="group" aria-labelledby="cke_4" onmousedown="return false;"><span id="cke_5" class="cke_toolbar" aria-labelledby="cke_5_label" role="toolbar"><span id="cke_5_label" class="cke_voice_label">Clipboard/Undo</span><span class="cke_toolbar_start"></span><span class="cke_toolgroup" role="presentation"><a id="cke_6" class="cke_button cke_button__cut cke_button_off" "="" href="javascript:void('Cut')" title="Cut" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_6_label" aria-haspopup="false" onkeydown="return CKEDITOR.tools.callFunction(4,event);" onfocus="return CKEDITOR.tools.callFunction(5,event);" onmousedown="return CKEDITOR.tools.callFunction(6,event);" onclick="CKEDITOR.tools.callFunction(7,this);return false;"><span class="cke_button_icon cke_button__cut_icon" style="background-image:url(http://thevectorlab.net/adminlab/assets/ckeditor/plugins/icons.png?t=D08E);background-position:0 -352px;">&nbsp;</span><span id="cke_6_label" class="cke_button_label cke_button__cut_label">Cut</span></a><a id="cke_7" class="cke_button cke_button__copy cke_button_off" "="" href="javascript:void('Copy')" title="Copy" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_7_label" aria-haspopup="false" onkeydown="return CKEDITOR.tools.callFunction(8,event);" onfocus="return CKEDITOR.tools.callFunction(9,event);" onmousedown="return CKEDITOR.tools.callFunction(10,event);" onclick="CKEDITOR.tools.callFunction(11,this);return false;"><span class="cke_button_icon cke_button__copy_icon" style="background-image:url(http://thevectorlab.net/adminlab/assets/ckeditor/plugins/icons.png?t=D08E);background-position:0 -288px;">&nbsp;</span><span id="cke_7_label" class="cke_button_label cke_button__copy_label">Copy</span></a><a id="cke_8" class="cke_button cke_button__paste cke_button_off " "="" href="javascript:void('Paste')" title="Paste" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_8_label" aria-haspopup="false" onkeydown="return CKEDITOR.tools.callFunction(12,event);" onfocus="return CKEDITOR.tools.callFunction(13,event);" onmousedown="return CKEDITOR.tools.callFunction(14,event);" onclick="CKEDITOR.tools.callFunction(15,this);return false;"><span class="cke_button_icon cke_button__paste_icon" style="background-image:url(http://thevectorlab.net/adminlab/assets/ckeditor/plugins/icons.png?t=D08E);background-position:0 -416px;">&nbsp;</span><span id="cke_8_label" class="cke_button_label cke_button__paste_label">Paste</span></a><a id="cke_9" class="cke_button cke_button__pastetext cke_button_off " "="" href="javascript:void('Paste as plain text')" title="Paste as plain text" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_9_label" aria-haspopup="false" onkeydown="return CKEDITOR.tools.callFunction(16,event);" onfocus="return CKEDITOR.tools.callFunction(17,event);" onmousedown="return CKEDITOR.tools.callFunction(18,event);" onclick="CKEDITOR.tools.callFunction(19,this);return false;"><span class="cke_button_icon cke_button__pastetext_icon" style="background-image:url(http://thevectorlab.net/adminlab/assets/ckeditor/plugins/icons.png?t=D08E);background-position:0 -960px;">&nbsp;</span><span id="cke_9_label" class="cke_button_label cke_button__pastetext_label">Paste as plain text</span></a><a id="cke_10" class="cke_button cke_button__pastefromword cke_button_off " "="" href="javascript:void('Paste from Word')" title="Paste from Word" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_10_label" aria-haspopup="false" onkeydown="return CKEDITOR.tools.callFunction(20,event);" onfocus="return CKEDITOR.tools.callFunction(21,event);" onmousedown="return CKEDITOR.tools.callFunction(22,event);" onclick="CKEDITOR.tools.callFunction(23,this);return false;"><span class="cke_button_icon cke_button__pastefromword_icon" style="background-image:url(http://thevectorlab.net/adminlab/assets/ckeditor/plugins/icons.png?t=D08E);background-position:0 -1024px;">&nbsp;</span><span id="cke_10_label" class="cke_button_label cke_button__pastefromword_label">Paste from Word</span></a><span class="cke_toolbar_separator" role="separator"></span><a id="cke_11" class="cke_button cke_button__undo cke_button_disabled" "="" href="javascript:void('Undo')" title="Undo" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_11_label" aria-haspopup="false" onkeydown="return CKEDITOR.tools.callFunction(24,event);" onfocus="return CKEDITOR.tools.callFunction(25,event);" onmousedown="return CKEDITOR.tools.callFunction(26,event);" onclick="CKEDITOR.tools.callFunction(27,this);return false;" aria-disabled="true"><span class="cke_button_icon cke_button__undo_icon" style="background-image:url(http://thevectorlab.net/adminlab/assets/ckeditor/plugins/icons.png?t=D08E);background-position:0 -1344px;">&nbsp;</span><span id="cke_11_label" class="cke_button_label cke_button__undo_label">Undo</span></a><a id="cke_12" class="cke_button cke_button__redo cke_button_disabled" "="" href="javascript:void('Redo')" title="Redo" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_12_label" aria-haspopup="false" onkeydown="return CKEDITOR.tools.callFunction(28,event);" onfocus="return CKEDITOR.tools.callFunction(29,event);" onmousedown="return CKEDITOR.tools.callFunction(30,event);" onclick="CKEDITOR.tools.callFunction(31,this);return false;" aria-disabled="true"><span class="cke_button_icon cke_button__redo_icon" style="background-image:url(http://thevectorlab.net/adminlab/assets/ckeditor/plugins/icons.png?t=D08E);background-position:0 -1280px;">&nbsp;</span><span id="cke_12_label" class="cke_button_label cke_button__redo_label">Redo</span></a></span><span class="cke_toolbar_end"></span></span><span id="cke_13" class="cke_toolbar" aria-labelledby="cke_13_label" role="toolbar"><span id="cke_13_label" class="cke_voice_label">Editing</span><span class="cke_toolbar_start"></span><span class="cke_toolgroup" role="presentation"><a id="cke_14" class="cke_button cke_button__scayt cke_button_off " "="" href="javascript:void('Spell Check As You Type')" title="Spell Check As You Type" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_14_label" aria-haspopup="true" onkeydown="return CKEDITOR.tools.callFunction(32,event);" onfocus="return CKEDITOR.tools.callFunction(33,event);" onmousedown="return CKEDITOR.tools.callFunction(34,event);" onclick="CKEDITOR.tools.callFunction(35,this);return false;"><span class="cke_button_icon cke_button__scayt_icon" style="background-image:url(http://thevectorlab.net/adminlab/assets/ckeditor/plugins/icons.png?t=D08E);background-position:0 -1184px;">&nbsp;</span><span id="cke_14_label" class="cke_button_label cke_button__scayt_label">Spell Check As You Type</span><span class="cke_button_arrow"></span></a></span><span class="cke_toolbar_end"></span></span><span id="cke_15" class="cke_toolbar" aria-labelledby="cke_15_label" role="toolbar"><span id="cke_15_label" class="cke_voice_label">Links</span><span class="cke_toolbar_start"></span><span class="cke_toolgroup" role="presentation"><a id="cke_16" class="cke_button cke_button__link cke_button_off " "="" href="javascript:void('Link')" title="Link" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_16_label" aria-haspopup="false" onkeydown="return CKEDITOR.tools.callFunction(36,event);" onfocus="return CKEDITOR.tools.callFunction(37,event);" onmousedown="return CKEDITOR.tools.callFunction(38,event);" onclick="CKEDITOR.tools.callFunction(39,this);return false;"><span class="cke_button_icon cke_button__link_icon" style="background-image:url(http://thevectorlab.net/adminlab/assets/ckeditor/plugins/icons.png?t=D08E);background-position:0 -832px;">&nbsp;</span><span id="cke_16_label" class="cke_button_label cke_button__link_label">Link</span></a><a id="cke_17" class="cke_button cke_button__unlink cke_button_disabled" "="" href="javascript:void('Unlink')" title="Unlink" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_17_label" aria-haspopup="false" onkeydown="return CKEDITOR.tools.callFunction(40,event);" onfocus="return CKEDITOR.tools.callFunction(41,event);" onmousedown="return CKEDITOR.tools.callFunction(42,event);" onclick="CKEDITOR.tools.callFunction(43,this);return false;" aria-disabled="true"><span class="cke_button_icon cke_button__unlink_icon" style="background-image:url(http://thevectorlab.net/adminlab/assets/ckeditor/plugins/icons.png?t=D08E);background-position:0 -864px;">&nbsp;</span><span id="cke_17_label" class="cke_button_label cke_button__unlink_label">Unlink</span></a><a id="cke_18" class="cke_button cke_button__anchor cke_button_off " "="" href="javascript:void('Anchor')" title="Anchor" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_18_label" aria-haspopup="false" onkeydown="return CKEDITOR.tools.callFunction(44,event);" onfocus="return CKEDITOR.tools.callFunction(45,event);" onmousedown="return CKEDITOR.tools.callFunction(46,event);" onclick="CKEDITOR.tools.callFunction(47,this);return false;"><span class="cke_button_icon cke_button__anchor_icon" style="background-image:url(http://thevectorlab.net/adminlab/assets/ckeditor/plugins/icons.png?t=D08E);background-position:0 -800px;">&nbsp;</span><span id="cke_18_label" class="cke_button_label cke_button__anchor_label">Anchor</span></a></span><span class="cke_toolbar_end"></span></span><span id="cke_19" class="cke_toolbar" aria-labelledby="cke_19_label" role="toolbar"><span id="cke_19_label" class="cke_voice_label">Insert</span><span class="cke_toolbar_start"></span><span class="cke_toolgroup" role="presentation"><a id="cke_20" class="cke_button cke_button__image cke_button_off " "="" href="javascript:void('Image')" title="Image" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_20_label" aria-haspopup="false" onkeydown="return CKEDITOR.tools.callFunction(48,event);" onfocus="return CKEDITOR.tools.callFunction(49,event);" onmousedown="return CKEDITOR.tools.callFunction(50,event);" onclick="CKEDITOR.tools.callFunction(51,this);return false;"><span class="cke_button_icon cke_button__image_icon" style="background-image:url(http://thevectorlab.net/adminlab/assets/ckeditor/plugins/icons.png?t=D08E);background-position:0 -736px;">&nbsp;</span><span id="cke_20_label" class="cke_button_label cke_button__image_label">Image</span></a><a id="cke_21" class="cke_button cke_button__table cke_button_off " "="" href="javascript:void('Table')" title="Table" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_21_label" aria-haspopup="false" onkeydown="return CKEDITOR.tools.callFunction(52,event);" onfocus="return CKEDITOR.tools.callFunction(53,event);" onmousedown="return CKEDITOR.tools.callFunction(54,event);" onclick="CKEDITOR.tools.callFunction(55,this);return false;"><span class="cke_button_icon cke_button__table_icon" style="background-image:url(http://thevectorlab.net/adminlab/assets/ckeditor/plugins/icons.png?t=D08E);background-position:0 -1216px;">&nbsp;</span><span id="cke_21_label" class="cke_button_label cke_button__table_label">Table</span></a><a id="cke_22" class="cke_button cke_button__horizontalrule cke_button_off " "="" href="javascript:void('Insert Horizontal Line')" title="Insert Horizontal Line" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_22_label" aria-haspopup="false" onkeydown="return CKEDITOR.tools.callFunction(56,event);" onfocus="return CKEDITOR.tools.callFunction(57,event);" onmousedown="return CKEDITOR.tools.callFunction(58,event);" onclick="CKEDITOR.tools.callFunction(59,this);return false;"><span class="cke_button_icon cke_button__horizontalrule_icon" style="background-image:url(http://thevectorlab.net/adminlab/assets/ckeditor/plugins/icons.png?t=D08E);background-position:0 -704px;">&nbsp;</span><span id="cke_22_label" class="cke_button_label cke_button__horizontalrule_label">Insert Horizontal Line</span></a><a id="cke_23" class="cke_button cke_button__specialchar cke_button_off " "="" href="javascript:void('Insert Special Character')" title="Insert Special Character" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_23_label" aria-haspopup="false" onkeydown="return CKEDITOR.tools.callFunction(60,event);" onfocus="return CKEDITOR.tools.callFunction(61,event);" onmousedown="return CKEDITOR.tools.callFunction(62,event);" onclick="CKEDITOR.tools.callFunction(63,this);return false;"><span class="cke_button_icon cke_button__specialchar_icon" style="background-image:url(http://thevectorlab.net/adminlab/assets/ckeditor/plugins/icons.png?t=D08E);background-position:0 -1152px;">&nbsp;</span><span id="cke_23_label" class="cke_button_label cke_button__specialchar_label">Insert Special Character</span></a></span><span class="cke_toolbar_end"></span></span><span id="cke_24" class="cke_toolbar" aria-labelledby="cke_24_label" role="toolbar"><span id="cke_24_label" class="cke_voice_label">Tools</span><span class="cke_toolbar_start"></span><span class="cke_toolgroup" role="presentation"><a id="cke_25" class="cke_button cke_button__maximize cke_button_off " "="" href="javascript:void('Maximize')" title="Maximize" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_25_label" aria-haspopup="false" onkeydown="return CKEDITOR.tools.callFunction(64,event);" onfocus="return CKEDITOR.tools.callFunction(65,event);" onmousedown="return CKEDITOR.tools.callFunction(66,event);" onclick="CKEDITOR.tools.callFunction(67,this);return false;"><span class="cke_button_icon cke_button__maximize_icon" style="background-image:url(http://thevectorlab.net/adminlab/assets/ckeditor/plugins/icons.png?t=D08E);background-position:0 -896px;">&nbsp;</span><span id="cke_25_label" class="cke_button_label cke_button__maximize_label">Maximize</span></a></span><span class="cke_toolbar_end"></span></span><span id="cke_26" class="cke_toolbar" aria-labelledby="cke_26_label" role="toolbar"><span id="cke_26_label" class="cke_voice_label">Document</span><span class="cke_toolbar_start"></span><span class="cke_toolgroup" role="presentation"><a id="cke_27" class="cke_button cke_button__source cke_button_off " "="" href="javascript:void('Source')" title="Source" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_27_label" aria-haspopup="false" onkeydown="return CKEDITOR.tools.callFunction(68,event);" onfocus="return CKEDITOR.tools.callFunction(69,event);" onmousedown="return CKEDITOR.tools.callFunction(70,event);" onclick="CKEDITOR.tools.callFunction(71,this);return false;"><span class="cke_button_icon cke_button__source_icon" style="background-image:url(http://thevectorlab.net/adminlab/assets/ckeditor/plugins/icons.png?t=D08E);background-position:0 -1120px;">&nbsp;</span><span id="cke_27_label" class="cke_button_label cke_button__source_label">Source</span></a></span><span class="cke_toolbar_end"></span></span><span class="cke_toolbar_break"></span><span id="cke_28" class="cke_toolbar" aria-labelledby="cke_28_label" role="toolbar"><span id="cke_28_label" class="cke_voice_label">Basic Styles</span><span class="cke_toolbar_start"></span><span class="cke_toolgroup" role="presentation"><a id="cke_29" class="cke_button cke_button__bold cke_button_off " "="" href="javascript:void('Bold')" title="Bold" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_29_label" aria-haspopup="false" onkeydown="return CKEDITOR.tools.callFunction(72,event);" onfocus="return CKEDITOR.tools.callFunction(73,event);" onmousedown="return CKEDITOR.tools.callFunction(74,event);" onclick="CKEDITOR.tools.callFunction(75,this);return false;"><span class="cke_button_icon cke_button__bold_icon" style="background-image:url(http://thevectorlab.net/adminlab/assets/ckeditor/plugins/icons.png?t=D08E);background-position:0 -32px;">&nbsp;</span><span id="cke_29_label" class="cke_button_label cke_button__bold_label">Bold</span></a><a id="cke_30" class="cke_button cke_button__italic cke_button_off " "="" href="javascript:void('Italic')" title="Italic" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_30_label" aria-haspopup="false" onkeydown="return CKEDITOR.tools.callFunction(76,event);" onfocus="return CKEDITOR.tools.callFunction(77,event);" onmousedown="return CKEDITOR.tools.callFunction(78,event);" onclick="CKEDITOR.tools.callFunction(79,this);return false;"><span class="cke_button_icon cke_button__italic_icon" style="background-image:url(http://thevectorlab.net/adminlab/assets/ckeditor/plugins/icons.png?t=D08E);background-position:0 -64px;">&nbsp;</span><span id="cke_30_label" class="cke_button_label cke_button__italic_label">Italic</span></a><a id="cke_31" class="cke_button cke_button__strike cke_button_off " "="" href="javascript:void('Strike Through')" title="Strike Through" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_31_label" aria-haspopup="false" onkeydown="return CKEDITOR.tools.callFunction(80,event);" onfocus="return CKEDITOR.tools.callFunction(81,event);" onmousedown="return CKEDITOR.tools.callFunction(82,event);" onclick="CKEDITOR.tools.callFunction(83,this);return false;"><span class="cke_button_icon cke_button__strike_icon" style="background-image:url(http://thevectorlab.net/adminlab/assets/ckeditor/plugins/icons.png?t=D08E);background-position:0 -96px;">&nbsp;</span><span id="cke_31_label" class="cke_button_label cke_button__strike_label">Strike Through</span></a><span class="cke_toolbar_separator" role="separator"></span><a id="cke_32" class="cke_button cke_button__removeformat cke_button_off " "="" href="javascript:void('Remove Format')" title="Remove Format" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_32_label" aria-haspopup="false" onkeydown="return CKEDITOR.tools.callFunction(84,event);" onfocus="return CKEDITOR.tools.callFunction(85,event);" onmousedown="return CKEDITOR.tools.callFunction(86,event);" onclick="CKEDITOR.tools.callFunction(87,this);return false;"><span class="cke_button_icon cke_button__removeformat_icon" style="background-image:url(http://thevectorlab.net/adminlab/assets/ckeditor/plugins/icons.png?t=D08E);background-position:0 -1056px;">&nbsp;</span><span id="cke_32_label" class="cke_button_label cke_button__removeformat_label">Remove Format</span></a></span><span class="cke_toolbar_end"></span></span><span id="cke_33" class="cke_toolbar" aria-labelledby="cke_33_label" role="toolbar"><span id="cke_33_label" class="cke_voice_label">Paragraph</span><span class="cke_toolbar_start"></span><span class="cke_toolgroup" role="presentation"><a id="cke_34" class="cke_button cke_button__numberedlist cke_button_off " "="" href="javascript:void('Insert/Remove Numbered List')" title="Insert/Remove Numbered List" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_34_label" aria-haspopup="false" onkeydown="return CKEDITOR.tools.callFunction(88,event);" onfocus="return CKEDITOR.tools.callFunction(89,event);" onmousedown="return CKEDITOR.tools.callFunction(90,event);" onclick="CKEDITOR.tools.callFunction(91,this);return false;"><span class="cke_button_icon cke_button__numberedlist_icon" style="background-image:url(http://thevectorlab.net/adminlab/assets/ckeditor/plugins/icons.png?t=D08E);background-position:0 -544px;">&nbsp;</span><span id="cke_34_label" class="cke_button_label cke_button__numberedlist_label">Insert/Remove Numbered List</span></a><a id="cke_35" class="cke_button cke_button__bulletedlist cke_button_off " "="" href="javascript:void('Insert/Remove Bulleted List')" title="Insert/Remove Bulleted List" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_35_label" aria-haspopup="false" onkeydown="return CKEDITOR.tools.callFunction(92,event);" onfocus="return CKEDITOR.tools.callFunction(93,event);" onmousedown="return CKEDITOR.tools.callFunction(94,event);" onclick="CKEDITOR.tools.callFunction(95,this);return false;"><span class="cke_button_icon cke_button__bulletedlist_icon" style="background-image:url(http://thevectorlab.net/adminlab/assets/ckeditor/plugins/icons.png?t=D08E);background-position:0 -480px;">&nbsp;</span><span id="cke_35_label" class="cke_button_label cke_button__bulletedlist_label">Insert/Remove Bulleted List</span></a><span class="cke_toolbar_separator" role="separator"></span><a id="cke_36" class="cke_button cke_button__outdent cke_button_disabled" "="" href="javascript:void('Decrease Indent')" title="Decrease Indent" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_36_label" aria-haspopup="false" onkeydown="return CKEDITOR.tools.callFunction(96,event);" onfocus="return CKEDITOR.tools.callFunction(97,event);" onmousedown="return CKEDITOR.tools.callFunction(98,event);" onclick="CKEDITOR.tools.callFunction(99,this);return false;" aria-disabled="true"><span class="cke_button_icon cke_button__outdent_icon" style="background-image:url(http://thevectorlab.net/adminlab/assets/ckeditor/plugins/icons.png?t=D08E);background-position:0 -672px;">&nbsp;</span><span id="cke_36_label" class="cke_button_label cke_button__outdent_label">Decrease Indent</span></a><a id="cke_37" class="cke_button cke_button__indent cke_button_off " "="" href="javascript:void('Increase Indent')" title="Increase Indent" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_37_label" aria-haspopup="false" onkeydown="return CKEDITOR.tools.callFunction(100,event);" onfocus="return CKEDITOR.tools.callFunction(101,event);" onmousedown="return CKEDITOR.tools.callFunction(102,event);" onclick="CKEDITOR.tools.callFunction(103,this);return false;"><span class="cke_button_icon cke_button__indent_icon" style="background-image:url(http://thevectorlab.net/adminlab/assets/ckeditor/plugins/icons.png?t=D08E);background-position:0 -608px;">&nbsp;</span><span id="cke_37_label" class="cke_button_label cke_button__indent_label">Increase Indent</span></a><span class="cke_toolbar_separator" role="separator"></span><a id="cke_38" class="cke_button cke_button__blockquote cke_button_off " "="" href="javascript:void('Block Quote')" title="Block Quote" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_38_label" aria-haspopup="false" onkeydown="return CKEDITOR.tools.callFunction(104,event);" onfocus="return CKEDITOR.tools.callFunction(105,event);" onmousedown="return CKEDITOR.tools.callFunction(106,event);" onclick="CKEDITOR.tools.callFunction(107,this);return false;"><span class="cke_button_icon cke_button__blockquote_icon" style="background-image:url(http://thevectorlab.net/adminlab/assets/ckeditor/plugins/icons.png?t=D08E);background-position:0 -224px;">&nbsp;</span><span id="cke_38_label" class="cke_button_label cke_button__blockquote_label">Block Quote</span></a></span><span class="cke_toolbar_end"></span></span><span id="cke_40" class="cke_toolbar" aria-labelledby="cke_40_label" role="toolbar"><span id="cke_40_label" class="cke_voice_label">Styles</span><span class="cke_toolbar_start"></span><span id="cke_39" class="cke_combo cke_combo__styles  cke_combo_off" role="presentation"><span id="cke_39_label" class="cke_combo_label">Styles</span><a class="cke_combo_button" hidefocus="true" title="Formatting Styles" tabindex="-1" "="" href="javascript:void('Formatting Styles')" role="button" aria-labelledby="cke_39_label" aria-haspopup="true" onkeydown="return CKEDITOR.tools.callFunction(109,event,this);" onmousedown="return CKEDITOR.tools.callFunction(111,event);" onfocus="return CKEDITOR.tools.callFunction(110,event);" onclick="CKEDITOR.tools.callFunction(108,this);return false;"><span id="cke_39_text" class="cke_combo_text cke_combo_inlinelabel">Styles</span><span class="cke_combo_open"><span class="cke_combo_arrow"></span></span></a></span><span id="cke_41" class="cke_combo cke_combo__format  cke_combo_off" role="presentation"><span id="cke_41_label" class="cke_combo_label">Format</span><a class="cke_combo_button" hidefocus="true" title="Paragraph Format" tabindex="-1" "="" href="javascript:void('Paragraph Format')" role="button" aria-labelledby="cke_41_label" aria-haspopup="true" onkeydown="return CKEDITOR.tools.callFunction(113,event,this);" onmousedown="return CKEDITOR.tools.callFunction(115,event);" onfocus="return CKEDITOR.tools.callFunction(114,event);" onclick="CKEDITOR.tools.callFunction(112,this);return false;"><span id="cke_41_text" class="cke_combo_text">Normal</span><span class="cke_combo_open"><span class="cke_combo_arrow"></span></span></a></span><span class="cke_toolbar_end"></span></span><span id="cke_42" class="cke_toolbar" aria-labelledby="cke_42_label" role="toolbar"><span id="cke_42_label" class="cke_voice_label">about</span><span class="cke_toolbar_start"></span><span class="cke_toolgroup" role="presentation"><a id="cke_43" class="cke_button cke_button__about cke_button_off " "="" href="javascript:void('About CKEditor')" title="About CKEditor" tabindex="-1" hidefocus="true" role="button" aria-labelledby="cke_43_label" aria-haspopup="false" onkeydown="return CKEDITOR.tools.callFunction(116,event);" onfocus="return CKEDITOR.tools.callFunction(117,event);" onmousedown="return CKEDITOR.tools.callFunction(118,event);" onclick="CKEDITOR.tools.callFunction(119,this);return false;"><span class="cke_button_icon cke_button__about_icon" style="background-image:url(http://thevectorlab.net/adminlab/assets/ckeditor/plugins/icons.png?t=D08E);background-position:0 0px;">&nbsp;</span><span id="cke_43_label" class="cke_button_label cke_button__about_label">About CKEditor</span></a></span><span class="cke_toolbar_end"></span></span></span></span><div id="cke_1_contents" class="cke_contents cke_reset" role="presentation" style="height: 200px;"><span id="cke_48" class="cke_voice_label">Press ALT 0 for help</span><iframe class="cke_wysiwyg_frame cke_reset" frameborder="0" aria-describedby="cke_48" title="Rich Text Editor,editor1" src="" tabindex="0" allowtransparency="true" style="width: 882px; height: 100%;"></iframe></div><span id="cke_1_bottom" class="cke_bottom cke_reset_all" role="presentation" style="-webkit-user-select: none;"><span id="cke_1_resizer" class="cke_resizer cke_resizer_vertical cke_resizer_ltr" title="Resize" onmousedown="CKEDITOR.tools.callFunction(0, event)">◢</span><span id="cke_1_path_label" class="cke_voice_label">Elements path</span><span id="cke_1_path" class="cke_path" role="group" aria-labelledby="cke_1_path_label"><a id="cke_elementspath_3_2" href="javascript:void('body')" tabindex="-1" class="cke_path_item" title="body element" hidefocus="true" onkeydown="return CKEDITOR.tools.callFunction(2,2, event );" onclick="CKEDITOR.tools.callFunction(1,2); return false;" role="button" aria-label="body element">body</a><a id="cke_elementspath_3_1" href="javascript:void('p')" tabindex="-1" class="cke_path_item" title="p element" hidefocus="true" onkeydown="return CKEDITOR.tools.callFunction(2,1, event );" onclick="CKEDITOR.tools.callFunction(1,1); return false;" role="button" aria-label="p element">p</a><a id="cke_elementspath_3_0" href="javascript:void('br')" tabindex="-1" class="cke_path_item" title="br element" hidefocus="true" onkeydown="return CKEDITOR.tools.callFunction(2,0, event );" onclick="CKEDITOR.tools.callFunction(1,0); return false;" role="button" aria-label="br element">br</a><span class="cke_path_empty">&nbsp;</span></span></span></div></div>
+                                    </div>
+                                </div>
+                            </form>
+                            <!-- END FORM-->
+                        </div>
+                    </div>
+                    <!-- END EXTRAS widget-->
+                </div>
+            </div>
+            <!-- END PAGE CONTENT-->         
+         </div>
+         <!-- END PAGE CONTAINER-->
+      </div>
+      <!-- END PAGE -->  
+   </div>
+   <!-- END CONTAINER -->
+   <!-- BEGIN FOOTER -->
+   <div id="footer">
+       2013 © Admin Lab Dashboard.
+      <div class="span pull-right">
+         <span class="go-top"><i class="icon-arrow-up"></i></span>
+      </div>
+   </div>
+   <!-- END FOOTER -->
+   <!-- BEGIN JAVASCRIPTS -->    
+   <!-- Load javascripts at bottom, this will reduce page load time -->
+   <script src="./Form Components_files/jquery-1.8.2.min.js"></script>    
+   <script type="text/javascript" src="./Form Components_files/ckeditor.js"></script>
+   <script src="./Form Components_files/bootstrap.min.js"></script>
+   <script type="text/javascript" src="./Form Components_files/bootstrap-fileupload.js"></script>
+   <script src="./Form Components_files/jquery.blockui.js"></script>
+   <!-- ie8 fixes -->
+   <!--[if lt IE 9]>
+   <script src="js/excanvas.js"></script>
+   <script src="js/respond.js"></script>
+   <![endif]-->
+   <script type="text/javascript" src="./Form Components_files/chosen.jquery.min.js"></script>
+   <script type="text/javascript" src="./Form Components_files/jquery.uniform.min.js"></script>
+   <script type="text/javascript" src="./Form Components_files/wysihtml5-0.3.0.js"></script> 
+   <script type="text/javascript" src="./Form Components_files/bootstrap-wysihtml5.js"></script>
+   <script type="text/javascript" src="./Form Components_files/clockface.js"></script>
+   <script type="text/javascript" src="./Form Components_files/jquery.tagsinput.min.js"></script>
+   <script type="text/javascript" src="./Form Components_files/jquery.toggle.buttons.js"></script>
+   <script type="text/javascript" src="./Form Components_files/bootstrap-datepicker.js"></script>   
+   <script type="text/javascript" src="./Form Components_files/date.js"></script>
+   <script type="text/javascript" src="./Form Components_files/daterangepicker.js"></script> 
+   <script type="text/javascript" src="./Form Components_files/bootstrap-colorpicker.js"></script>  
+   <script type="text/javascript" src="./Form Components_files/bootstrap-timepicker.js"></script>
+   <script type="text/javascript" src="./Form Components_files/bootstrap-inputmask.min.js"></script>
+   <script src="./Form Components_files/jquery.fancybox.pack.js"></script>
+   <script src="./Form Components_files/scripts.js"></script>
+   <script>
+      jQuery(document).ready(function() {       
+         // initiate layout and plugins
+         App.init();
+      });
+   </script>
+   <!-- END JAVASCRIPTS -->   
+
+<!-- END BODY -->
+<div class="clockface dropdown-menu" style="display: none;"><div class="l1"><div class="cell"><div class="outer">55</div><div class="inner"></div></div><div class="cell"><div class="outer">00</div><div class="inner"></div></div><div class="cell"><div class="outer">05</div><div class="inner"></div></div></div><div class="l2"><div class="cell left"><div class="outer">50</div><div class="inner"></div></div><div class="cell right"><div class="inner"></div><div class="outer">10</div></div></div><div class="l3"><div class="cell left"><div class="outer">45</div><div class="inner"></div></div><div class="cell right"><div class="inner"></div><div class="outer">15</div></div><div class="center"><a href="http://thevectorlab.net/adminlab/form_component.html#" class="ampm"></a></div></div><div class="l4"><div class="cell left"><div class="outer">40</div><div class="inner"></div></div><div class="cell right"><div class="inner"></div><div class="outer">20</div></div></div><div class="l5"><div class="cell"><div class="inner"></div><div class="outer">35</div></div><div class="cell"><div class="inner"></div><div class="outer">30</div></div><div class="cell"><div class="inner"></div><div class="outer">25</div></div></div></div><div class="clockface dropdown-menu" style="display: none;"><div class="l1"><div class="cell"><div class="outer">55</div><div class="inner"></div></div><div class="cell"><div class="outer">00</div><div class="inner"></div></div><div class="cell"><div class="outer">05</div><div class="inner"></div></div></div><div class="l2"><div class="cell left"><div class="outer">50</div><div class="inner"></div></div><div class="cell right"><div class="inner"></div><div class="outer">10</div></div></div><div class="l3"><div class="cell left"><div class="outer">45</div><div class="inner"></div></div><div class="cell right"><div class="inner"></div><div class="outer">15</div></div><div class="center"><a href="http://thevectorlab.net/adminlab/form_component.html#" class="ampm"></a></div></div><div class="l4"><div class="cell left"><div class="outer">40</div><div class="inner"></div></div><div class="cell right"><div class="inner"></div><div class="outer">20</div></div></div><div class="l5"><div class="cell"><div class="inner"></div><div class="outer">35</div></div><div class="cell"><div class="inner"></div><div class="outer">30</div></div><div class="cell"><div class="inner"></div><div class="outer">25</div></div></div></div><tester id="tags_1_tag_autosize_tester" style="position: absolute; top: -9999px; left: -9999px; width: auto; font-size: 13px; font-family: helvetica; font-weight: 400; letter-spacing: 0px; white-space: nowrap;">fddfs</tester><tester id="tags_2_tag_autosize_tester" style="position: absolute; top: -9999px; left: -9999px; width: auto; font-size: 13px; font-family: helvetica; font-weight: 400; letter-spacing: 0px; white-space: nowrap;"></tester><div class="daterangepicker dropdown-menu opensright" style="display: none; top: 3445px; left: 457px; right: auto;"><div class="calendar right" style="display: block;"><table class="table-condensed"><thead><tr><th></th><th colspan="5" style="width: auto">January 2015</th><th class="next available"><i class="icon-arrow-right"></i></th></tr><tr><th>Su</th><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th></tr></thead><tbody><tr><td class="off disabled" title="r0c0">28</td><td class="off disabled" title="r0c1">29</td><td class="off disabled" title="r0c2">30</td><td class="off disabled" title="r0c3">31</td><td class="off disabled" title="r0c4">1</td><td class="off disabled" title="r0c5">2</td><td class="off disabled" title="r0c6">3</td></tr><tr><td class="off disabled" title="r1c0">4</td><td class="off disabled" title="r1c1">5</td><td class="off disabled" title="r1c2">6</td><td class="off disabled" title="r1c3">7</td><td class="off disabled" title="r1c4">8</td><td class="off disabled" title="r1c5">9</td><td class="off disabled" title="r1c6">10</td></tr><tr><td class="off disabled" title="r2c0">11</td><td class="off disabled" title="r2c1">12</td><td class="available active" title="r2c2">13</td><td class="available " title="r2c3">14</td><td class="available " title="r2c4">15</td><td class="available " title="r2c5">16</td><td class="available " title="r2c6">17</td></tr><tr><td class="available " title="r3c0">18</td><td class="available " title="r3c1">19</td><td class="available " title="r3c2">20</td><td class="available " title="r3c3">21</td><td class="available " title="r3c4">22</td><td class="available " title="r3c5">23</td><td class="available " title="r3c6">24</td></tr><tr><td class="available " title="r4c0">25</td><td class="available " title="r4c1">26</td><td class="available " title="r4c2">27</td><td class="available " title="r4c3">28</td><td class="available " title="r4c4">29</td><td class="available " title="r4c5">30</td><td class="available " title="r4c6">31</td></tr><tr><td class="available off" title="r5c0">1</td><td class="available off" title="r5c1">2</td><td class="available off" title="r5c2">3</td><td class="available off" title="r5c3">4</td><td class="available off" title="r5c4">5</td><td class="available off" title="r5c5">6</td><td class="available off" title="r5c6">7</td></tr></tbody></table></div><div class="calendar left" style="display: block;"><table class="table-condensed"><thead><tr><th class="prev available"><i class="icon-arrow-left"></i></th><th colspan="5" style="width: auto">January 2015</th><th class="next available"><i class="icon-arrow-right"></i></th></tr><tr><th>Su</th><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th></tr></thead><tbody><tr><td class="available off" title="r0c0">28</td><td class="available off" title="r0c1">29</td><td class="available off" title="r0c2">30</td><td class="available off" title="r0c3">31</td><td class="available " title="r0c4">1</td><td class="available " title="r0c5">2</td><td class="available " title="r0c6">3</td></tr><tr><td class="available " title="r1c0">4</td><td class="available " title="r1c1">5</td><td class="available " title="r1c2">6</td><td class="available " title="r1c3">7</td><td class="available " title="r1c4">8</td><td class="available " title="r1c5">9</td><td class="available " title="r1c6">10</td></tr><tr><td class="available " title="r2c0">11</td><td class="available " title="r2c1">12</td><td class="available active" title="r2c2">13</td><td class="off disabled" title="r2c3">14</td><td class="off disabled" title="r2c4">15</td><td class="off disabled" title="r2c5">16</td><td class="off disabled" title="r2c6">17</td></tr><tr><td class="off disabled" title="r3c0">18</td><td class="off disabled" title="r3c1">19</td><td class="off disabled" title="r3c2">20</td><td class="off disabled" title="r3c3">21</td><td class="off disabled" title="r3c4">22</td><td class="off disabled" title="r3c5">23</td><td class="off disabled" title="r3c6">24</td></tr><tr><td class="off disabled" title="r4c0">25</td><td class="off disabled" title="r4c1">26</td><td class="off disabled" title="r4c2">27</td><td class="off disabled" title="r4c3">28</td><td class="off disabled" title="r4c4">29</td><td class="off disabled" title="r4c5">30</td><td class="off disabled" title="r4c6">31</td></tr><tr><td class="off disabled" title="r5c0">1</td><td class="off disabled" title="r5c1">2</td><td class="off disabled" title="r5c2">3</td><td class="off disabled" title="r5c3">4</td><td class="off disabled" title="r5c4">5</td><td class="off disabled" title="r5c5">6</td><td class="off disabled" title="r5c6">7</td></tr></tbody></table></div><div class="ranges"><div class="range_inputs"><div><label for="daterangepicker_start">From</label><input class="input-mini" type="text" name="daterangepicker_start" value="" disabled="disabled"></div><div><label for="daterangepicker_end">To</label><input class="input-mini" type="text" name="daterangepicker_end" value="" disabled="disabled"></div><button class="btn btn-small btn-success">Apply</button></div></div></div><div class="daterangepicker dropdown-menu opensright" style="display: none; top: 3495px; left: 430px; right: auto;"><div class="calendar right"><table class="table-condensed"><thead><tr><th></th><th class="prev available"><i class="icon-arrow-left"></i></th><th colspan="5" style="width: auto">January 2015</th><th></th></tr><tr><th class="week">W</th><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th><th>Su</th></tr></thead><tbody><tr><td class="week">1</td><td class="available off" title="r0c0">29</td><td class="available off" title="r0c1">30</td><td class="available off" title="r0c2">31</td><td class="off disabled" title="r0c3">1</td><td class="off disabled" title="r0c4">2</td><td class="off disabled" title="r0c5">3</td><td class="off disabled" title="r0c6">4</td></tr><tr><td class="week">2</td><td class="off disabled" title="r1c0">5</td><td class="off disabled" title="r1c1">6</td><td class="off disabled" title="r1c2">7</td><td class="off disabled" title="r1c3">8</td><td class="off disabled" title="r1c4">9</td><td class="off disabled" title="r1c5">10</td><td class="off disabled" title="r1c6">11</td></tr><tr><td class="week">3</td><td class="off disabled" title="r2c0">12</td><td class="off disabled" title="r2c1">13</td><td class="off disabled" title="r2c2">14</td><td class="off disabled" title="r2c3">15</td><td class="off disabled" title="r2c4">16</td><td class="off disabled" title="r2c5">17</td><td class="off disabled" title="r2c6">18</td></tr><tr><td class="week">4</td><td class="off disabled" title="r3c0">19</td><td class="off disabled" title="r3c1">20</td><td class="off disabled" title="r3c2">21</td><td class="off disabled" title="r3c3">22</td><td class="off disabled" title="r3c4">23</td><td class="off disabled" title="r3c5">24</td><td class="off disabled" title="r3c6">25</td></tr><tr><td class="week">5</td><td class="off disabled" title="r4c0">26</td><td class="off disabled" title="r4c1">27</td><td class="off disabled" title="r4c2">28</td><td class="off disabled" title="r4c3">29</td><td class="off disabled" title="r4c4">30</td><td class="off disabled" title="r4c5">31</td><td class="off disabled" title="r4c6">1</td></tr><tr><td class="week">6</td><td class="off disabled" title="r5c0">2</td><td class="off disabled" title="r5c1">3</td><td class="off disabled" title="r5c2">4</td><td class="off disabled" title="r5c3">5</td><td class="off disabled" title="r5c4">6</td><td class="off disabled" title="r5c5">7</td><td class="off disabled" title="r5c6">8</td></tr></tbody></table></div><div class="calendar left"><table class="table-condensed"><thead><tr><th></th><th class="prev available"><i class="icon-arrow-left"></i></th><th colspan="5" style="width: auto">December 2014</th><th class="next available"><i class="icon-arrow-right"></i></th></tr><tr><th class="week">W</th><th>Mo</th><th>Tu</th><th>We</th><th>Th</th><th>Fr</th><th>Sa</th><th>Su</th></tr></thead><tbody><tr><td class="week">48</td><td class="available off" title="r0c0">24</td><td class="available off" title="r0c1">25</td><td class="available off" title="r0c2">26</td><td class="available off" title="r0c3">27</td><td class="available off" title="r0c4">28</td><td class="available off" title="r0c5">29</td><td class="available off" title="r0c6">30</td></tr><tr><td class="week">49</td><td class="available " title="r1c0">1</td><td class="available " title="r1c1">2</td><td class="available " title="r1c2">3</td><td class="available " title="r1c3">4</td><td class="available " title="r1c4">5</td><td class="available " title="r1c5">6</td><td class="available " title="r1c6">7</td></tr><tr><td class="week">50</td><td class="available " title="r2c0">8</td><td class="available " title="r2c1">9</td><td class="available " title="r2c2">10</td><td class="available " title="r2c3">11</td><td class="available " title="r2c4">12</td><td class="available " title="r2c5">13</td><td class="available " title="r2c6">14</td></tr><tr><td class="week">51</td><td class="available active" title="r3c0">15</td><td class="available " title="r3c1">16</td><td class="available " title="r3c2">17</td><td class="available " title="r3c3">18</td><td class="available " title="r3c4">19</td><td class="available " title="r3c5">20</td><td class="available " title="r3c6">21</td></tr><tr><td class="week">52</td><td class="available " title="r4c0">22</td><td class="available " title="r4c1">23</td><td class="available " title="r4c2">24</td><td class="available " title="r4c3">25</td><td class="available " title="r4c4">26</td><td class="available " title="r4c5">27</td><td class="available " title="r4c6">28</td></tr><tr><td class="week">1</td><td class="available " title="r5c0">29</td><td class="available " title="r5c1">30</td><td class="available " title="r5c2">31</td><td class="available off" title="r5c3">1</td><td class="available off" title="r5c4">2</td><td class="available off" title="r5c5">3</td><td class="available off" title="r5c6">4</td></tr></tbody></table></div><div class="ranges"><ul><li>Last 30 Days</li><li>Last Month</li><li>Custom Range</li></ul><div class="range_inputs"><div><label for="daterangepicker_start">From</label><input class="input-mini" type="text" name="daterangepicker_start" value="" disabled="disabled"></div><div><label for="daterangepicker_end">To</label><input class="input-mini" type="text" name="daterangepicker_end" value="" disabled="disabled"></div><button class="btn btn-small btn-danger">Submit</button></div></div></div><div class="datepicker dropdown-menu" style="display: none; top: 3208px; left: 430px;"><div class="datepicker-days" style="display: block;"><table class=" table-condensed"><thead><tr><th class="prev">‹</th><th colspan="5" class="switch">January 2015</th><th class="next">›</th></tr><tr><th class="dow">Su</th><th class="dow">Mo</th><th class="dow">Tu</th><th class="dow">We</th><th class="dow">Th</th><th class="dow">Fr</th><th class="dow">Sa</th></tr></thead><tbody><tr><td class="day new">28</td><td class="day new">29</td><td class="day new">30</td><td class="day new">31</td><td class="day">1</td><td class="day">2</td><td class="day">3</td></tr><tr><td class="day">4</td><td class="day">5</td><td class="day">6</td><td class="day">7</td><td class="day">8</td><td class="day">9</td><td class="day">10</td></tr><tr><td class="day">11</td><td class="day">12</td><td class="day active">13</td><td class="day">14</td><td class="day">15</td><td class="day">16</td><td class="day">17</td></tr><tr><td class="day">18</td><td class="day">19</td><td class="day">20</td><td class="day">21</td><td class="day">22</td><td class="day">23</td><td class="day">24</td></tr><tr><td class="day">25</td><td class="day">26</td><td class="day">27</td><td class="day">28</td><td class="day">29</td><td class="day">30</td><td class="day">31</td></tr><tr><td class="day new">1</td><td class="day new">2</td><td class="day new">3</td><td class="day new">4</td><td class="day new">5</td><td class="day new">6</td><td class="day new">7</td></tr></tbody></table></div><div class="datepicker-months" style="display: none;"><table class="table-condensed"><thead><tr><th class="prev">‹</th><th colspan="5" class="switch">2015</th><th class="next">›</th></tr></thead><tbody><tr><td colspan="7"><span class="month active">Jan</span><span class="month">Feb</span><span class="month">Mar</span><span class="month">Apr</span><span class="month">May</span><span class="month">Jun</span><span class="month">Jul</span><span class="month">Aug</span><span class="month">Sep</span><span class="month">Oct</span><span class="month">Nov</span><span class="month">Dec</span></td></tr></tbody></table></div><div class="datepicker-years" style="display: none;"><table class="table-condensed"><thead><tr><th class="prev">‹</th><th colspan="5" class="switch">2010-2019</th><th class="next">›</th></tr></thead><tbody><tr><td colspan="7"><span class="year old">2009</span><span class="year">2010</span><span class="year">2011</span><span class="year">2012</span><span class="year">2013</span><span class="year">2014</span><span class="year active">2015</span><span class="year">2016</span><span class="year">2017</span><span class="year">2018</span><span class="year">2019</span><span class="year old">2020</span></td></tr></tbody></table></div></div><div class="datepicker dropdown-menu"><div class="datepicker-days" style="display: none;"><table class=" table-condensed"><thead><tr><th class="prev">‹</th><th colspan="5" class="switch">February 2012</th><th class="next">›</th></tr><tr><th class="dow">Su</th><th class="dow">Mo</th><th class="dow">Tu</th><th class="dow">We</th><th class="dow">Th</th><th class="dow">Fr</th><th class="dow">Sa</th></tr></thead><tbody><tr><td class="day old">29</td><td class="day old">30</td><td class="day old">31</td><td class="day">1</td><td class="day">2</td><td class="day">3</td><td class="day">4</td></tr><tr><td class="day">5</td><td class="day">6</td><td class="day">7</td><td class="day">8</td><td class="day">9</td><td class="day">10</td><td class="day">11</td></tr><tr><td class="day active">12</td><td class="day">13</td><td class="day">14</td><td class="day">15</td><td class="day">16</td><td class="day">17</td><td class="day">18</td></tr><tr><td class="day">19</td><td class="day">20</td><td class="day">21</td><td class="day">22</td><td class="day">23</td><td class="day">24</td><td class="day">25</td></tr><tr><td class="day">26</td><td class="day">27</td><td class="day">28</td><td class="day">29</td><td class="day new">1</td><td class="day new">2</td><td class="day new">3</td></tr><tr><td class="day new">4</td><td class="day new">5</td><td class="day new">6</td><td class="day new">7</td><td class="day new">8</td><td class="day new">9</td><td class="day new">10</td></tr></tbody></table></div><div class="datepicker-months" style="display: none;"><table class="table-condensed"><thead><tr><th class="prev">‹</th><th colspan="5" class="switch">2012</th><th class="next">›</th></tr></thead><tbody><tr><td colspan="7"><span class="month">Jan</span><span class="month active">Feb</span><span class="month">Mar</span><span class="month">Apr</span><span class="month">May</span><span class="month">Jun</span><span class="month">Jul</span><span class="month">Aug</span><span class="month">Sep</span><span class="month">Oct</span><span class="month">Nov</span><span class="month">Dec</span></td></tr></tbody></table></div><div class="datepicker-years" style="display: block;"><table class="table-condensed"><thead><tr><th class="prev">‹</th><th colspan="5" class="switch">2010-2019</th><th class="next">›</th></tr></thead><tbody><tr><td colspan="7"><span class="year old">2009</span><span class="year">2010</span><span class="year">2011</span><span class="year active">2012</span><span class="year">2013</span><span class="year">2014</span><span class="year">2015</span><span class="year">2016</span><span class="year">2017</span><span class="year">2018</span><span class="year">2019</span><span class="year old">2020</span></td></tr></tbody></table></div></div><div class="datepicker dropdown-menu" style="display: none; top: 3258px; left: 430px;"><div class="datepicker-days" style="display: block;"><table class=" table-condensed"><thead><tr><th class="prev">‹</th><th colspan="5" class="switch">January 2015</th><th class="next">›</th></tr><tr><th class="dow">Su</th><th class="dow">Mo</th><th class="dow">Tu</th><th class="dow">We</th><th class="dow">Th</th><th class="dow">Fr</th><th class="dow">Sa</th></tr></thead><tbody><tr><td class="day new">28</td><td class="day new">29</td><td class="day new">30</td><td class="day new">31</td><td class="day">1</td><td class="day">2</td><td class="day">3</td></tr><tr><td class="day">4</td><td class="day">5</td><td class="day">6</td><td class="day">7</td><td class="day">8</td><td class="day">9</td><td class="day">10</td></tr><tr><td class="day">11</td><td class="day">12</td><td class="day active">13</td><td class="day">14</td><td class="day">15</td><td class="day">16</td><td class="day">17</td></tr><tr><td class="day">18</td><td class="day">19</td><td class="day">20</td><td class="day">21</td><td class="day">22</td><td class="day">23</td><td class="day">24</td></tr><tr><td class="day">25</td><td class="day">26</td><td class="day">27</td><td class="day">28</td><td class="day">29</td><td class="day">30</td><td class="day">31</td></tr><tr><td class="day new">1</td><td class="day new">2</td><td class="day new">3</td><td class="day new">4</td><td class="day new">5</td><td class="day new">6</td><td class="day new">7</td></tr></tbody></table></div><div class="datepicker-months" style="display: none;"><table class="table-condensed"><thead><tr><th class="prev">‹</th><th colspan="5" class="switch">2015</th><th class="next">›</th></tr></thead><tbody><tr><td colspan="7"><span class="month active">Jan</span><span class="month">Feb</span><span class="month">Mar</span><span class="month">Apr</span><span class="month">May</span><span class="month">Jun</span><span class="month">Jul</span><span class="month">Aug</span><span class="month">Sep</span><span class="month">Oct</span><span class="month">Nov</span><span class="month">Dec</span></td></tr></tbody></table></div><div class="datepicker-years" style="display: none;"><table class="table-condensed"><thead><tr><th class="prev">‹</th><th colspan="5" class="switch">2010-2019</th><th class="next">›</th></tr></thead><tbody><tr><td colspan="7"><span class="year old">2009</span><span class="year">2010</span><span class="year">2011</span><span class="year">2012</span><span class="year">2013</span><span class="year">2014</span><span class="year active">2015</span><span class="year">2016</span><span class="year">2017</span><span class="year">2018</span><span class="year">2019</span><span class="year old">2020</span></td></tr></tbody></table></div></div><div class="datepicker dropdown-menu"><div class="datepicker-days" style="display: none;"><table class=" table-condensed"><thead><tr><th class="prev">‹</th><th colspan="5" class="switch">June 2012</th><th class="next">›</th></tr><tr><th class="dow">Su</th><th class="dow">Mo</th><th class="dow">Tu</th><th class="dow">We</th><th class="dow">Th</th><th class="dow">Fr</th><th class="dow">Sa</th></tr></thead><tbody><tr><td class="day old">27</td><td class="day old">28</td><td class="day old">29</td><td class="day old">30</td><td class="day old">31</td><td class="day">1</td><td class="day">2</td></tr><tr><td class="day">3</td><td class="day">4</td><td class="day">5</td><td class="day">6</td><td class="day">7</td><td class="day">8</td><td class="day">9</td></tr><tr><td class="day">10</td><td class="day">11</td><td class="day">12</td><td class="day active">13</td><td class="day">14</td><td class="day">15</td><td class="day">16</td></tr><tr><td class="day">17</td><td class="day">18</td><td class="day">19</td><td class="day">20</td><td class="day">21</td><td class="day">22</td><td class="day">23</td></tr><tr><td class="day">24</td><td class="day">25</td><td class="day">26</td><td class="day">27</td><td class="day">28</td><td class="day">29</td><td class="day">30</td></tr><tr><td class="day new">1</td><td class="day new">2</td><td class="day new">3</td><td class="day new">4</td><td class="day new">5</td><td class="day new">6</td><td class="day new">7</td></tr></tbody></table></div><div class="datepicker-months" style="display: none;"><table class="table-condensed"><thead><tr><th class="prev">‹</th><th colspan="5" class="switch">2012</th><th class="next">›</th></tr></thead><tbody><tr><td colspan="7"><span class="month">Jan</span><span class="month">Feb</span><span class="month">Mar</span><span class="month">Apr</span><span class="month">May</span><span class="month active">Jun</span><span class="month">Jul</span><span class="month">Aug</span><span class="month">Sep</span><span class="month">Oct</span><span class="month">Nov</span><span class="month">Dec</span></td></tr></tbody></table></div><div class="datepicker-years" style="display: block;"><table class="table-condensed"><thead><tr><th class="prev">‹</th><th colspan="5" class="switch">2010-2019</th><th class="next">›</th></tr></thead><tbody><tr><td colspan="7"><span class="year old">2009</span><span class="year">2010</span><span class="year">2011</span><span class="year active">2012</span><span class="year">2013</span><span class="year">2014</span><span class="year">2015</span><span class="year">2016</span><span class="year">2017</span><span class="year">2018</span><span class="year">2019</span><span class="year old">2020</span></td></tr></tbody></table></div></div><div class="datepicker dropdown-menu" style="display: none; top: 3308px; left: 430px;"><div class="datepicker-days" style="display: block;"><table class=" table-condensed"><thead><tr><th class="prev">‹</th><th colspan="5" class="switch">January 2015</th><th class="next">›</th></tr><tr><th class="dow">Su</th><th class="dow">Mo</th><th class="dow">Tu</th><th class="dow">We</th><th class="dow">Th</th><th class="dow">Fr</th><th class="dow">Sa</th></tr></thead><tbody><tr><td class="day new">28</td><td class="day new">29</td><td class="day new">30</td><td class="day new">31</td><td class="day">1</td><td class="day">2</td><td class="day">3</td></tr><tr><td class="day">4</td><td class="day">5</td><td class="day">6</td><td class="day">7</td><td class="day">8</td><td class="day">9</td><td class="day">10</td></tr><tr><td class="day">11</td><td class="day">12</td><td class="day active">13</td><td class="day">14</td><td class="day">15</td><td class="day">16</td><td class="day">17</td></tr><tr><td class="day">18</td><td class="day">19</td><td class="day">20</td><td class="day">21</td><td class="day">22</td><td class="day">23</td><td class="day">24</td></tr><tr><td class="day">25</td><td class="day">26</td><td class="day">27</td><td class="day">28</td><td class="day">29</td><td class="day">30</td><td class="day">31</td></tr><tr><td class="day new">1</td><td class="day new">2</td><td class="day new">3</td><td class="day new">4</td><td class="day new">5</td><td class="day new">6</td><td class="day new">7</td></tr></tbody></table></div><div class="datepicker-months" style="display: none;"><table class="table-condensed"><thead><tr><th class="prev">‹</th><th colspan="5" class="switch">2015</th><th class="next">›</th></tr></thead><tbody><tr><td colspan="7"><span class="month active">Jan</span><span class="month">Feb</span><span class="month">Mar</span><span class="month">Apr</span><span class="month">May</span><span class="month">Jun</span><span class="month">Jul</span><span class="month">Aug</span><span class="month">Sep</span><span class="month">Oct</span><span class="month">Nov</span><span class="month">Dec</span></td></tr></tbody></table></div><div class="datepicker-years" style="display: none;"><table class="table-condensed"><thead><tr><th class="prev">‹</th><th colspan="5" class="switch">2010-2019</th><th class="next">›</th></tr></thead><tbody><tr><td colspan="7"><span class="year old">2009</span><span class="year">2010</span><span class="year">2011</span><span class="year">2012</span><span class="year">2013</span><span class="year">2014</span><span class="year active">2015</span><span class="year">2016</span><span class="year">2017</span><span class="year">2018</span><span class="year">2019</span><span class="year old">2020</span></td></tr></tbody></table></div></div><div class="bootstrap-timepicker dropdown-menu" style="top: 2666px; left: 430px;"><table class=" show-meridian"><tbody><tr><td><a href="http://thevectorlab.net/adminlab/form_component.html#" data-action="incrementHour"><i class="icon-chevron-up"></i></a></td><td class="separator">&nbsp;</td><td><a href="http://thevectorlab.net/adminlab/form_component.html#" data-action="incrementMinute"><i class="icon-chevron-up"></i></a></td><td class="separator">&nbsp;</td><td class="meridian-column"><a href="http://thevectorlab.net/adminlab/form_component.html#" data-action="toggleMeridian"><i class="icon-chevron-up"></i></a></td></tr><tr><td><input type="text" name="hour" class="bootstrap-timepicker-hour" maxlength="2"></td> <td class="separator">:</td><td><input type="text" name="minute" class="bootstrap-timepicker-minute" maxlength="2"></td> <td class="separator">&nbsp;</td><td><input type="text" name="meridian" class="bootstrap-timepicker-meridian" maxlength="2"></td></tr><tr><td><a href="http://thevectorlab.net/adminlab/form_component.html#" data-action="decrementHour"><i class="icon-chevron-down"></i></a></td><td class="separator"></td><td><a href="http://thevectorlab.net/adminlab/form_component.html#" data-action="decrementMinute"><i class="icon-chevron-down"></i></a></td><td class="separator">&nbsp;</td><td><a href="http://thevectorlab.net/adminlab/form_component.html#" data-action="toggleMeridian"><i class="icon-chevron-down"></i></a></td></tr></tbody></table></div><div class="bootstrap-timepicker dropdown-menu" style="top: 2716px; left: 430px;"><table class="show-seconds "><tbody><tr><td><a href="http://thevectorlab.net/adminlab/form_component.html#" data-action="incrementHour"><i class="icon-chevron-up"></i></a></td><td class="separator">&nbsp;</td><td><a href="http://thevectorlab.net/adminlab/form_component.html#" data-action="incrementMinute"><i class="icon-chevron-up"></i></a></td><td class="separator">&nbsp;</td><td><a href="http://thevectorlab.net/adminlab/form_component.html#" data-action="incrementSecond"><i class="icon-chevron-up"></i></a></td></tr><tr><td><input type="text" name="hour" class="bootstrap-timepicker-hour" maxlength="2"></td> <td class="separator">:</td><td><input type="text" name="minute" class="bootstrap-timepicker-minute" maxlength="2"></td> <td class="separator">:</td><td><input type="text" name="second" class="bootstrap-timepicker-second" maxlength="2"></td></tr><tr><td><a href="http://thevectorlab.net/adminlab/form_component.html#" data-action="decrementHour"><i class="icon-chevron-down"></i></a></td><td class="separator"></td><td><a href="http://thevectorlab.net/adminlab/form_component.html#" data-action="decrementMinute"><i class="icon-chevron-down"></i></a></td><td class="separator">&nbsp;</td><td><a href="http://thevectorlab.net/adminlab/form_component.html#" data-action="decrementSecond"><i class="icon-chevron-down"></i></a></td></tr></tbody></table></div><div class="colorpicker dropdown-menu"><div class="colorpicker-saturation" style="background-color: rgb(143, 255, 0);"><i style="left: 100px; top: 0px;"><b></b></i></div><div class="colorpicker-hue"><i style="top: 76.0130718954249px;"></i></div><div class="colorpicker-alpha"><i style="top: 0px;"></i></div><div class="colorpicker-color"><div style="background-color: rgb(143, 255, 0);"></div></div></div><div class="colorpicker dropdown-menu"><div class="colorpicker-saturation" style="background-color: rgb(158, 255, 0);"><i style="left: 72.7272727272727px; top: 26.6666666666667px;"><b></b></i></div><div class="colorpicker-hue"><i style="top: 76.9607843137256px;"></i></div><div class="colorpicker-alpha"><i style="top: 0px;"></i></div><div class="colorpicker-color" style="display: none;"><div></div></div></div><div class="colorpicker dropdown-menu alpha"><div class="colorpicker-saturation" style="background-color: rgb(0, 194, 255);"><i style="left: 100px; top: 0px;"><b></b></i></div><div class="colorpicker-hue"><i style="top: 46.0130718954247px;"></i></div><div class="colorpicker-alpha" style="background-color: rgb(0, 194, 255);"><i style="top: 22px;"></i></div><div class="colorpicker-color"><div style="background-color: rgba(0, 194, 255, 0.780392);"></div></div></div></body></html>
