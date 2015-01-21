@@ -10,14 +10,23 @@
 		 <i class=" icon-th-list"></i>
 		 <div>Quotation List</div>
 	 </a>
-<?php if($quotation_id):?>
-	 <a class="icon-btn span2" href="<?php echo base_url();?><?php echo index_page();?>/quotation/convert_to_sales">
+<?php if($status==0):?>
+	<?php if($quotation_id):?>
+	 <a class="icon-btn span2" href="<?php echo base_url();?><?php echo index_page();?>/quotation/send_quotation?one=<?php echo $quotation_id;?>">
+		 <i class="icon-print"></i>
+		 <div>Send</div>
+	 </a>
+	 <?php endif;?>
+<?php endif;?>
+
+<?php if($status==1):?>
+	 <a class="icon-btn span2" href="<?php echo base_url();?><?php echo index_page();?>/quotation/convert_to_sales?one=<?php echo $quotation_id;?>">
 		 <i class="  icon-money"></i>
-		 <div>Convert to Sales</div>
+		 <div>Win</div>
 	 </a>
 	 
 	 
-	 <a class="icon-btn span2" href="invoice.html">
+	 <a class="icon-btn span2" href="<?php echo base_url();?><?php echo index_page();?>/quotation/loss_quotation?one=<?php echo $quotation_id;?>">
 		 <i class="  icon-eye-open"></i>
 		 <div>Lose</div>
 	 </a>
@@ -27,7 +36,10 @@
 	 
 </div>
 <!-- end button -->
+<?php $magic=array(0,2,3);?>
+<?php if( in_array($status , $magic  )): ?>
 <form  method="post" accept-charset="utf-8" enctype="multipart/form-data">
+<?php endif;?>
 <div class="row-fluid">
 <div class="row-fluid">
 	<div class="span6 billing-form">
@@ -70,24 +82,24 @@
 				
 
 				
-		<?php if(false):?>
+		<?php if( $status==3):?>
 		<div class="control-group ">
 			<label class="control-label">Sales Number</label>
 			<input class=" span8" size="16" type="text" name="sales_number" value="<?php echo $sales_number;?>"  />
 		</div>
-		<?php endif; //only when converted to polis  ?>		
-
-		<div class="control-group ">
-			<label class="control-label">Quotation Date</label>
-<!--			<input class=" span8" type="date" name="quotation_date" value="<?php echo $quotation_date;?>" maxlength="10"  /> -->
-				<input class="span8  m-ctrl-medium date-picker"  name="quotation_date" size="16" type="text" value="<?php echo $quotation_date;?>" data-date-format="yyyy-mm-dd" />
- 		</div>
-				
 
 		<div class="control-group ">
 			<label class="control-label">Contract Number</label>
 			<input class=" span8" size="16" type="text" name="contract_number" value="<?php echo $contract_number;?>"  />
 		</div>
+		<?php endif; //only when converted to polis  ?>		
+
+		<div class="control-group ">
+			<label class="control-label">Quotation Date</label>
+				<input class="span8  m-ctrl-medium date-picker"  name="quotation_date" size="16" type="text" value="<?php echo $quotation_date;?>" data-date-format="yyyy-mm-dd" />
+ 		</div>
+				
+
 				
 
 		<div class="control-group ">
@@ -257,7 +269,7 @@
                                                 <td><input type="text" name="f[<?php echo $k;?>][product_group]"  class="input-large" value="<?php echo $i['product_group'];?>" ></td>
                                                 <td><input type="text" name="f[<?php echo $k;?>][description]" class="input-xlarge"  value="<?php echo $i['description'];?>" ></td>
                                                 <td>
-												<input type="text" data-mask=" 999,999,999.99"  name="f[<?php echo $k;?>][amount]" class="input-large" value="<?php echo $i['amount'];?>" >
+												<input type="text" data-mask=" 999,999,999.99"  name="f[<?php echo $k;?>][amount]" class="input-large" value="<?php echo $i['amount'];?>" style="text-align: right">
 												</td>
                                             </tr>
 											<?php endforeach;?>
@@ -265,36 +277,31 @@
                                                 <td></td>
 												<td></td>
                                                 <td >Gross Total</td>
-												<td><input type="text" data-mask=" 999,999,999.99"   class="input-large" value="<?php echo $gross_total;?>" ></td>
+												<td><input type="text" data-mask=" 999,999,999.99"   class="input-large" value="<?php echo $gross_total;?>" style="text-align: right" ></td>
 											</tr>
 											<tr>
 												<td></td>
 												<td></td>
 												<td >Fee</td>
-												<td><input type="text" name="fee" value="<?php echo $fee;?>" >
+												<td><input type="text" name="fee" value="<?php echo $fee;?>" style="text-align: right" >
 											</tr>
 											<tr>
 												<td></td>
 												<td></td>
 												<td >Discount</td>
-												<td><input type="text" name="discount" value="<?php echo $discount;?>" >
+												<td><input type="text" name="discount" value="<?php echo $discount;?>"  style="text-align: right" >
 											</tr>
 												<td></td>
 												<td></td>
 												<td>Nett Total</td>
-												<td><input type="text" value="<?php echo $nett_total;?>"  >
+												<td><input type="text" value="<?php echo $nett_total;?>"  style="text-align: right" >
 											</tr>
-                                            <?php /* fixme <tr>
-                                                <td colspan="3"></td>
-                                                <td ><a href="#">Add More +</a></td>
-                                            </tr> */ ?>
-											
                                             </tbody>
                                         </table>
                                         <div class="row-fluid text-center">
-                                            <?php /* <a class="btn btn-primary btn-large hidden-print" >Submit   </a> */ ?>
+											<?php if( in_array($status , $magic )): ?>
 											<input type="submit" value="Submit"  class="btn btn-primary btn-large hidden-print" >
-										 
+											<?php endif;?>
                                         </div>
                                     </div>
                                 </div>

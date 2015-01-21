@@ -1,4 +1,1 @@
-ERROR:  common column name "role_id" appears more than once in left table
-ERROR:  relation "public.head_menu" does not exist
-ERROR:  common column name "role_id" appears more than once in left table
-ERROR:  relation "public.menu_head" does not exist
+ERROR:  schema "logistik" does not exist

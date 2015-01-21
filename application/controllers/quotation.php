@@ -5,16 +5,29 @@ class Quotation extends CI_Controller {
 	public function index()
 	{
 	}
+
+	function send_quotation(){
+		$this->db->where("quotation_id", $this->input->get('one'));
+		$this->db->update('quotations', array('status'=>1));
+		redirect('quotation/quotation_list');
+	}
+	
+	function convert_to_sales(){
+		$this->db->where("quotation_id", $this->input->get('one'));
+		$this->db->update('quotations', array('status'=>3));
+		redirect('quotation/create_quotation?r34scrt8='.$this->input->get('one'));
+	}
 	
 	function delete_quotation(){
 		$this->db->where("quotation_id", $this->input->get('r34scrt8'));
-		$this->db->delete("quotations");
+		$this->db->update('quotations', array('status'=>2));
 		redirect('quotation/quotation_list');
 	}
 	
 	public function create_quotation(){
 		//$this->output->enable_profiler(TRUE);
 		error_reporting(0); // thats why error_reporting(0) is invented :D
+		//error_reporting(E_ALL);
 		if(!$this->session->userdata('userid')) redirect('welcome');
 		$this->load->helper('form');
 		$data=array();
@@ -56,6 +69,7 @@ class Quotation extends CI_Controller {
 			}
 			if(!isset($qdata['official'])) $qdata['official']='f';
 			$this->db->where('quotation_id', $this->input->post('quotation_id'));
+			if(!empty($qdata['contract_number'])) $qdata['status']=5;
 			$this->db->update('quotations', $qdata);
 			
 			foreach($this->input->post('f') as $qp){

@@ -329,6 +329,20 @@ ALTER SEQUENCE quotation_files_quotation_files_id_seq OWNED BY quotation_files.q
 
 
 --
+-- Name: quotation_status; Type: TABLE; Schema: public; Owner: dei; Tablespace: 
+--
+
+CREATE TABLE quotation_status (
+    quotation_status_id integer NOT NULL,
+    time_stamp timestamp without time zone DEFAULT now(),
+    created_by character varying DEFAULT "current_user"(),
+    status_name character varying
+);
+
+
+ALTER TABLE public.quotation_status OWNER TO dei;
+
+--
 -- Name: quotations; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -338,10 +352,12 @@ CREATE TABLE quotations (
     created_by character varying DEFAULT "current_user"(),
     quotation_number character varying,
     status integer DEFAULT 0,
+    loss_factor_id integer DEFAULT 0,
     revision character varying,
-    sales_number character varying,
     quotation_date date,
+    sales_number character varying,
     contract_number character varying,
+    sales_date date,
     term_of_payment character varying,
     construction_type character varying,
     size character varying,
@@ -376,7 +392,7 @@ ALTER TABLE public.quotations OWNER TO postgres;
 --
 
 CREATE VIEW quotation_list1 AS
-    SELECT a.quotation_id, a.quotation_number, a.revision, a.show_day_from, a.show_day_to, b.customer_name, c.event_name, a.status FROM ((quotations a LEFT JOIN customers b USING (customer_id)) LEFT JOIN events c USING (event_id));
+    SELECT a.quotation_id, a.quotation_number, a.revision, a.show_day_from, a.show_day_to, b.customer_name, c.event_name, d.status_name AS status FROM (((quotations a LEFT JOIN customers b USING (customer_id)) LEFT JOIN events c USING (event_id)) LEFT JOIN quotation_status d ON ((d.quotation_status_id = a.status))) WHERE (a.status <> 2);
 
 
 ALTER TABLE public.quotation_list1 OWNER TO dei;
@@ -418,20 +434,6 @@ ALTER TABLE public.quotation_products_quotation_product_id_seq OWNER TO postgres
 
 ALTER SEQUENCE quotation_products_quotation_product_id_seq OWNED BY quotation_products.quotation_product_id;
 
-
---
--- Name: quotation_status; Type: TABLE; Schema: public; Owner: dei; Tablespace: 
---
-
-CREATE TABLE quotation_status (
-    quotation_status_id integer NOT NULL,
-    time_stamp timestamp without time zone DEFAULT now(),
-    created_by character varying DEFAULT "current_user"(),
-    status_name character varying
-);
-
-
-ALTER TABLE public.quotation_status OWNER TO dei;
 
 --
 -- Name: quotation_status_quotation_status_id_seq; Type: SEQUENCE; Schema: public; Owner: dei
@@ -677,7 +679,7 @@ ALTER SEQUENCE users_user_id_seq OWNED BY users.user_id;
 --
 
 CREATE VIEW v_quotation AS
-    SELECT CASE WHEN (quotations.official = true) THEN 'checked'::text ELSE ''::text END AS official2, quotations.quotation_id, quotations.time_stamp, quotations.created_by, quotations.quotation_number, quotations.status, quotations.revision, quotations.sales_number, quotations.quotation_date, quotations.contract_number, quotations.term_of_payment, quotations.construction_type, quotations.size, quotations.official, quotations.event_id, quotations.venue_id, quotations.show_day_from, quotations.show_day_to, quotations.move_in_from_date, quotations.move_in_from_time, quotations.move_in_to_date, quotations.move_in_to_time, quotations.move_out_from_date, quotations.move_out_from_time, quotations.move_out_to_date, quotations.move_out_to_time, quotations.customer_id, quotations.customer_contacts, quotations.project_executive, quotations.project_supervisor, quotations.designer, quotations.notes, quotations.fee, quotations.discount, b.full_address, b.phone, b.customer_contact_1, c.amount AS gross_total, ((c.amount + (COALESCE(quotations.fee, (0)::numeric) * ((-1))::numeric)) + (COALESCE(quotations.discount, (0)::numeric) * ((-1))::numeric)) AS nett_total FROM ((quotations JOIN customers b USING (customer_id)) JOIN (SELECT quotation_products.quotation_id, sum(quotation_products.amount) AS amount FROM quotation_products GROUP BY quotation_products.quotation_id) c USING (quotation_id));
+    SELECT CASE WHEN (quotations.official = true) THEN 'checked'::text ELSE ''::text END AS official2, quotations.quotation_id, quotations.time_stamp, quotations.created_by, quotations.quotation_number, quotations.status, quotations.revision, quotations.sales_number, quotations.quotation_date, quotations.contract_number, quotations.term_of_payment, quotations.construction_type, quotations.size, quotations.official, quotations.event_id, quotations.venue_id, quotations.show_day_from, quotations.show_day_to, quotations.move_in_from_date, quotations.move_in_from_time, quotations.move_in_to_date, quotations.move_in_to_time, quotations.move_out_from_date, quotations.move_out_from_time, quotations.move_out_to_date, quotations.move_out_to_time, quotations.customer_id, quotations.customer_contacts, quotations.project_executive, quotations.project_supervisor, quotations.designer, quotations.notes, quotations.fee, quotations.discount, b.full_address, b.phone, b.customer_contact_1, c.amount AS gross_total, ((c.amount + (COALESCE(quotations.fee, (0)::numeric) * ((-1))::numeric)) + (COALESCE(quotations.discount, (0)::numeric) * ((-1))::numeric)) AS nett_total FROM ((quotations LEFT JOIN customers b USING (customer_id)) LEFT JOIN (SELECT quotation_products.quotation_id, sum(quotation_products.amount) AS amount FROM quotation_products GROUP BY quotation_products.quotation_id) c USING (quotation_id));
 
 
 ALTER TABLE public.v_quotation OWNER TO dei;
@@ -964,6 +966,7 @@ SELECT pg_catalog.setval('menus_menu_id_seq', 5, true);
 
 INSERT INTO quotation_files VALUES (3, '2015-01-19 08:17:35.219', 'dei', 14, 'qf_14_3_teksi.png', '');
 INSERT INTO quotation_files VALUES (4, '2015-01-19 12:52:17.252', 'dei', 16, 'qf_16_4_teksi.png', '');
+INSERT INTO quotation_files VALUES (5, '2015-01-21 19:09:44.49', 'dei', 2, 'qf_2_5_streetfood.png', '');
 
 
 --
@@ -979,13 +982,14 @@ SELECT pg_catalog.setval('quotation_files_quotation_files_id_seq', 1, false);
 
 INSERT INTO quotation_products VALUES (82, '2015-01-19 12:59:19.693', 'dei', 16, 'Partisi Dua', '-', 10000000.00);
 INSERT INTO quotation_products VALUES (83, '2015-01-20 07:41:24.811', 'dei', 16, 'electrical', 'electrical panggung+', 5000000.00);
+INSERT INTO quotation_products VALUES (84, '2015-01-21 19:08:42.042', 'dei', 2, 'Partisi Dua Muka', '-', 10000000.00);
 
 
 --
 -- Name: quotation_products_quotation_product_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('quotation_products_quotation_product_id_seq', 83, true);
+SELECT pg_catalog.setval('quotation_products_quotation_product_id_seq', 84, true);
 
 
 --
@@ -993,11 +997,11 @@ SELECT pg_catalog.setval('quotation_products_quotation_product_id_seq', 83, true
 --
 
 INSERT INTO quotation_status VALUES (0, '2015-01-20 20:43:45.535', 'dei', 'Draft');
-INSERT INTO quotation_status VALUES (1, '2015-01-20 20:43:55.07', 'dei', 'Reserved');
-INSERT INTO quotation_status VALUES (2, '2015-01-20 20:44:20.378', 'dei', 'Reserved');
-INSERT INTO quotation_status VALUES (4, '2015-01-20 20:44:48.289', 'dei', 'Final');
-INSERT INTO quotation_status VALUES (5, '2015-01-20 20:44:57.982', 'dei', 'Win');
-INSERT INTO quotation_status VALUES (3, '2015-01-20 20:44:23.99', 'dei', 'Loss');
+INSERT INTO quotation_status VALUES (1, '2015-01-20 20:43:55.07', 'dei', 'Sent');
+INSERT INTO quotation_status VALUES (2, '2015-01-20 20:44:20.378', 'dei', 'Deleted');
+INSERT INTO quotation_status VALUES (4, '2015-01-20 20:44:48.289', 'dei', 'Loss');
+INSERT INTO quotation_status VALUES (3, '2015-01-20 20:44:23.99', 'dei', 'Win');
+INSERT INTO quotation_status VALUES (5, '2015-01-20 20:44:57.982', 'dei', 'Final');
 
 
 --
@@ -1011,12 +1015,9 @@ SELECT pg_catalog.setval('quotation_status_quotation_status_id_seq', 5, true);
 -- Data for Name: quotations; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO quotations VALUES (15, '2015-01-18 19:09:51.953', 'dei', 'Q201501/15', 0, '0', NULL, '2015-01-18', '1111111', 'cash', 'stand', '5x5', NULL, 1, 1, '2015-01-01', '2015-01-03', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, 1, 1, 1, NULL, NULL, NULL);
-INSERT INTO quotations VALUES (14, '2015-01-18 17:26:14.113', 'dei', 'Q201501/14', 0, '0', NULL, '2015-01-18', '1111111', 'cash', 'stand', '5x5', NULL, 1, 1, '2015-01-01', '2015-01-03', '2015-01-19', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, NULL, 1, 1, 1, NULL, 1.00, 2.00);
-INSERT INTO quotations VALUES (17, '2015-01-20 07:45:27.451', 'dei', 'Q201501/17', 0, '0', NULL, '2015-02-01', 'faisal', NULL, NULL, NULL, NULL, 3, 3, '2015-02-07', '2015-02-09', '2015-01-20', '01:00:00', '2015-01-21', '18:00:00', NULL, NULL, NULL, NULL, 3, NULL, 1, 2, 1, 't', 1.00, 2.00);
-INSERT INTO quotations VALUES (18, '2015-01-20 07:48:01.97', 'dei', 'Q201501/18', 0, '0', NULL, '2015-02-01', 'faisal', NULL, NULL, NULL, NULL, 3, 3, '2015-02-07', '2015-02-09', '2015-01-20', '01:00:00', '2015-01-21', '18:00:00', NULL, NULL, NULL, NULL, 3, NULL, 1, 2, 1, 't', 1.00, 2.00);
-INSERT INTO quotations VALUES (19, '2015-01-20 07:49:25.242', 'dei', 'Q201501/19', 0, '0', NULL, '2015-02-01', 'faisal', NULL, NULL, NULL, true, 3, 3, '2015-02-07', '2015-02-09', '2015-01-20', '01:00:00', '2015-01-21', '18:00:00', NULL, NULL, NULL, NULL, 3, NULL, 1, 2, 1, 't', 1.00, 2.00);
-INSERT INTO quotations VALUES (16, '2015-01-19 12:49:44.319', 'dei', 'Q201501/16', 0, '0', NULL, '2015-02-01', 'faisal', NULL, NULL, NULL, true, 3, 3, '2015-02-07', '2015-02-09', '2015-01-20', '01:00:00', '2015-01-21', '18:00:00', NULL, NULL, NULL, NULL, 3, NULL, 1, 2, 1, 'tx', 1000000.00, 2000000.00);
+INSERT INTO quotations VALUES (1, '2015-01-21 19:00:00.22', 'dei', 'Q201501/1', 2, 0, '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, 2, 2, 2, NULL, NULL, NULL);
+INSERT INTO quotations VALUES (3, '2015-01-21 20:44:38.303', 'dei', 'Q201501/3', 0, 0, '0', '2015-01-21', NULL, NULL, NULL, NULL, NULL, NULL, false, 1, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, 1, 2, 2, NULL, NULL, NULL);
+INSERT INTO quotations VALUES (2, '2015-01-21 19:08:41.998', 'dei', 'Q201501/2', 5, 0, '0', '2015-01-21', '11111', '1111111', NULL, 'cash', 'stand', '5x5', true, 2, 2, '2015-01-23', '2015-01-25', '2015-01-22', '06:00:00', '2015-01-23', '05:00:00', '2015-01-25', '23:00:00', '2015-01-26', '10:00:00', 2, NULL, 1, 3, 2, 'test', 300000.00, 500000.00);
 
 
 --
@@ -1326,22 +1327,6 @@ CREATE INDEX fki_quotations_file_to_quotations ON quotation_files USING btree (q
 
 ALTER TABLE ONLY customer_pics
     ADD CONSTRAINT customer_pic_maps FOREIGN KEY (customer_id) REFERENCES customers(customer_id) ON UPDATE CASCADE ON DELETE CASCADE;
-
-
---
--- Name: qp_q_fk; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY quotation_products
-    ADD CONSTRAINT qp_q_fk FOREIGN KEY (quotation_id) REFERENCES quotations(quotation_id) ON UPDATE CASCADE ON DELETE CASCADE;
-
-
---
--- Name: quotations_file_to_quotations; Type: FK CONSTRAINT; Schema: public; Owner: postgres
---
-
-ALTER TABLE ONLY quotation_files
-    ADD CONSTRAINT quotations_file_to_quotations FOREIGN KEY (quotation_id) REFERENCES quotations(quotation_id) ON UPDATE CASCADE ON DELETE CASCADE;
 
 
 --
