@@ -83,9 +83,18 @@ CREATE TABLE customers (
     full_address character varying(1000),
     province integer,
     city integer,
+    phone character varying,
+    phone2 character varying,
+    fax character varying,
     email character varying,
     website character varying,
-    customer_since date
+    customer_since date,
+    customer_contact_1 character varying,
+    customer_religion_1 character varying,
+    customer_contact_2 character varying,
+    customer_religion_2 character varying,
+    customer_contact_3 character varying,
+    customer_religion_3 character varying
 );
 
 
@@ -186,21 +195,6 @@ CREATE TABLE role_menu_maps (
 ALTER TABLE public.role_menu_maps OWNER TO postgres;
 
 --
--- Name: user_role_maps; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
---
-
-CREATE TABLE user_role_maps (
-    id integer NOT NULL,
-    time_stamp timestamp without time zone DEFAULT now(),
-    created_by character varying DEFAULT "current_user"(),
-    user_id integer,
-    role_id integer
-);
-
-
-ALTER TABLE public.user_role_maps OWNER TO postgres;
-
---
 -- Name: users; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -213,7 +207,7 @@ CREATE TABLE users (
     username character varying,
     email character varying,
     passw character varying,
-    userrole character varying,
+    role_id integer,
     dept character varying
 );
 
@@ -221,24 +215,60 @@ CREATE TABLE users (
 ALTER TABLE public.users OWNER TO postgres;
 
 --
--- Name: head_menu; Type: VIEW; Schema: public; Owner: postgres
+-- Name: head_menu; Type: VIEW; Schema: public; Owner: dei
 --
 
 CREATE VIEW head_menu AS
-    SELECT a.user_id, d.menu_head, d.menu_name, d.module, d.action FROM (((users a JOIN user_role_maps b USING (user_id)) JOIN role_menu_maps c USING (role_id)) JOIN menus d USING (menu_id));
+    SELECT DISTINCT a.user_id, d.menu_head, d.menu_name, d.module, d.action FROM ((users a JOIN role_menu_maps c USING (role_id)) JOIN menus d USING (menu_id));
 
 
-ALTER TABLE public.head_menu OWNER TO postgres;
+ALTER TABLE public.head_menu OWNER TO dei;
 
 --
--- Name: menu_head; Type: VIEW; Schema: public; Owner: postgres
+-- Name: loss_factors; Type: TABLE; Schema: public; Owner: dei; Tablespace: 
+--
+
+CREATE TABLE loss_factors (
+    loss_factor_id integer NOT NULL,
+    time_stamp timestamp without time zone DEFAULT now(),
+    created_by character varying DEFAULT "current_user"(),
+    loss_factor_name character varying,
+    description character varying
+);
+
+
+ALTER TABLE public.loss_factors OWNER TO dei;
+
+--
+-- Name: loss_factors_loss_factor_id_seq; Type: SEQUENCE; Schema: public; Owner: dei
+--
+
+CREATE SEQUENCE loss_factors_loss_factor_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.loss_factors_loss_factor_id_seq OWNER TO dei;
+
+--
+-- Name: loss_factors_loss_factor_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: dei
+--
+
+ALTER SEQUENCE loss_factors_loss_factor_id_seq OWNED BY loss_factors.loss_factor_id;
+
+
+--
+-- Name: menu_head; Type: VIEW; Schema: public; Owner: dei
 --
 
 CREATE VIEW menu_head AS
-    SELECT DISTINCT a.user_id, d.menu_head, CASE WHEN ((COALESCE(d.icon, ''::character varying))::text = ''::text) THEN 'icon-tasks'::character varying ELSE d.icon END AS icon FROM (((users a JOIN user_role_maps b USING (user_id)) JOIN role_menu_maps c USING (role_id)) JOIN menus d USING (menu_id));
+    SELECT DISTINCT a.user_id, d.menu_head, CASE WHEN ((COALESCE(d.icon, ''::character varying))::text = ''::text) THEN 'icon-tasks'::character varying ELSE d.icon END AS icon FROM ((users a JOIN role_menu_maps c USING (role_id)) JOIN menus d USING (menu_id));
 
 
-ALTER TABLE public.menu_head OWNER TO postgres;
+ALTER TABLE public.menu_head OWNER TO dei;
 
 --
 -- Name: menus_menu_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
@@ -307,7 +337,7 @@ CREATE TABLE quotations (
     time_stamp timestamp without time zone DEFAULT now(),
     created_by character varying DEFAULT "current_user"(),
     quotation_number character varying,
-    status integer,
+    status integer DEFAULT 0,
     revision character varying,
     sales_number character varying,
     quotation_date date,
@@ -333,7 +363,9 @@ CREATE TABLE quotations (
     project_executive integer,
     project_supervisor integer,
     designer integer,
-    notes text
+    notes text,
+    fee numeric(20,2),
+    discount numeric(20,2)
 );
 
 
@@ -385,6 +417,41 @@ ALTER TABLE public.quotation_products_quotation_product_id_seq OWNER TO postgres
 --
 
 ALTER SEQUENCE quotation_products_quotation_product_id_seq OWNED BY quotation_products.quotation_product_id;
+
+
+--
+-- Name: quotation_status; Type: TABLE; Schema: public; Owner: dei; Tablespace: 
+--
+
+CREATE TABLE quotation_status (
+    quotation_status_id integer NOT NULL,
+    time_stamp timestamp without time zone DEFAULT now(),
+    created_by character varying DEFAULT "current_user"(),
+    status_name character varying
+);
+
+
+ALTER TABLE public.quotation_status OWNER TO dei;
+
+--
+-- Name: quotation_status_quotation_status_id_seq; Type: SEQUENCE; Schema: public; Owner: dei
+--
+
+CREATE SEQUENCE quotation_status_quotation_status_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.quotation_status_quotation_status_id_seq OWNER TO dei;
+
+--
+-- Name: quotation_status_quotation_status_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: dei
+--
+
+ALTER SEQUENCE quotation_status_quotation_status_id_seq OWNED BY quotation_status.quotation_status_id;
 
 
 --
@@ -549,6 +616,21 @@ ALTER SEQUENCE suppliers_supplier_id_seq OWNED BY suppliers.supplier_id;
 
 
 --
+-- Name: user_role_maps; Type: TABLE; Schema: public; Owner: postgres; Tablespace: 
+--
+
+CREATE TABLE user_role_maps (
+    id integer NOT NULL,
+    time_stamp timestamp without time zone DEFAULT now(),
+    created_by character varying DEFAULT "current_user"(),
+    user_id integer,
+    role_id integer
+);
+
+
+ALTER TABLE public.user_role_maps OWNER TO postgres;
+
+--
 -- Name: user_role_maps_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
 --
 
@@ -595,7 +677,7 @@ ALTER SEQUENCE users_user_id_seq OWNED BY users.user_id;
 --
 
 CREATE VIEW v_quotation AS
-    SELECT quotations.quotation_id, quotations.time_stamp, quotations.created_by, quotations.quotation_number, quotations.status, quotations.revision, quotations.sales_number, quotations.quotation_date, quotations.contract_number, quotations.term_of_payment, quotations.construction_type, quotations.size, quotations.official, quotations.event_id, quotations.venue_id, quotations.show_day_from, quotations.show_day_to, quotations.move_in_from_date, quotations.move_in_from_time, quotations.move_in_to_date, quotations.move_in_to_time, quotations.move_out_from_date, quotations.move_out_from_time, quotations.move_out_to_date, quotations.move_out_to_time, quotations.customer_id, quotations.customer_contacts, quotations.project_executive, quotations.project_supervisor, quotations.designer, quotations.notes, CASE WHEN (quotations.official = true) THEN 'checked'::text ELSE ''::text END AS official2 FROM quotations;
+    SELECT CASE WHEN (quotations.official = true) THEN 'checked'::text ELSE ''::text END AS official2, quotations.quotation_id, quotations.time_stamp, quotations.created_by, quotations.quotation_number, quotations.status, quotations.revision, quotations.sales_number, quotations.quotation_date, quotations.contract_number, quotations.term_of_payment, quotations.construction_type, quotations.size, quotations.official, quotations.event_id, quotations.venue_id, quotations.show_day_from, quotations.show_day_to, quotations.move_in_from_date, quotations.move_in_from_time, quotations.move_in_to_date, quotations.move_in_to_time, quotations.move_out_from_date, quotations.move_out_from_time, quotations.move_out_to_date, quotations.move_out_to_time, quotations.customer_id, quotations.customer_contacts, quotations.project_executive, quotations.project_supervisor, quotations.designer, quotations.notes, quotations.fee, quotations.discount, b.full_address, b.phone, b.customer_contact_1, c.amount AS gross_total, ((c.amount + (COALESCE(quotations.fee, (0)::numeric) * ((-1))::numeric)) + (COALESCE(quotations.discount, (0)::numeric) * ((-1))::numeric)) AS nett_total FROM ((quotations JOIN customers b USING (customer_id)) JOIN (SELECT quotation_products.quotation_id, sum(quotation_products.amount) AS amount FROM quotation_products GROUP BY quotation_products.quotation_id) c USING (quotation_id));
 
 
 ALTER TABLE public.v_quotation OWNER TO dei;
@@ -702,6 +784,13 @@ ALTER TABLE ONLY events ALTER COLUMN event_id SET DEFAULT nextval('events_event_
 
 
 --
+-- Name: loss_factor_id; Type: DEFAULT; Schema: public; Owner: dei
+--
+
+ALTER TABLE ONLY loss_factors ALTER COLUMN loss_factor_id SET DEFAULT nextval('loss_factors_loss_factor_id_seq'::regclass);
+
+
+--
 -- Name: menu_id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -720,6 +809,13 @@ ALTER TABLE ONLY quotation_files ALTER COLUMN quotation_files_id SET DEFAULT nex
 --
 
 ALTER TABLE ONLY quotation_products ALTER COLUMN quotation_product_id SET DEFAULT nextval('quotation_products_quotation_product_id_seq'::regclass);
+
+
+--
+-- Name: quotation_status_id; Type: DEFAULT; Schema: public; Owner: dei
+--
+
+ALTER TABLE ONLY quotation_status ALTER COLUMN quotation_status_id SET DEFAULT nextval('quotation_status_quotation_status_id_seq'::regclass);
 
 
 --
@@ -802,9 +898,9 @@ SELECT pg_catalog.setval('customer_pics_customer_pic_id_seq', 1, false);
 -- Data for Name: customers; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO customers VALUES (1, '2015-01-16 23:25:27.951', 'dei', 'C140101', 'Jaya Abadi', 'Jl. Bandengan', 1, 1, 'jaya@abadi.com', 'abadi.com', '2014-01-01');
-INSERT INTO customers VALUES (2, '2015-01-16 23:26:17.802', 'dei', 'C140102', 'Tunas Jaya', 'Jl. Merbabu 2/30', 1, 1, 'tunas@jaya.com', 'jaya.com', '2014-01-01');
-INSERT INTO customers VALUES (3, '2015-01-17 21:27:00.887', 'postgres', 'C140201', 'STARBUCKS COFFEE', 'Jl. Raya Tambun No. 3', 1, 1, NULL, NULL, NULL);
+INSERT INTO customers VALUES (1, '2015-01-16 23:25:27.951', 'dei', 'C140101', 'Jaya Abadi', 'Jl. Bandengan', 1, 1, '3333', NULL, '1234', 'jaya@abadi.com', 'abadi.com', '2014-01-01', 'Jaka Tarbu', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO customers VALUES (2, '2015-01-16 23:26:17.802', 'dei', 'C140102', 'Tunas Jaya', 'Jl. Merbabu 2/30', 1, 1, '33334', NULL, '1233', 'tunas@jaya.com', 'jaya.com', '2014-01-01', 'Sebastian Gundala', NULL, NULL, NULL, NULL, NULL);
+INSERT INTO customers VALUES (3, '2015-01-17 21:27:00.887', 'postgres', 'C140201', 'STARBUCKS COFFEE', 'Jl. Raya Tambun No. 3', 1, 1, '555666', NULL, '1235', 'cs@starbucks.com', NULL, '2015-01-01', 'Dunlop norisk', NULL, NULL, NULL, NULL, NULL);
 
 
 --
@@ -831,11 +927,25 @@ SELECT pg_catalog.setval('events_event_id_seq', 3, true);
 
 
 --
+-- Data for Name: loss_factors; Type: TABLE DATA; Schema: public; Owner: dei
+--
+
+INSERT INTO loss_factors VALUES (1, '2015-01-20 20:42:00.002', 'dei', 'Price too high', NULL);
+INSERT INTO loss_factors VALUES (2, '2015-01-20 20:42:15.569', 'dei', 'Design', NULL);
+
+
+--
+-- Name: loss_factors_loss_factor_id_seq; Type: SEQUENCE SET; Schema: public; Owner: dei
+--
+
+SELECT pg_catalog.setval('loss_factors_loss_factor_id_seq', 2, true);
+
+
+--
 -- Data for Name: menus; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
 INSERT INTO menus VALUES (1, '2015-01-12 07:41:55.138', 'dei', 'Create Quotation', 'Quotation', 'quotation', 'create_quotation', 'icon-gift', true);
-INSERT INTO menus VALUES (2, '2015-01-12 07:42:30.811', 'dei', 'Manage Quotation', 'Quotation', 'quotation', 'manage_quotation', 'icon-gift', true);
 INSERT INTO menus VALUES (3, '2015-01-12 08:13:10.248', 'dei', 'Create User', 'Administrator', 'administrator', 'create_user', 'icon-user', true);
 INSERT INTO menus VALUES (4, '2015-01-12 08:13:21.079', 'postgres', 'Manage User', 'Administrator', 'administrator', 'manage_user', 'icon-user', true);
 INSERT INTO menus VALUES (5, '2015-01-15 20:57:16.526', 'dei', 'Quotation List', 'Quotation', 'quotation', 'quotation_list', 'icon-gift', false);
@@ -852,6 +962,8 @@ SELECT pg_catalog.setval('menus_menu_id_seq', 5, true);
 -- Data for Name: quotation_files; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
+INSERT INTO quotation_files VALUES (3, '2015-01-19 08:17:35.219', 'dei', 14, 'qf_14_3_teksi.png', '');
+INSERT INTO quotation_files VALUES (4, '2015-01-19 12:52:17.252', 'dei', 16, 'qf_16_4_teksi.png', '');
 
 
 --
@@ -865,25 +977,46 @@ SELECT pg_catalog.setval('quotation_files_quotation_files_id_seq', 1, false);
 -- Data for Name: quotation_products; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO quotation_products VALUES (80, '2015-01-18 14:38:48.769', 'dei', 13, 'Partisi Dua Pintu', '-', 10000000.00);
-INSERT INTO quotation_products VALUES (81, '2015-01-18 14:38:48.778', 'dei', 13, 'Dispenser air polytron', '-', 700000.00);
+INSERT INTO quotation_products VALUES (82, '2015-01-19 12:59:19.693', 'dei', 16, 'Partisi Dua', '-', 10000000.00);
+INSERT INTO quotation_products VALUES (83, '2015-01-20 07:41:24.811', 'dei', 16, 'electrical', 'electrical panggung+', 5000000.00);
 
 
 --
 -- Name: quotation_products_quotation_product_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('quotation_products_quotation_product_id_seq', 81, true);
+SELECT pg_catalog.setval('quotation_products_quotation_product_id_seq', 83, true);
+
+
+--
+-- Data for Name: quotation_status; Type: TABLE DATA; Schema: public; Owner: dei
+--
+
+INSERT INTO quotation_status VALUES (0, '2015-01-20 20:43:45.535', 'dei', 'Draft');
+INSERT INTO quotation_status VALUES (1, '2015-01-20 20:43:55.07', 'dei', 'Reserved');
+INSERT INTO quotation_status VALUES (2, '2015-01-20 20:44:20.378', 'dei', 'Reserved');
+INSERT INTO quotation_status VALUES (4, '2015-01-20 20:44:48.289', 'dei', 'Final');
+INSERT INTO quotation_status VALUES (5, '2015-01-20 20:44:57.982', 'dei', 'Win');
+INSERT INTO quotation_status VALUES (3, '2015-01-20 20:44:23.99', 'dei', 'Loss');
+
+
+--
+-- Name: quotation_status_quotation_status_id_seq; Type: SEQUENCE SET; Schema: public; Owner: dei
+--
+
+SELECT pg_catalog.setval('quotation_status_quotation_status_id_seq', 5, true);
 
 
 --
 -- Data for Name: quotations; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO quotations VALUES (10, '2015-01-17 23:48:36.642', 'dei', 'Q201501/10', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, 1, 1, 1, NULL);
-INSERT INTO quotations VALUES (12, '2015-01-18 14:26:46.7', 'dei', 'Q201501/12', 0, '0', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, 1, 1, 1, NULL);
-INSERT INTO quotations VALUES (13, '2015-01-18 14:29:03.39', 'dei', 'Q201501/13', 0, '0', NULL, NULL, NULL, NULL, NULL, NULL, true, 2, 1, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 2, NULL, 1, 1, 1, NULL);
-INSERT INTO quotations VALUES (11, '2015-01-17 23:50:32.927', 'dei', 'Q201501/11', NULL, '0', NULL, '2015-01-18', '1111111', 'cash', 'stand', '5x5', NULL, 1, 1, '2015-01-01', '2015-01-03', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, 1, 1, 1, NULL);
+INSERT INTO quotations VALUES (15, '2015-01-18 19:09:51.953', 'dei', 'Q201501/15', 0, '0', NULL, '2015-01-18', '1111111', 'cash', 'stand', '5x5', NULL, 1, 1, '2015-01-01', '2015-01-03', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, 1, 1, 1, NULL, NULL, NULL);
+INSERT INTO quotations VALUES (14, '2015-01-18 17:26:14.113', 'dei', 'Q201501/14', 0, '0', NULL, '2015-01-18', '1111111', 'cash', 'stand', '5x5', NULL, 1, 1, '2015-01-01', '2015-01-03', '2015-01-19', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 3, NULL, 1, 1, 1, NULL, 1.00, 2.00);
+INSERT INTO quotations VALUES (17, '2015-01-20 07:45:27.451', 'dei', 'Q201501/17', 0, '0', NULL, '2015-02-01', 'faisal', NULL, NULL, NULL, NULL, 3, 3, '2015-02-07', '2015-02-09', '2015-01-20', '01:00:00', '2015-01-21', '18:00:00', NULL, NULL, NULL, NULL, 3, NULL, 1, 2, 1, 't', 1.00, 2.00);
+INSERT INTO quotations VALUES (18, '2015-01-20 07:48:01.97', 'dei', 'Q201501/18', 0, '0', NULL, '2015-02-01', 'faisal', NULL, NULL, NULL, NULL, 3, 3, '2015-02-07', '2015-02-09', '2015-01-20', '01:00:00', '2015-01-21', '18:00:00', NULL, NULL, NULL, NULL, 3, NULL, 1, 2, 1, 't', 1.00, 2.00);
+INSERT INTO quotations VALUES (19, '2015-01-20 07:49:25.242', 'dei', 'Q201501/19', 0, '0', NULL, '2015-02-01', 'faisal', NULL, NULL, NULL, true, 3, 3, '2015-02-07', '2015-02-09', '2015-01-20', '01:00:00', '2015-01-21', '18:00:00', NULL, NULL, NULL, NULL, 3, NULL, 1, 2, 1, 't', 1.00, 2.00);
+INSERT INTO quotations VALUES (16, '2015-01-19 12:49:44.319', 'dei', 'Q201501/16', 0, '0', NULL, '2015-02-01', 'faisal', NULL, NULL, NULL, true, 3, 3, '2015-02-07', '2015-02-09', '2015-01-20', '01:00:00', '2015-01-21', '18:00:00', NULL, NULL, NULL, NULL, 3, NULL, 1, 2, 1, 'tx', 1000000.00, 2000000.00);
 
 
 --
@@ -916,13 +1049,15 @@ SELECT pg_catalog.setval('role_menu_maps_id_seq', 5, true);
 --
 
 INSERT INTO roles VALUES (1, '2015-01-12 07:43:51.491', 'dei', 'Superman');
+INSERT INTO roles VALUES (2, '2015-01-20 21:25:46.544', 'dei', 'Sales');
+INSERT INTO roles VALUES (3, '2015-01-20 21:25:55.376', 'dei', 'Admin');
 
 
 --
 -- Name: roles_role_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('roles_role_id_seq', 1, true);
+SELECT pg_catalog.setval('roles_role_id_seq', 3, true);
 
 
 --
@@ -970,15 +1105,16 @@ SELECT pg_catalog.setval('user_role_maps_id_seq', 2, true);
 -- Data for Name: users; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-INSERT INTO users VALUES (1, '2015-01-04 17:21:15.788', 'postgres', NULL, 'dei', 'Ridei Karim', 'ridei@live.com', '1', NULL, NULL);
-INSERT INTO users VALUES (2, '2015-01-17 05:25:35.303', 'dei', NULL, 'admin', 'Administrator', 'admin@localhost', '1', NULL, NULL);
+INSERT INTO users VALUES (2, '2015-01-17 05:25:35.303', 'dei', NULL, 'admin', 'Administrator', 'admin@localhost', '1', 1, NULL);
+INSERT INTO users VALUES (1, '2015-01-04 17:21:15.788', 'postgres', NULL, 'dei', 'Ridei Karim', 'ridei@live.com', '1', 1, NULL);
+INSERT INTO users VALUES (3, '2015-01-20 22:30:54.425', 'dei', 'NIK12', 'budi.santoso', 'Budi Santoso', 'budi.santoso@gmail.com', '1', 1, 'Marketing');
 
 
 --
 -- Name: users_user_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('users_user_id_seq', 2, true);
+SELECT pg_catalog.setval('users_user_id_seq', 3, true);
 
 
 --
@@ -1043,6 +1179,14 @@ ALTER TABLE ONLY events
 
 
 --
+-- Name: loss_factors_pkey; Type: CONSTRAINT; Schema: public; Owner: dei; Tablespace: 
+--
+
+ALTER TABLE ONLY loss_factors
+    ADD CONSTRAINT loss_factors_pkey PRIMARY KEY (loss_factor_id);
+
+
+--
 -- Name: menus_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
@@ -1051,11 +1195,27 @@ ALTER TABLE ONLY menus
 
 
 --
+-- Name: quotation_file_pk; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
+--
+
+ALTER TABLE ONLY quotation_files
+    ADD CONSTRAINT quotation_file_pk PRIMARY KEY (quotation_files_id);
+
+
+--
 -- Name: quotation_products_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres; Tablespace: 
 --
 
 ALTER TABLE ONLY quotation_products
     ADD CONSTRAINT quotation_products_pkey PRIMARY KEY (quotation_product_id);
+
+
+--
+-- Name: quotation_status_pkey; Type: CONSTRAINT; Schema: public; Owner: dei; Tablespace: 
+--
+
+ALTER TABLE ONLY quotation_status
+    ADD CONSTRAINT quotation_status_pkey PRIMARY KEY (quotation_status_id);
 
 
 --

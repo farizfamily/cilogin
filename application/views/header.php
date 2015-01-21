@@ -17,10 +17,10 @@
    <link href="<?php echo base_url();?>css/style_responsive.css" rel="stylesheet" />
    <link href="<?php echo base_url();?>css/style_default.css" rel="stylesheet" id="style_color" />
 
-   <link href="<?php echo base_url();?>assets/fancybox/source/jquery.fancybox.css" rel="stylesheet" />xxxxxxxxxxxxxxx
+   <link href="<?php echo base_url();?>assets/fancybox/source/jquery.fancybox.css" rel="stylesheet" />
       <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/gritter/css/jquery.gritter.css" />
    <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/uniform/css/uniform.default.css" />
-<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/chosen-bootstrap/chosen/chosen.css" />xxxxxxxx
+<link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/chosen-bootstrap/chosen/chosen.css" />
   <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/jquery-tags-input/jquery.tagsinput.css" />    
   <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/clockface/css/clockface.css" />
    <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>assets/bootstrap-wysihtml5/bootstrap-wysihtml5.css" />

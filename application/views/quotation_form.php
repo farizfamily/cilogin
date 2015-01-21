@@ -1,10 +1,7 @@
 <?php $this->load->view('header');?>
 <!-- button -->
 <div class="row-fluid">
-	 <a class="icon-btn span2" href="invoice.html">
-		 <i class="  icon-eye-open"></i>
-		 <div>View Invoice</div>
-	 </a>
+	 
 	 <a class="icon-btn span2" href="<?php echo base_url();?><?php echo index_page();?>/quotation/create_quotation">
 		 <i class=" icon-edit"></i>
 		 <div>New Quotation</div>
@@ -13,9 +10,25 @@
 		 <i class=" icon-th-list"></i>
 		 <div>Quotation List</div>
 	 </a>
+<?php if($quotation_id):?>
+	 <a class="icon-btn span2" href="<?php echo base_url();?><?php echo index_page();?>/quotation/convert_to_sales">
+		 <i class="  icon-money"></i>
+		 <div>Convert to Sales</div>
+	 </a>
+	 
+	 
+	 <a class="icon-btn span2" href="invoice.html">
+		 <i class="  icon-eye-open"></i>
+		 <div>Lose</div>
+	 </a>
+<?php endif;?>
+	 
+	 
+	 
 </div>
 <!-- end button -->
-<form method=post>
+<form  method="post" accept-charset="utf-8" enctype="multipart/form-data">
+<div class="row-fluid">
 <div class="row-fluid">
 	<div class="span6 billing-form">
 		<h4>General information</h4>
@@ -112,27 +125,20 @@
 			<div class="control-group">
 				<label class="control-label">Customer Name</label>
 					<?php echo form_dropdown('customer_id', $customers, $customer_id, 'class="span8 chosen"'); ?>
-					<?php /* <select class="span8 chosen" data-placeholder="Choose a Category" tabindex="1">
-						<option value=""></option>
-						<option value="Category 1">Category 1</option>
-						<option value="Category 2">Category 2</option>
-						<option value="Category 3">Category 5</option>
-						<option value="Category 4">Category 4</option>
-					 </select> */ ?>
            </div>
 					
 			<div class="control-group ">
 				<label class="control-label">Customer Contacts</label>
-				<input class=" span8" size="16" type="tel" name="customer_contacts" value="" readonly  />
+				<input class=" span8" size="16" type="tel"   value="<?php echo $customer_contact_1;?>" readonly  />
 			</div>
 
 			<div class="control-group ">
 				<label class="control-label">Customer address</label>
-				<input class=" span8" size="16" type="tel" name="customer_contacts" value="" readonly />
+				<input class=" span8" size="16" type="tel"   value="<?php echo $full_address;?>" readonly />
 			</div>
 			<div class="control-group ">
 				<label class="control-label">Phone</label>
-				<input class=" span8" size="16" type="tel" name="customer_contacts" value="" readonly />
+				<input class=" span8" size="16" type="tel"   value="<?php echo $phone;?>" readonly />
 			</div>
 
 
@@ -255,8 +261,29 @@
 												</td>
                                             </tr>
 											<?php endforeach;?>
-
-
+											<tr>
+                                                <td></td>
+												<td></td>
+                                                <td >Gross Total</td>
+												<td><input type="text" data-mask=" 999,999,999.99"   class="input-large" value="<?php echo $gross_total;?>" ></td>
+											</tr>
+											<tr>
+												<td></td>
+												<td></td>
+												<td >Fee</td>
+												<td><input type="text" name="fee" value="<?php echo $fee;?>" >
+											</tr>
+											<tr>
+												<td></td>
+												<td></td>
+												<td >Discount</td>
+												<td><input type="text" name="discount" value="<?php echo $discount;?>" >
+											</tr>
+												<td></td>
+												<td></td>
+												<td>Nett Total</td>
+												<td><input type="text" value="<?php echo $nett_total;?>"  >
+											</tr>
                                             <?php /* fixme <tr>
                                                 <td colspan="3"></td>
                                                 <td ><a href="#">Add More +</a></td>
@@ -267,14 +294,73 @@
                                         <div class="row-fluid text-center">
                                             <?php /* <a class="btn btn-primary btn-large hidden-print" >Submit   </a> */ ?>
 											<input type="submit" value="Submit"  class="btn btn-primary btn-large hidden-print" >
+										 
                                         </div>
                                     </div>
                                 </div>
+<!-- table end-->								
+<!-- files -->
+<?php if($quotation_id):?>
+
+<hr/>
+								<div class="space15"></div>
+								
+                                <div class="row-fluid">
+                                    <div class="span12">
+                                        <h4>Files</h4>
+                                        <table class="table table-hover invoice-input">
+                                            <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>File Name</th>
+                                                <th>Description</th>
+                                                <th>Link</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+											<?php if(!empty($files[0])):?>
+											<?php foreach($files as $k=>$i):?>
+                                            <tr>
+                                                <td><?php echo $k+1;?></td>
+												<td><?php echo $i['file_name'];?>
+												<td><?php echo $i['description'];?>
+												<td>
+												
+												<!-- a href="<?php echo base_url();?><?php echo index_page();?>/quotation/download_file?xol=<?php echo $i['quotation_files_id'];?>" target="_blank" ><i class=" icon-download-alt" ></i></a  -->
+												
+												<a href="<?php echo base_url();?>berkas/<?php echo $i['file_name'];?>" target="_blank" ><i class="icon-download-alt"></i></a>
+												
+												<a href="<?php echo base_url();?><?php echo index_page();?>/quotation/delete_file/?xol=<?php 
+										echo $i['quotation_files_id'];?>" onclick="return confirm('Are you sure you want to delete?')" ><i class="icon-remove"></a></td>
+												
+                                            </tr>
+											<?php endforeach;?>
+											<?php else:?>
+											<tr><td colspan=4>No file yet for this quotation</td>
+											<?php endif;?>
+											<tr>
+											<td></td>
+											<td><input type="file" name="userfile" /></td>
+											<td colspan="2"><input type="text" name="description" ></td>
+                                            </tbody>
+                                        </table>
+										<hr/>
+                                    </div>
+                                </div>								
+<?php endif;?>
+<!-- end files -->
                             </div>
                         </div>
                     </div>
 
-<!-- table end -->
+
+
+
+
+
+
+
+
 </form>
 <?php $this->load->view('footer');?>
 

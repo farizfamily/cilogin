@@ -1,35 +1,33 @@
 <?php $this->load->view('header');?>
-<!-- container 2 -->
-	<div class="row clearfix">
-		<div class="col-md-12 column">
-			<?php $this->load->view('menu');?>
-			<?php $this->load->view("alert");?>
-			
-		</div>
-	</div>
-	<?php $this->load->view('breadcomb');?>
 
-
-<h3><?php echo $judul;?> Form</h3>
-
-<form class="form-horizontal" role="form" method=post>
-<?php //print_r($cols);?>
 <!-- potong di sini -->
+<form class="form-horizontal" role="form" method=post>
+<div class="row-fluid">
+	<div class="span6 billing-form">
+
 <?php foreach($cols as $i):?>
 <?php $readonly='';?>
 <?php $val='';?>
 <?php if(!empty($i['column_default'])  and substr($i['column_default'],0,7)=='nextval'  ) $readonly='readonly';?>
 <?php if(!empty($i['column_default'])  and substr($i['column_default'],0,7)=='now()'  ) $val=date('Y-m-d h:i:s');?>
 
+<?php /*
 <div class="control-group ">
 	<label class="control-label"><?php echo  ucwords(str_replace('_',' ',$i['column_name']));?></label>
 	<input class=" span8" size="16" type="text" name="<?php echo $i['column_name'];?>" value="<?php echo $val;?>" <?php echo $readonly;?> />
-</div>
-		
+</div>*/?>
+			<div class="control-group ">
+				<label class="control-label"><?php echo  ucwords(str_replace('_',' ',$i['column_name']));?></label>
+				<input class=" span8" size="16" type="text" name="<?php echo $i['column_name'];?>" value="xxxxx<?php echo $i['column_name'];?>xxx"  />
+			</div>
 <?php endforeach;?>
-<!-- end potong di sini -->
-<tr align=center><td colspan=2 ><input type=submit value=Save>
-</table>
+                                       <div class="row-fluid text-center">
+                                            <?php /* <a class="btn btn-primary btn-large hidden-print" >Submit   </a> */ ?>
+											<input type="submit" value="Submit"  class="btn btn-primary btn-large hidden-print" >
+										 
+                                        </div>
+	</div>
+</div>
 </form>
-	<!-- end landing page -->
+<!-- end potong di sini -->
 <?php $this->load->view('footer');?>
