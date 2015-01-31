@@ -17,8 +17,8 @@
 			</div>
 
 			<div class="control-group ">
-				<label class="control-label">Stock Name Id</label>
-				<input class=" span8" size="16" type="text" name="stock_name_id" value="<?php echo $stock_name_id;?>"  />
+				<label class="control-label">Stock Name</label>
+				<?php echo form_dropdown('stock_name_id', $stock_names, $stock_name_id, 'class="span8 chosen"  '); ?>
 			</div>
 
 			<div class="control-group ">
@@ -33,7 +33,7 @@
 
 			<div class="control-group ">
 				<label class="control-label">Group Id</label>
-				<input class=" span8" size="16" type="text" name="group_id" value="<?php echo $group_id;?>"  />
+				<?php echo form_dropdown('group_id', $group_options, $group_id, 'class="span8 chosen"  '); ?>
 			</div>
 
 			<div class="control-group ">

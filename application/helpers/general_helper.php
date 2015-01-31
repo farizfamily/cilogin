@@ -10,3 +10,12 @@ function quotation_number($initial=''){
 	$b = $a['a']+1;
 	return 'Q'.$y.$m.'/'.$initial;
 }
+
+function sanitize($qdata){
+	foreach($qdata as $k=>$i){
+				if(empty($i)) {
+					unset($qdata[$k]);
+				}	
+	}
+	return $qdata;
+}

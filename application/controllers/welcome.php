@@ -40,6 +40,7 @@ class Welcome extends CI_Controller {
 				$userdata['menus']=$user_menus2;
 				//print_r($userdata);
 				$this->session->set_userdata($userdata);
+				$_SESSION['mantra']=$userdata['user_id'];
 				redirect('def');
 			} else {
 				$data['alert']['type']='warning';
@@ -54,6 +55,7 @@ class Welcome extends CI_Controller {
 		$this->session->unset_userdata('menu_heads');
 		$this->session->unset_userdata('userid');
 		$this->session->unset_userdata('username');
+		unset($_SESSION['mantra']);
 		redirect('welcome');
 	}
 }

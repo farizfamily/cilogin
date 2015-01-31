@@ -1,16 +1,17 @@
 <?php $this->load->view('header');?>
 <!-- button -->
 <div class="row-fluid">
-	 
+	 <!--
 	 <a class="icon-btn span2" href="<?php echo base_url();?><?php echo index_page();?>/quotation/create_quotation">
 		 <i class=" icon-edit"></i>
 		 <div>New Quotation</div>
 	 </a>
-	 <a class="icon-btn span2" href="<?php echo base_url();?><?php echo index_page();?>/quotation/quotation_list">
+	 -->
+	 <a class="icon-btn span2" href="<?php echo base_url();?><?php echo index_page();?>/material_control_sheet/sales_list">
 		 <i class=" icon-th-list"></i>
-		 <div>Quotation List</div>
+		 <div>Project List</div>
 	 </a>
-<?php if($quotation_status_id==0):?>
+<?php if($status==0):?>
 	<?php if($quotation_id):?>
 	 <a class="icon-btn span2" href="<?php echo base_url();?><?php echo index_page();?>/quotation/send_quotation?one=<?php echo $quotation_id;?>">
 		 <i class="icon-print"></i>
@@ -19,7 +20,7 @@
 	 <?php endif;?>
 <?php endif;?>
 
-<?php if($quotation_status_id==1):?>
+<?php if($status==1):?>
 	 <a class="icon-btn span2" href="<?php echo base_url();?><?php echo index_page();?>/quotation/convert_to_sales?one=<?php echo $quotation_id;?>">
 		 <i class="  icon-money"></i>
 		 <div>Win</div>
@@ -37,14 +38,32 @@
 </div>
 <!-- end button -->
 <?php $magic=array(0,2,3);?>
-<?php if( in_array($quotation_status_id , $magic  )): ?>
+<?php if( in_array($status , $magic  )): ?>
 <form  method="post" accept-charset="utf-8" enctype="multipart/form-data">
 <?php endif;?>
 <div class="row-fluid">
 <div class="row-fluid">
 	<div class="span6 billing-form">
-		<h4>General information <?php if( !in_array($quotation_status_id, $magic)):?> <small> Read only </small><?php endif;?>  </h4>
+		<h4>General information</h4>
 		<div class="space10"></div>
+		<!--
+		<div class="control-group ">
+			<label class="control-label">Quotation Id</label>
+			<input class=" span8" size="16" type="text" name="quotation_id" value="" readonly />
+		</div>
+				
+
+		<div class="control-group ">
+			<label class="control-label">Time Stamp</label>
+			<input class=" span8" size="16" type="text" name="time_stamp" value="2015-01-13 10:33:53"  />
+		</div>
+				
+
+		<div class="control-group ">
+			<label class="control-label">Created By</label>
+			<input class=" span8" size="16" type="text" name="created_by" value=""  />
+		</div>
+		-->		
 		<input type="hidden" name="quotation_id" value="<?php echo $quotation_id;?>" />
 		<div class="control-group ">
 			<label class="control-label">Quotation Number</label>
@@ -59,10 +78,12 @@
 
 		<div class="control-group ">
 			<label class="control-label">Status</label>
-			<input class=" span8" size="16" type="text"  value="<?php echo $status_name;?>" readonly />
+			<input class=" span8" size="16" type="text" name="status" value="<?php echo $status;?>" readonly />
 		</div>
 				
-		<?php if( $quotation_status_id==3):?>
+
+				
+		<?php if( $status==3):?>
 		<div class="control-group ">
 			<label class="control-label">Sales Number</label>
 			<input class=" span8" size="16" type="text" name="sales_number" value="<?php echo $sales_number;?>"  />
@@ -74,29 +95,13 @@
 		</div>
 		<?php endif; //only when converted to polis  ?>		
 
-		<?php if( $quotation_status_id==4):?>
-		<div class="control-group ">
-			<label class="control-label">Loss Factor</label>
-			<?php echo form_dropdown('loss_factor_id', $loss_factors, $loss_factor_id, 'class="input-large" id="lfu"  '); ?>
-            <button type="submit" class="btn blue" onclick="lfu()"><i class="icon-thumbs-down"></i> Update Loss Factor and Close</button>
-		</div>
-		<script>
-		function lfu(){
-			var lfv = $('#lfu').find(":selected");
-			//alert(lfv.text());
-			//alert(lfv.val());
-			c = confirm("This will update loss factor to "+lfv.text()+" and close quotation\n click Ok to continue");
-			if(c){
-				window.location="<?php echo base_url();?><?php echo index_page();?>/quotation/loss_factor?one=<?php echo $quotation_id;?>&lfi="+lfv.val();
-			} 
-		}
-		</script>
-		<?php endif;?>
-		
 		<div class="control-group ">
 			<label class="control-label">Quotation Date</label>
 				<input class="span8  m-ctrl-medium date-picker"  name="quotation_date" size="16" type="text" value="<?php echo $quotation_date;?>" data-date-format="yyyy-mm-dd" />
  		</div>
+				
+
+				
 
 		<div class="control-group ">
 			<label class="control-label">Term Of Payment</label>
@@ -247,22 +252,21 @@
    <div class="space15"></div>
                                 <div class="row-fluid">
                                     <div class="span12">
-                                        <h4>Product Item</h4>
+                                        <h4>Material Item</h4>
                                         <table class="table table-hover invoice-input">
                                             <thead>
                                             <tr>
                                                 <th></th>
-                                                <th>Product Group</th>
+                                                <th>Item</th>
                                                 <th>Description</th>
-                                                <th >Contract Amount</th>
+                                                <th >Amount</th>
                                             </tr>
                                             </thead>
                                             <tbody>
 											<?php foreach($qir as $k=>$i):?>
                                             <tr>
                                                 <td><?php echo $k+1;?></td>
-												<input type="hidden" name="f[<?php echo $k;?>][quotation_product_id]" value="<?php echo $i['quotation_product_id'];?>">
-                                                <td><input type="text" name="f[<?php echo $k;?>][product_group]"  class="input-large" value="<?php echo $i['product_group'];?>" ></td>
+												<td><?php echo form_dropdown('designer', $stocks, $designer, 'class="span8 chosen"'); ?></td>
                                                 <td><input type="text" name="f[<?php echo $k;?>][description]" class="input-xlarge"  value="<?php echo $i['description'];?>" ></td>
                                                 <td>
 												<input type="text" data-mask=" 999,999,999.99"  name="f[<?php echo $k;?>][amount]" class="input-large" value="<?php echo $i['amount'];?>" style="text-align: right">
@@ -295,10 +299,8 @@
                                             </tbody>
                                         </table>
                                         <div class="row-fluid text-center">
-											<?php if( in_array($quotation_status_id , $magic )): ?>
+											<?php if( in_array($status , $magic )): ?>
 											<input type="submit" value="Submit"  class="btn btn-primary btn-large hidden-print" >
-											<?php else:?>
-											<input type="button" value="Submit" disabled  class="btn btn-primary btn-large hidden-print" title="readonly mode" >
 											<?php endif;?>
                                         </div>
                                     </div>
@@ -335,10 +337,9 @@
 												
 												<a href="<?php echo base_url();?>berkas/<?php echo $i['file_name'];?>" target="_blank" ><i class="icon-download-alt"></i></a>
 												
-												<?php if($quotation_status_id==0):?>
 												<a href="<?php echo base_url();?><?php echo index_page();?>/quotation/delete_file/?xol=<?php 
 										echo $i['quotation_files_id'];?>" onclick="return confirm('Are you sure you want to delete?')" ><i class="icon-remove"></a></td>
-												<?php endif;?>
+												
                                             </tr>
 											<?php endforeach;?>
 											<?php else:?>

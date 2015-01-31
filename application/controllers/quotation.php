@@ -23,9 +23,23 @@ class Quotation extends CI_Controller {
 		$this->db->update('quotations', array('status'=>2));
 		redirect('quotation/quotation_list');
 	}
-	
+
+	function loss_quotation(){
+		$this->db->where("quotation_id", $this->input->get('one'));
+		$this->db->update('quotations', array('status'=>2));
+		redirect('quotation/create_quotation?r34scrt8='.$this->input->get('one'));
+	}
+
+
+	function loss_factor(){
+		$this->db->where("quotation_id", $this->input->get('one'));
+		$this->db->update('quotations', array('loss_factor_id'=>$this->input->get('lfi'), 'status'=>4));
+		redirect('quotation/quotation_list');
+	}
+
 	public function create_quotation(){
 		//$this->output->enable_profiler(TRUE);
+		//print_r($_SESSION);
 		error_reporting(0); // thats why error_reporting(0) is invented :D
 		//error_reporting(E_ALL);
 		if(!$this->session->userdata('userid')) redirect('welcome');
@@ -55,6 +69,7 @@ class Quotation extends CI_Controller {
 			$users2[$i['user_id']]=$i['username'];
 		}
 		$data['users']=$users2;		
+
 
 		
 		//save edit
@@ -151,6 +166,15 @@ class Quotation extends CI_Controller {
 
 			$data['qir']=$qprdcs;
 			$data['files']=$qf;
+			
+			$lfs = $this->db->query("select loss_factor_id, loss_factor_name from loss_factors")->result_array();
+			foreach($lfs as $i){
+				$lfs2[$i['loss_factor_id']]=$i['loss_factor_name'];
+			}
+			$data['loss_factors']=$lfs2;		
+			
+			
+			
 		}// end edit
 
 		
@@ -204,7 +228,7 @@ class Quotation extends CI_Controller {
 		$config['upload_path'] = 'berkas/';
 		$config['allowed_types'] = 'gif|jpg|png|pdf';
 		$config['file_name']= 'qf_'.$quotation_id.'_'.$file_id.'_'.$_FILES['userfile']['name'];
-		$config['max_size']	= '100';
+		//$config['max_size']	= '100';
 		//$config['max_width']  = '1024';
 		//$config['max_height']  = '768';
 		$this->load->library('upload', $config);
