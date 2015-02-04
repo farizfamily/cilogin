@@ -18,7 +18,7 @@ class Material_control_sheet extends CI_Controller {
 		error_reporting(0);
 		$data=array();
 		$this->load->model('List_model');
-		$this->List_model->table_name='quotation_list1';
+		$this->List_model->table_name='active_sales';
 		$this->List_model->hidden_column=array('quotation_status_id','quotation_id');
 		$this->List_model->list_title=' select Project for MCS';
 		$this->List_model->search=array('event_name','customer_name');
@@ -46,7 +46,7 @@ class Material_control_sheet extends CI_Controller {
 		$this->List_model->table_name='v_mcs_list1';
 		$this->List_model->hidden_column=array('mcs_status_id','mcs_id');
 		$this->List_model->list_title=' MCSs ';
-		$this->List_model->search=array('mcs_number');
+		$this->List_model->search=array('mcs_number','event_name','customer_name');
 		//$this->List_model->order_by='';
 		$this->List_model->links=
 			array(
@@ -65,7 +65,7 @@ class Material_control_sheet extends CI_Controller {
 	
 	
 	public function create_mcs(){
-		//$this->output->enable_profiler(TRUE);
+		$this->output->enable_profiler(TRUE);
 		error_reporting(0); // thats why error_reporting(0) is invented :D
 		//error_reporting(E_ALL);
 		if(!$this->session->userdata('userid')) redirect('welcome');

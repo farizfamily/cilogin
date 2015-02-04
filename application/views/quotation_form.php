@@ -273,7 +273,7 @@
                                                 <td></td>
 												<td></td>
                                                 <td >Gross Total</td>
-												<td><input type="text" data-mask=" 999,999,999.99"   class="input-large" value="<?php echo $gross_total;?>" style="text-align: right" ></td>
+												<td><input type="text" data-mask=" 999,999,999.99"   class="input-large" value="<?php echo $gross_total;?>" style="text-align: right" readonly ></td>
 											</tr>
 											<tr>
 												<td></td>
@@ -290,7 +290,7 @@
 												<td></td>
 												<td></td>
 												<td>Nett Total</td>
-												<td><input type="text" value="<?php echo $nett_total;?>"  style="text-align: right" >
+												<td><input type="text" value="<?php echo $nett_total;?>"  style="text-align: right" readonly >
 											</tr>
                                             </tbody>
                                         </table>

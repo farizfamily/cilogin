@@ -598,7 +598,7 @@ CREATE TABLE mcs_headers (
     mcs_id integer NOT NULL,
     time_stamp timestamp without time zone DEFAULT now(),
     created_by character varying DEFAULT "current_user"(),
-	mcs_number varchar,
+    mcs_number character varying,
     mcs_status_id integer DEFAULT 0,
     quotation_id integer,
     mcs_date date

@@ -44,21 +44,46 @@
 <input type="hidden" name="quotation_id" value="<?php echo $quotation_id;?>">
 <input type="hidden" name="mcs_id" value="<?php echo $mcs_id;?>">
 <h4>MCS Data </h4>
+
+<div class="row-fluid">
+	<!-- loop inventory header data should start here xxxxxx -->
 <div class="row-fluid">
 	<div class="span6 billing-form">
-		<div class="control-group ">
-			<label class="control-label">MCS Date</label>
-				<input class="span8  m-ctrl-medium date-picker"  name="mcs_date" size="16" type="text" value="<?php echo $mcs_date;?>" data-date-format="yyyy-mm-dd" />
- 		</div>
-	</div>
-	
-	<div class="span6 billing-form">
-			<div class="control-group">
-				<label class="control-label">MCS Number</label>
-				<input class=" span8" size="16" type="text"   value="<?php echo $mcs_number;?>"  readonly  />
-           </div>
+
+			<input class=" span8" size="16" type="hidden" name="mcs_id" value="<?php echo $mcs_id;?>"  />
+
+			<div class="control-group ">
+				<label class="control-label">Number</label>
+				<input class=" span8" size="16" type="text" name="mcs_number" value="<?php echo $mcs_number;?>"  />
+			</div>
+
+			<div class="control-group ">
+				<label class="control-label">Mcs Status Id</label>
+				<input class=" span8" size="16" type="text" name="mcs_status_id" value="<?php echo $mcs_status_id;?>"  />
+			</div>
+
+				<input class=" span8" size="16" type="hidden" name="quotation_id" value="<?php echo $quotation_id;?>"  />
+
+			<div class="control-group ">
+				<label class="control-label"> Date</label>
+				<input class=" span8" size="16" type="text" name="mcs_date" value="<?php echo $mcs_date;?>"  />
+			</div>
+
+			
+
+			<div class="control-group ">
+				<label class="control-label">Notes</label>
+				<input class=" span8" size="16" type="text" name="notes" value="<?php echo $notes;?>"  />
+			</div>
+                                       <div class="row-fluid text-center">
+                                            											<input type="submit" value="Submit"  class="btn btn-primary btn-large hidden-print" >
+										 
+                                        </div>
 	</div>
 </div>
+	<!-- loop inventory header data should start here xxxxxx -->
+</div>
+
 <hr/>
 <div class="space15"></div>
                                 <div class="row-fluid">

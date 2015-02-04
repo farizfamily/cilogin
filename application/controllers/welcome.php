@@ -26,7 +26,7 @@ class Welcome extends CI_Controller {
 			$hasil = $this->db->get_where('users', array('userid' => $userid,'passw'=>$passw))->result_array();
 			if($hasil){
 				$userdata=$hasil[0];
-				$user_menu_head = $this->db->get_where('menu_head', array('user_id'=>$userdata['user_id']))->result_array();
+				/*$user_menu_head = $this->db->get_where('menu_head', array('user_id'=>$userdata['user_id']))->result_array();
 				$user_menus = $this->db->get_where('head_menu', array('user_id'=>$userdata['user_id']))->result_array();
 				foreach($user_menu_head as $k=>$i){
 					$user_menu_head2[$k]['menu_head']=$i['menu_head'];
@@ -37,7 +37,7 @@ class Welcome extends CI_Controller {
 					$user_menus2[$i['menu_head']][$k]=$i;
 				}
 				$userdata['menu_heads']=$user_menu_head2;
-				$userdata['menus']=$user_menus2;
+				$userdata['menus']=$user_menus2;*/
 				//print_r($userdata);
 				$this->session->set_userdata($userdata);
 				$_SESSION['mantra']=$userdata['user_id'];
@@ -55,6 +55,7 @@ class Welcome extends CI_Controller {
 		$this->session->unset_userdata('menu_heads');
 		$this->session->unset_userdata('userid');
 		$this->session->unset_userdata('username');
+		$this->session->unset_userdata('user_id');
 		unset($_SESSION['mantra']);
 		redirect('welcome');
 	}

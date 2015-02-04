@@ -19,3 +19,12 @@ function sanitize($qdata){
 	}
 	return $qdata;
 }
+
+
+function get_assoc($a,$b){
+	$c=array();
+	foreach($b as $i){
+		$c[$i[ $a[0] ]]=$i[ $a[1]];
+	}
+	return $c;
+}

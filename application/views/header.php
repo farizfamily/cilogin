@@ -244,10 +244,11 @@
          <!-- END RESPONSIVE QUICK SEARCH FORM -->
          <!-- BEGIN SIDEBAR MENU -->
           <ul class="sidebar-menu">
+			 <?php $this->Menus_model->user_id=$this->session->userdata('user_id'); ?>
 
-			  <?php $x=$this->session->userdata('menus');?>
-			  <?php if(($this->session->userdata('menu_heads'))):?>
-			  <?php foreach($this->session->userdata('menu_heads') as $heads):?>
+			  <?php $x=$this->Menus_model->menus();?>
+			  <?php if(  !empty($this->Menus_model->heads())) :?>
+			  <?php foreach($this->Menus_model->heads() as $heads):?>
               <li class="has-sub">
                   <a href="javascript:;" class="">
                       <span class="icon-box"> <i class="<?php echo $heads['icon'];?>"></i></span> <?php echo $heads['menu_head'];?>
@@ -261,6 +262,8 @@
               </li>
 			  <?php endforeach;?>
 			  <?php endif;?>
+	
+			  <?php /*
 			  <!--
               <li class="has-sub">
                   <a href="javascript:;" class="">
@@ -379,7 +382,7 @@
                   </ul>
               </li>
               <li><a class="" href="login.html"><span class="icon-box"><i class="icon-user"></i></span> Login Page</a></li>
-			  -->
+			  --> */?>
           </ul>
          <!-- END SIDEBAR MENU -->
       </div>
@@ -413,8 +416,8 @@
 				  
 				  <?php
 				  $menus6[0]=' ';
-				  if($this->session->userdata('menus')) {
-					  foreach($this->session->userdata('menus') as $menus3){
+				  if($this->Menus_model->menus()) {
+					  foreach($this->Menus_model->menus() as $menus3){
 							foreach($menus3 as $menus4=>$menus5){
 								$menus6[$menus5['action']]=$menus5['menu_name'];
 							}

@@ -18,7 +18,7 @@
 
 			<div class="control-group ">
 				<label class="control-label">Stock Name</label>
-				<?php echo form_dropdown('stock_name_id', $stock_names, $stock_name_id, 'class="span8 chosen"  '); ?>
+				<?php echo form_dropdown('stock_name_id', $stock_names, $stock_name_id, 'class="span8 chosen"  '); ?> <input type="button" value="New" />
 			</div>
 
 			<div class="control-group ">
@@ -43,12 +43,14 @@
 
 			<div class="control-group ">
 				<label class="control-label">Type Id</label>
-				<input class=" span8" size="16" type="text" name="type_id" value="<?php echo $type_id;?>"  />
+				<!-- input class=" span8" size="16" type="text" name="type_id" value="<?php echo $type_id;?>"  / -->
+				<?php echo form_dropdown('type_id', $this->Logistics_model->stock_types, $type_id, 'class="span8 chosen"  '); ?>
 			</div>
 
 			<div class="control-group ">
 				<label class="control-label">Brand Id</label>
-				<input class=" span8" size="16" type="text" name="brand_id" value="<?php echo $brand_id;?>"  />
+				<?php echo form_dropdown('brand_id', $this->Logistics_model->stock_brands, $brand_id, 'class="span8 chosen"  '); ?>
+
 			</div>
 
 			<div class="control-group ">
