@@ -28,19 +28,20 @@
 
 			<div class="control-group ">
 				<label class="control-label">Unit Id</label>
-				<input class=" span8" size="16" type="text" name="unit_id" value="<?php echo $unit_id;?>"  />
+				<?php /*input class=" span8" size="16" type="text" name="unit_id" value="<?php echo $unit_id;?>"  */ ?>
+				<?php echo form_dropdown('stock_unit_id', $units, $stock_unit_id, 'class="span8 chosen"  '); ?> 
 			</div>
 
 			<div class="control-group ">
 				<label class="control-label">Group Id</label>
 				<?php echo form_dropdown('group_id', $group_options, $group_id, 'class="span8 chosen"  '); ?>
 			</div>
-
+<!--
 			<div class="control-group ">
 				<label class="control-label">Sub Group Id</label>
 				<input class=" span8" size="16" type="text" name="sub_group_id" value="<?php echo $sub_group_id;?>"  />
 			</div>
-
+-->
 			<div class="control-group ">
 				<label class="control-label">Type Id</label>
 				<!-- input class=" span8" size="16" type="text" name="type_id" value="<?php echo $type_id;?>"  / -->

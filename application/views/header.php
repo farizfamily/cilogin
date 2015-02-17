@@ -256,7 +256,9 @@
                   </a>
                   <ul class="sub">
 					  <?php foreach($x[$heads['menu_head']] as $menus2):?>
-                      <li><a class="" href="<?php echo base_url();?><?php echo index_page();?>/<?php echo $menus2['module'];?>/<?php echo $menus2['action'];?>"><?php echo $menus2['menu_name'];?></a></li>					  
+					  <?php if($menus2['show']=='t'):?>
+                      <li><a class="" href="<?php echo base_url();?><?php echo index_page();?>/<?php echo $menus2['module'];?>/<?php echo $menus2['action'];?>"><?php echo $menus2['menu_name'];?></a></li>
+					  <?php endif;?>
 					  <?php endforeach;?>
                   </ul>
               </li>

@@ -23,6 +23,7 @@ class Logistic extends CI_Controller {
 		$data = $this->Logistics_model->get_stock_data($this->input->get('r'));
 		$data['group_options']=$this->Logistics_model->get_groups();
 		$data['stock_names']=$this->Logistics_model->get_names();
+		$data['units']=$this->Logistics_model->stock_units;
 		$this->load->view('create_stock', $data);
 	}
 

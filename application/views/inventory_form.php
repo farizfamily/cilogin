@@ -1,23 +1,14 @@
 <?php $this->load->view('header');?>
 <!-- button -->
 <div class="row-fluid">
-	 
-	 <a class="icon-btn span2" href="<?php echo base_url();?><?php echo index_page();?>/material_control_sheet/active_project_list">
-		 <i class=" icon-edit"></i>
-		 <div>New MCS</div>
-	 </a>
-	 <a class="icon-btn span2" href="<?php echo base_url();?><?php echo index_page();?>/material_control_sheet/mcs_list">
-		 <i class=" icon-th-list"></i>
-		 <div>MCS List</div>
-	 </a>
 <?php if($mcs_status_id==0):?>
 	<?php if($mcs_id):?>
-	 <a class="icon-btn span2" href="<?php echo base_url();?><?php echo index_page();?>/material_control_sheet/send_mcs?one=<?php echo $mcs_id;?>">
+	 <a class="icon-btn span2" href="<?php echo base_url();?><?php echo index_page();?>/mo/send_mo?one=<?php echo $mcs_id;?>">
 		 <i class="icon-print"></i>
 		 <div>Send</div>
 	 </a>
 	 
- 	<a class="icon-btn span2" href="<?php echo base_url();?><?php echo index_page();?>/material_control_sheet/delete_mcs?one=<?php echo $mcs_id;?>">
+ 	<a class="icon-btn span2" href="<?php echo base_url();?><?php echo index_page();?>/mo/delete?one=<?php echo $mcs_id;?>">
 		 <i class="icon-trash"></i>
 		 <div>Delete</div>
 	 </a>
@@ -33,52 +24,53 @@
 <!-- end button -->
 <div class="row-fluid">
 <!-- quotation header -->
+<?php if (  !empty($this->Inventory_model->quotation_id) ):?>
 <?php $this->load->view('quotation_header');?>
+<?php endif;?>
 <!-- end quotation header -->
 
 <!-- material table start-->
 <?php $magic=array(0,2,3);?>
 <?php if( in_array($mcs_status_id , $magic  )): ?>
-<form  method="post" accept-charset="utf-8" enctype="multipart/form-data">
+<form  method="post">
 <?php endif;?>
 <input type="hidden" name="quotation_id" value="<?php echo $quotation_id;?>">
 <input type="hidden" name="mcs_id" value="<?php echo $mcs_id;?>">
-<h4>MCS Data </h4>
+<h4>  Data <?php echo $this->Inventory_model->getTtypeName();?></h4>
 
 <div class="row-fluid">
 	<!-- loop inventory header data should start here xxxxxx -->
 <div class="row-fluid">
 	<div class="span6 billing-form">
 
-			<input class=" span8" size="16" type="hidden" name="mcs_id" value="<?php echo $mcs_id;?>"  />
-
 			<div class="control-group ">
 				<label class="control-label">Number</label>
-				<input class=" span8" size="16" type="text" name="mcs_number" value="<?php echo $mcs_number;?>"  />
+				<input class=" span8" size="16" type="text" name="mcs_number" value="<?php echo $mcs_number;?>" readonly />
 			</div>
 
-			<div class="control-group ">
+		<?php /*	<div class="control-group ">
 				<label class="control-label">Mcs Status Id</label>
 				<input class=" span8" size="16" type="text" name="mcs_status_id" value="<?php echo $mcs_status_id;?>"  />
-			</div>
+			</div> */  ?>
 
-				<input class=" span8" size="16" type="hidden" name="quotation_id" value="<?php echo $quotation_id;?>"  />
-
+ 
 			<div class="control-group ">
 				<label class="control-label"> Date</label>
-				<input class=" span8" size="16" type="text" name="mcs_date" value="<?php echo $mcs_date;?>"  />
+				<input class="span8  m-ctrl-medium date-picker" size="16" type="text" name="mcs_date" value="<?php echo $mcs_date;?>"   />
 			</div>
-
-			
 
 			<div class="control-group ">
 				<label class="control-label">Notes</label>
-				<input class=" span8" size="16" type="text" name="notes" value="<?php echo $notes;?>"  />
+				<input class=" span8" size="16" type="text" name="mcs_notes" value="<?php echo $mcs_notes;?>"  />
 			</div>
-                                       <div class="row-fluid text-center">
-                                            											<input type="submit" value="Submit"  class="btn btn-primary btn-large hidden-print" >
-										 
-                                        </div>
+			
+			<?php if($this->Inventory_model->transaction_type_id==3):?>
+			<div class="control-group ">
+			<label class="control-label">Supplier</label>
+			<?php echo form_dropdown('supplier_id', $suppliers, $supplier_id, 'class="span8 chosen"');?>
+			</div>
+			<?php endif;?>
+			
 	</div>
 </div>
 	<!-- loop inventory header data should start here xxxxxx -->
