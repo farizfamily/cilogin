@@ -9,6 +9,7 @@ class Inventory_model extends CI_Model {
 	var $quotation_id=null;
 	var $quotation_header=array();
 	var $data=array();
+	var $turn_on_unit_price=false;
 	
 	function __construct() {
         parent::__construct();		
@@ -21,6 +22,12 @@ class Inventory_model extends CI_Model {
 			$this->quotation_id=$data['quotation_id'];
 			$data['mir']=$this->get_items();
 		}
+		
+		/*if($this->ref_id){
+			$data=$this->db->get_where('mcs_headers', array('mcs_id'=>$this->ref_id))->row_array();
+			$data['ref_id']=$data['mcs_id'];
+			unset($data['mcs_id']);
+		}*/
 		
 		if( $this->quotation_id) {
 			$this->load->model('Quotations_model');
@@ -44,10 +51,12 @@ class Inventory_model extends CI_Model {
 		}
 		$data['stocks']=$stocks;
 		
+		$this->db->order_by('group_id');
 		$sgroups2=$this->db->get('stock_groups')->result_array();
 		foreach($sgroups2 as $sgroups3){
 			$sgroups[$sgroups3['group_id']]=$sgroups3['group_name'];
 		}
+		
 		$data['sgroups']=$sgroups;
 		return array_merge($data, $this->columns());
 	}
@@ -92,7 +101,7 @@ class Inventory_model extends CI_Model {
 			$data['mcs_id']=1+$this->db->query("select max(mcs_id) as mcs_id from mcs_headers")->row()->mcs_id;
 			$data=$this->sanitize($data);
 			$data['transaction_type_id']=$this->transaction_type_id;
-			$data['mcs_number']=$this->getTtypeName().date('Ym').'/'.$data['mcs_id'];
+			$data['mcs_number']=$this->ttypecode().date('Ym').'/'.$data['mcs_id'];
 			if($this->db->insert('mcs_headers',$data)){
 				$this->mcs_id=$data['mcs_id'];
 				$res['status']='success';
@@ -118,6 +127,15 @@ class Inventory_model extends CI_Model {
 			return $this->db->update('mcs_items', $data);
 		}
 	}
+
+	function po_options($ttype){
+		if($ttype==3) $suppliers2=$this->db->get_where('aktiv_po',array('transaction_type_id'=>$ttype))->result_array();
+		if($ttype=4) $suppliers2=$this->db->get('recent_receipt')->result_array();
+		foreach($suppliers2 as $suppliers3){
+			$suppliers[$suppliers3['mcs_id']]=$suppliers3['supplier_name'].'/'.$suppliers3['number'];
+		}
+		return $suppliers;
+	}		
 	
 	function sanitize($data){
 		foreach($data as $k=>$i){

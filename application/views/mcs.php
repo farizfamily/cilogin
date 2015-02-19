@@ -85,7 +85,7 @@
 												</td>
 												<td><?php echo form_dropdown('i['.$k.'][stock_id]', $stocks, $i['stock_id'], 'class="span8 chosen"'); ?></td>
                                                 <td><input type="text" name="i[<?php echo $k;?>][notes]" class="input-xlarge"  value="<?php echo $i['notes'];?>" ></td>
-                                                <td><?php echo $i['unit'];?></td>
+                                                <td><?php echo $i['unit_name'];?></td>
 												<td>
 												<input type="text" data-mask=" 999,999,999.99"  name="i[<?php echo $k;?>][qty]" class="input-large" value="<?php echo $i['qty'];?>" style="text-align: right"  >
 												</td>

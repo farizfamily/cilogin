@@ -102,6 +102,7 @@ class Material_control_sheet extends CI_Controller {
 		}
 		$data['stocks']=$stocks;
 		
+		$this->db->order_by('group_id');
 		$sgroups2=$this->db->get('stock_groups')->result_array();
 		foreach($sgroups2 as $sgroups3){
 			$sgroups[$sgroups3['group_id']]=$sgroups3['group_name'];

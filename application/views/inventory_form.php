@@ -64,11 +64,24 @@
 				<input class=" span8" size="16" type="text" name="mcs_notes" value="<?php echo $mcs_notes;?>"  />
 			</div>
 			
-			<?php if($this->Inventory_model->transaction_type_id==3):?>
+			<?php if( in_array ( $this->Inventory_model->transaction_type_id, array(3))  ):?>
 			<div class="control-group ">
 			<label class="control-label">Supplier</label>
 			<?php echo form_dropdown('supplier_id', $suppliers, $supplier_id, 'class="span8 chosen"');?>
 			</div>
+			<?php endif;?>
+			
+			<?php if( in_array ( $this->Inventory_model->transaction_type_id, array(4,5))  ):?>
+			<div class="control-group ">
+			<label class="control-label" title="this can be po receipt etc number">Reference Number *</label>
+			<?php echo form_dropdown('ref_id', $pos, $ref_id, 'class="span8 chosen"');?>
+			</div>
+			<?php /*
+			<div class="control-group ">
+			<label class="control-label">Nomor PO</label>
+			<?php echo form_dropdown('ref_id', $pos, $ref_id, 'class="span8 chosen"');?>
+			</div> */ ?>
+			
 			<?php endif;?>
 			
 	</div>
@@ -90,6 +103,9 @@
                                                 <th>Notes</th>
 												<th>Unit</th>
                                                 <th>Qty</th>
+												<?php if( $this->Inventory_model->turn_on_unit_price ):?>
+												<th>Unit Price</th>
+												<?php endif;?>
                                             </tr>
                                             </thead>
                                             <tbody>
@@ -102,10 +118,15 @@
 												</td>
 												<td><?php echo form_dropdown('i['.$k.'][stock_id]', $stocks, $i['stock_id'], 'class="span8 chosen"'); ?></td>
                                                 <td><input type="text" name="i[<?php echo $k;?>][notes]" class="input-xlarge"  value="<?php echo $i['notes'];?>" ></td>
-                                                <td><?php echo $i['unit'];?></td>
+                                                <td><?php echo $i['unit_name'];?></td>
 												<td>
-												<input type="text" data-mask=" 999,999,999.99"  name="i[<?php echo $k;?>][qty]" class="input-large" value="<?php echo $i['qty'];?>" style="text-align: right"  >
+												<input type="text" data-mask=" 999,999,999.99"  name="i[<?php echo $k;?>][qty]" class="input-small" value="<?php echo $i['qty'];?>" style="text-align: right"  >
 												</td>
+												<?php if( $this->Inventory_model->turn_on_unit_price ):?>
+												<td>
+												<input type="text" data-mask=" 999,999,999.99"  name="i[<?php echo $k;?>][unit_price]" class="input-large" value="<?php echo $i['unit_price'];?>" style="text-align: right"  >
+												</td>
+												<?php endif;?>
                                             </tr>
 											<?php endforeach;?>
                                             </tbody>
